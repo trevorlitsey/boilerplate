@@ -6,7 +6,7 @@ import Preview from '../components/Preview';
 
 const Index = () => (
 	<Layout>
-		<h1>some children</h1>
+		<h2 style={{ textDecoration: 'underline' }}>Document</h2>
 		<Preview />
 	</Layout>
 )

@@ -44,10 +44,12 @@ class Preview extends React.Component {
 				href: '#list-item-4',
 				active: false,
 			},
-		]
+		],
+		recentClick: false,
 	}
 
-	handleScroll = () => {
+	handleScroll = (e) => {
+
 		const links = [...this.state.links];
 
 		const containerScroll = this.refs['container'].scrollTop;
@@ -61,7 +63,7 @@ class Preview extends React.Component {
 			links[links.length - 1].active = true;
 		} else {
 			links
-				.reverse()
+				.reverse() // search from bottom up
 				.forEach((link) => {
 
 					const { href } = link
@@ -70,7 +72,7 @@ class Preview extends React.Component {
 
 					if (elOffsetTop < containerScroll + 5 && !paraFound) {
 						link.active = true;
-						return paraFound = true;
+						paraFound = true;
 					} else {
 						link.active = false;
 					}
@@ -99,6 +101,7 @@ class Preview extends React.Component {
 					<h4 ref="#list-item-3" id="list-item-3">Item 3</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis et ipsum id dapibus. Vestibulum sit amet posuere odio, sit amet tincidunt mauris. Donec turpis massa, venenatis sed maximus quis, luctus a quam. In hac habitasse platea dictumst. Praesent nec justo egestas, feugiat nunc in, dapibus enim. Fusce finibus eros quis metus vulputate imperdiet. Morbi sed urna ut elit dignissim pharetra. Vivamus vitae massa quis nisi dignissim consequat ac vitae sapien.Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate....</p>
 					<h4 ref="#list-item-4" id="list-item-4">Item 4</h4>
+					<p>Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate....</p>
 					<p>Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate....</p>
 				</div>
 			</Container>
