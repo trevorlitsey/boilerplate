@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import db from '../firebase';
 
 import Layout from '../components/Layout';
 import Jumbotron from '../components/Jumbotron';
@@ -8,10 +9,11 @@ import DragAndDrop from '../components/DragAndDrop';
 
 const Container = styled.div`
 	display: grid;
+	grid-gap: 4px;
 	grid-template-columns: 1fr 3fr;
-
+	
 	& > * {
-		max-height: 800px;
+		max-height: 90vh;
 		overflow-y: scroll;
 	}
 
@@ -29,12 +31,21 @@ class Index extends React.Component {
 
 	state = {
 		snippets: [],
-		preview: getItems(10),
-		activeItemId: 'item-0',
+		preview: [],
+		activeItemId: '0',
+	}
+
+	componentWillMount = () => {
+		const that = this;
+		db.collection('users').doc('trevor')
+			.onSnapshot(function (doc) {
+				const preview = Object.values(doc.data())[0];
+				that.setState({ preview });
+			});
 	}
 
 	updatePreview = (preview) => {
-		this.setState({ preview })
+		db.collection('users').doc('trevor').set({ preview });
 	}
 
 	updateActive = (activeItemId) => {

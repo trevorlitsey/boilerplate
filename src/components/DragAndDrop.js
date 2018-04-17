@@ -12,7 +12,7 @@ const reorder = (list, startIndex, endIndex) => {
 	return result;
 };
 
-const grid = 8;
+const grid = 6;
 
 const getItemStyle = (isDragging, isActive, draggableStyle) => ({
 	// some basic styles to make the items look a bit nicer
@@ -21,6 +21,7 @@ const getItemStyle = (isDragging, isActive, draggableStyle) => ({
 	margin: `0 0 ${grid}px 0`,
 	background: isActive ? 'var(--primary)' : '',
 	color: isActive ? 'var(--white)' : '',
+	lineHeight: 1,
 
 	// styles we need to apply on draggables
 	...draggableStyle,
@@ -71,7 +72,7 @@ class DragAndDrop extends Component {
 							style={getListStyle(snapshot.isDraggingOver)}
 						>
 							{preview.map((item, index) => (
-								<Draggable key={item.id} draggableId={item.id} index={index}>
+								<Draggable className="draggable" key={item.id} draggableId={item.id} index={index} internalScroll={true}>
 									{(provided, snapshot) => (
 										<div
 											className="card"
