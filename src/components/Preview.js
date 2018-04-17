@@ -1,109 +1,89 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 import { convertObjToArr } from './helpers';
 
 const Container = styled.div`
 
-	display: grid;
-	grid-template-columns: 1fr 3fr;
+	position: relative; // must be position relative for scroll math to work!
+	border: 2px solid #f8f9fa;
+	padding: 20px;
 
 	.scrollspy {
 		padding: 0 20px;
-		position: relative;
-		height: 500px;
-		overflow-y: scroll;
 	}
 `
 
-const Link = ({ href, text, active }) => (
-	<a className={`list-group-item list-group-item-action ${active && 'active'}`} href={href} > {text}</a>
-)
+class Section extends React.Component {
+
+	render() {
+
+		const { id, title, content } = this.props;
+
+		return (
+			<div>
+				<h4 id={id}>{title}</h4>
+				<p>{content}</p>
+			</div>
+		)
+	}
+}
 
 class Preview extends React.Component {
 
-	state = {
-		links: [
-			{
-				order: 1,
-				href: '#list-item-1',
-				active: true,
-			},
-			{
-				order: 2,
-				href: '#list-item-2',
-				active: false,
-			},
-			{
-				order: 3,
-				href: '#list-item-3',
-				active: false,
-			},
-			{
-				order: 4,
-				href: '#list-item-4',
-				active: false,
-			},
-		],
-		recentClick: false,
-	}
+	handleScroll = () => {
 
-	handleScroll = (e) => {
+		const preview = [...this.props.preview];
 
-		const links = [...this.state.links];
-
-		const containerScroll = this.refs['container'].scrollTop;
-		const containerHeight = this.refs['container'].clientHeight;
-		const containerScrollHeight = this.refs['container'].scrollHeight;
+		const { scrollTop, clientHeight, scrollHeight } = ReactDOM.findDOMNode(this.refs['container']); // container
 
 		let paraFound = false;
+		let newActive;
 
-		if (containerScroll + containerHeight >= containerScrollHeight - 5) { // we have reached the bottom
-			links.forEach(link => link.active = false);
-			links[links.length - 1].active = true;
-		} else {
-			links
-				.reverse() // search from bottom up
-				.forEach((link) => {
-
-					const { href } = link
-					const elOffsetTop = this.refs[href].offsetTop;
-					const elOffsetHeight = this.refs[href].offsetHeight;
-
-					if (elOffsetTop < containerScroll + 5 && !paraFound) {
-						link.active = true;
-						paraFound = true;
-					} else {
-						link.active = false;
-					}
-				})
-			links.reverse()
+		if (scrollTop <= 20) {
+			paraFound = true;
+			newActive = preview[0].id;
 		}
 
-		this.setState({ links })
+		if (!newActive) {
+
+			preview
+				.reverse() // search from bottom up
+				.forEach((text) => {
+
+					if (paraFound) return;
+
+					const { id } = text;
+
+					// check if element has reached top of scroll box view
+					const el = this.refs[id]
+					const { offsetTop } = ReactDOM.findDOMNode(el); // element
+
+					if (offsetTop < scrollTop && !paraFound) {
+						newActive = id;
+						paraFound = true;
+					}
+				})
+		}
+
+		this.props.updateActive(newActive)
+
 	}
 
 	render() {
 
-		const { links } = this.state;
+		const { preview } = this.props;
 
 		return (
-			<Container>
-				<div id="list-example" className="list-group">
-					{links.map(({ href, active }) => <Link key={href} href={href} text={href} active={active} />)}
-				</div>
-				<div ref="container" onScroll={this.handleScroll} data-spy="scroll" data-target="#list-example" data-offset="0" className="scrollspy scrollspy-example">
-					<h4 ref="#list-item-1" id="list-item-1">Item 1</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis et ipsum id dapibus. Vestibulum sit amet posuere odio, sit amet tincidunt mauris. Donec turpis massa, venenatis sed maximus quis, luctus a quam. In hac habitasse platea dictumst. Praesent nec justo egestas, feugiat nunc in, dapibus enim. Fusce finibus eros quis metus vulputate imperdiet. Morbi sed urna ut elit dignissim pharetra. Vivamus vitae massa quis nisi dignissim consequat ac vitae sapien.Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis et ipsum id dapibus. Vestibulum sit amet posuere odio, sit amet tincidunt mauris. Donec turpis massa, venenatis sed maximus quis, luctus a quam. In hac habitasse platea dictumst. Praesent nec justo egestas, feugiat nunc in, dapibus enim. Fusce finibus eros quis metus vulputate imperdiet. Morbi sed urna ut elit dignissim pharetra. Vivamus vitae massa quis nisi dignissim consequat ac vitae sapien.Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate.</p>
-					<h4 ref="#list-item-2" id="list-item-2">Item 2</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis et ipsum id dapibus. Vestibulum sit amet posuere odio, sit amet tincidunt mauris. Donec turpis massa, venenatis sed maximus quis, luctus a quam. In hac habitasse platea dictumst. Praesent nec justo egestas, feugiat nunc in, dapibus enim. Fusce finibus eros quis metus vulputate imperdiet. Morbi sed urna ut elit dignissim pharetra. Vivamus vitae massa quis nisi dignissim consequat ac vitae sapien....</p>
-					<h4 ref="#list-item-3" id="list-item-3">Item 3</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis et ipsum id dapibus. Vestibulum sit amet posuere odio, sit amet tincidunt mauris. Donec turpis massa, venenatis sed maximus quis, luctus a quam. In hac habitasse platea dictumst. Praesent nec justo egestas, feugiat nunc in, dapibus enim. Fusce finibus eros quis metus vulputate imperdiet. Morbi sed urna ut elit dignissim pharetra. Vivamus vitae massa quis nisi dignissim consequat ac vitae sapien.Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate....</p>
-					<h4 ref="#list-item-4" id="list-item-4">Item 4</h4>
-					<p>Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate....</p>
-					<p>Donec placerat neque vitae blandit pretium. Donec risus metus, feugiat ac ultrices quis, sagittis eget mauris. Aenean lobortis posuere tellus vitae tincidunt. Sed cursus congue ipsum, nec laoreet elit. Sed a euismod erat, id fringilla odio. Donec ultricies commodo nibh, eu fringilla libero hendrerit id. Quisque fermentum ipsum sit amet risus tempus vulputate....</p>
-				</div>
+			<Container ref="container" onScroll={this.handleScroll} data-spy="scroll" data-target="#list-example" data-offset="0" className="scrollspy rounded">
+				{preview.map(item =>
+					<Section
+						ref={item.id}
+						key={item.id}
+						{...item}
+					/>
+				)}
 			</Container>
 		)
 	}

@@ -13,8 +13,15 @@ const Nav = () => (
 	<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 		<Container>
 			<div className="left">
-				<a className="navbar-brand" href="#">~Boilerplate Rocks~</a>
-				<span className="navbar-text">keep up with your boilerplate</span>
+				<ul className="navbar-nav mr-auto">
+					<a className="navbar-brand" href="#">~Boilerplate Rocks~</a>
+					<li className="nav-item active">
+						<a className="nav-link" href="#">Preview<span className="sr-only">(current)</span></a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">Snippets</a>
+					</li>
+				</ul>
 			</div>
 			<div className="right">
 				<button type="button" className="btn btn-light"><FontAwesomeIcon style={{ marginRight: '6px' }} icon={faGoogle} />Sign in with Google</button>
