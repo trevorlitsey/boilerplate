@@ -29,6 +29,10 @@ module.exports = {
 			template: './templates/index.html',
 			title: 'CashflowCalc.net',
 		}),
+		new webpack.ProvidePlugin({
+			$: "jquery",
+			jQuery: "jquery"
+		})
 	],
 	module: {
 		rules: [
@@ -39,6 +43,10 @@ module.exports = {
 					{ loader: "style-loader" },
 					{ loader: "css-loader" },
 				]
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
 			},
 			{
 				test: /\.scss$/,

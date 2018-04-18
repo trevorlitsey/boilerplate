@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faPlusSquare from '@fortawesome/fontawesome-free-solid/faPlusSquare';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import ReactTooltip from 'react-tooltip'
 
 const Container = styled.div`
 	display: flex;
@@ -25,6 +25,7 @@ const Container = styled.div`
 	.icon:hover {
 		cursor: pointer;
 	}
+
 `
 
 const H4 = styled.h3`
@@ -32,21 +33,15 @@ const H4 = styled.h3`
 	margin-bottom: .75rem;
 `
 
-const tooltip = (
-	<div className="tooltip show bs-tooltip-top" role="tooltip">
-		<div className="arrow"></div>
-		<div className="tooltip-inner">
-			Some tooltip text!
-  	</div>
-	</div>
-)
-
-const Card = ({ title, tags }) => (
+const Card = ({ title, content, tags }) => (
 	<div className="card">
 		<FontAwesomeIcon icon={faPlusSquare} className="icon" />
-		<OverlayTrigger placement="top" overlay={tooltip}>
-			<p className="card-text">{title}</p>
-		</OverlayTrigger>
+		<p
+			data-tip={content.length > 30 ? content.substring(0, 30) + ' ...' : content}
+			className="card-text"
+		>
+			{title}
+		</p>
 	</div>
 )
 
@@ -62,6 +57,7 @@ class SnippetWell extends React.PureComponent {
 				<Container className="rounded">
 					{snippets.map(snippet => <Card key={snippet.id} {...snippet} />)}
 				</Container>
+				<ReactTooltip effect="solid" />
 			</div>
 		)
 	}
