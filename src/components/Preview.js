@@ -41,11 +41,19 @@ class Preview extends React.Component {
 		let paraFound = false;
 		let newActive;
 
+		// we are at the top
 		if (scrollTop <= 20) {
 			paraFound = true;
 			newActive = preview[0].id;
 		}
 
+		// we are at the bottom
+		if (scrollTop + clientHeight >= scrollHeight - 5) {
+			paraFound = true;
+			newActive = preview[preview.length - 1].id;
+		}
+
+		// we are somewhere in the middle
 		if (!newActive) {
 
 			preview

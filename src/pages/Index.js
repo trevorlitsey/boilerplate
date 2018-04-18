@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import db from '../firebase';
 
 import Layout from '../components/Layout';
+import SnippetWell from '../components/SnippetWell';
 import Jumbotron from '../components/Jumbotron';
 import Preview from '../components/Preview';
-import DragAndDrop from '../components/DragAndDrop';
+import DragAndDrop from '../components/DragAndDrop/DragAndDrop';
 
 const Container = styled.div`
 	display: grid;
@@ -19,18 +20,24 @@ const Container = styled.div`
 
 `
 
-// fake data generator
-const getItems = count =>
+const H4 = styled.h3`
+	text-decoration: underline;
+	margin-bottom: .75rem;
+`
+
+const getSnippets = (count) =>
 	Array.from({ length: count }, (v, k) => k).map(k => ({
 		id: `item-${k}`,
 		title: `item ${k}`,
-		content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget diam sodales diam mollis egestas. Duis faucibus metus nulla, nec vulputate orci molestie a. Mauris ut blandit erat, non interdum ipsum. Nullam risus nunc, fermentum vulputate feugiat laoreet, consectetur eget libero. Sed vitae rhoncus eros. In hac habitasse platea dictumst. Cras vulputate dapibus pharetra. Mauris pretium metus ac fermentum dictum. Sed consequat auctor eleifend. Maecenas et libero nec ante aliquam condimentum. Aenean non dolor libero. Quisque porta semper lectus vitae suscipit.',
+		content: 'Ut volutpat faucibus sapien, eget porttitor diam porta nec. Praesent elementum risus eget neque dignissim vehicula. Fusce a lectus sed felis vulputate molestie eget in ante. Vivamus in erat hendrerit, pretium turpis at, rutrum elit. Ut fringilla elementum ligula, non auctor lorem blandit et. Proin nisl leo, suscipit quis congue quis, fringilla vel nisl.',
+		tags: ['one', 'two']
 	}));
+
 
 class Index extends React.Component {
 
 	state = {
-		snippets: [],
+		snippets: getSnippets(10),
 		preview: [],
 		activeItemId: '0',
 	}
@@ -57,11 +64,13 @@ class Index extends React.Component {
 
 	render() {
 
-		const { preview, activeItemId } = this.state;
+		const { snippets, preview, activeItemId } = this.state;
 
 		return (
 			<Layout>
 				<Jumbotron />
+				<SnippetWell snippets={snippets} />
+				<H4>Preview</H4>
 				<Container>
 					<DragAndDrop preview={preview} updatePreview={this.updatePreview} activeItemId={activeItemId} />
 					<Preview preview={preview} updateActive={this.updateActive} />
