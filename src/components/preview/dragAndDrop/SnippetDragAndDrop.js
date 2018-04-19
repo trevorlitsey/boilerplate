@@ -3,47 +3,7 @@ import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-const Container = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	background: var(--light);
-	padding: 10px;
-	margin-bottom: 20px;
-
-	& > .card {
-		padding: 8px;
-		margin: 2px;
-	}
-
-	.icon:hover {
-		cursor: pointer;
-	}
-
-`
-
-const grid = 8;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-	// some basic styles to make the items look a bit nicer
-	userSelect: 'none',
-	padding: grid * 2,
-	margin: `0 ${grid}px 0 0`,
-	lineHeight: 1,
-	minWidth: 100,
-	textAlign: 'center',
-	display: 'inline-block',
-
-	// styles we need to apply on draggables
-	...draggableStyle,
-});
-
-const getListStyle = isDraggingOver => ({
-	background: isDraggingOver ? 'var(--gray)' : 'var(--light)',
-	padding: grid,
-	transition: 'all .3s',
-	display: 'flex',
-	overflow: 'scroll',
-});
+import { getSnippetItemStyle, getSnippetListStyle } from './styles';
 
 class SnippetDragAndDrop extends React.PureComponent {
 
@@ -57,7 +17,7 @@ class SnippetDragAndDrop extends React.PureComponent {
 					<div
 						className="rounded"
 						ref={provided.innerRef}
-						style={getListStyle(snapshot.isDraggingOver)}
+						style={getSnippetListStyle(snapshot.isDraggingOver)}
 					>
 						{snippets.map((snippet, index) => (
 							<Draggable key={snippet.id} draggableId={snippet.id} index={index}>
@@ -69,16 +29,12 @@ class SnippetDragAndDrop extends React.PureComponent {
 											ref={provided.innerRef}
 											{...provided.draggableProps}
 											{...provided.dragHandleProps}
-											style={getItemStyle(
+											style={getSnippetItemStyle(
 												snapshot.isDragging,
 												provided.draggableProps.style
 											)}
 										>
-											<p
-												className="card-text"
-											>
-												{snippet.title}
-											</p>
+											<p className="card-text">{snippet.title}</p>
 										</div>
 										<ReactTooltip effect="solid" />
 									</div>
