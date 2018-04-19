@@ -30,11 +30,11 @@ class Section extends React.Component {
 	}
 }
 
-class Preview extends React.Component {
+class PreviewDocument extends React.Component {
 
 	handleScroll = () => {
 
-		const preview = [...this.props.preview];
+		const draft = [...this.props.draft];
 
 		const { scrollTop, clientHeight, scrollHeight } = ReactDOM.findDOMNode(this.refs['container']); // container
 
@@ -44,19 +44,19 @@ class Preview extends React.Component {
 		// we are at the top
 		if (scrollTop <= 20) {
 			paraFound = true;
-			newActive = preview[0].id;
+			newActive = draft[0].id;
 		}
 
 		// we are at the bottom
-		if (scrollTop + clientHeight >= scrollHeight - 5) {
+		if (!newActive && scrollTop + clientHeight >= scrollHeight - 5) {
 			paraFound = true;
-			newActive = preview[preview.length - 1].id;
+			newActive = draft[draft.length - 1].id;
 		}
 
 		// we are somewhere in the middle
 		if (!newActive) {
 
-			preview
+			draft
 				.reverse() // search from bottom up
 				.forEach((text) => {
 
@@ -81,11 +81,11 @@ class Preview extends React.Component {
 
 	render() {
 
-		const { preview } = this.props;
+		const { draft } = this.props;
 
 		return (
-			<Container ref="container" onScroll={this.handleScroll} data-spy="scroll" data-target="#list-example" data-offset="0" className="scrollspy rounded">
-				{preview.map(item =>
+			<Container ref="container" onScroll={this.handleScroll} className="scrollspy rounded">
+				{draft.map(item =>
 					<Section
 						ref={item.id}
 						key={item.id}
@@ -97,4 +97,4 @@ class Preview extends React.Component {
 	}
 }
 
-export default Preview;
+export default PreviewDocument;
