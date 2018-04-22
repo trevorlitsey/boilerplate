@@ -10,6 +10,7 @@ const getBaseListStyle = (isDraggingOver) => ({
 	background: isDraggingOver ? 'var(--gray)' : 'var(--light)',
 	padding: grid,
 	transition: 'all .3s',
+	border: '1px solid rgba(0,0,0,.1)',
 })
 
 

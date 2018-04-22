@@ -1,1 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
+
+
+/****** bootstrap modal ********/
+.modal-backdrop.fade {
+	transition: all .4s;
+}
+
+.modal-backdrop.fade.in {
+	transform: translateY(0px);
+	opacity: .2;
+}
+
+.modal.show.fade {
+	opacity: 0;
+	transform: translateY(-200px);
+	transition: all .4s ease;
+}
+
+.modal.fade.show.in {
+	opacity: 1;
+	transform: translateY(0px);
+}
