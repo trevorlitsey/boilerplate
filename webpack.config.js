@@ -21,10 +21,11 @@ module.exports = {
 		port: 8080,
 		hot: true,
 		inline: true,
+		historyApiFallback: true,
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new CleanWebpackPlugin(['docs/*.js']),
+		new CleanWebpackPlugin(['docs/*.js', 'docs/*.html']),
 		new HtmlWebpackPlugin({
 			template: './templates/index.html',
 			title: 'CashflowCalc.net',

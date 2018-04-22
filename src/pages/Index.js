@@ -14,7 +14,7 @@ import PreviewDragAndDrop from '../components/preview/dragAndDrop/PreviewDragAnd
 
 const Container = styled.div`
 	display: grid;
-	grid-gap: 4px;
+	grid-gap: 10px;
 	grid-template-columns: 1fr 3fr;
 	
 	& > * {
@@ -64,11 +64,12 @@ class Index extends React.Component {
 
 	render() {
 
+		const { location } = this.props;
 		const { activeItemId, preview } = this.state;
 		const { snippets, draft } = preview;
 
 		return (
-			<Layout>
+			<Layout location={location}>
 				<Jumbotron />
 				<DragDropContext onDragEnd={this.handleDragEnd}>
 					<H4>Snippets</H4>

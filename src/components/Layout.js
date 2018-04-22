@@ -1,19 +1,26 @@
 import React from 'react';
+import { object } from 'prop-types';
 import styled from 'styled-components';
 
 import Nav from './Nav';
 
 const Wrapper = styled.div`
-	margin: 4%;
+	max-width: 1600px;
+	margin: auto;
+	padding: 40px;
 `
 
-const Layout = (props) => (
+const Layout = ({ location, children }) => (
 	<div>
-		<Nav />
+		<Nav location={location} />
 		<Wrapper>
-			{props.children}
+			{children}
 		</Wrapper>
 	</div>
 )
+
+Layout.propTypes = {
+	location: object.isRequired,
+}
 
 export default Layout
