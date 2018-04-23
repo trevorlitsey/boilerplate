@@ -18,6 +18,7 @@ module.exports = {
 	devServer: {
 		contentBase: path.join(__dirname, 'docs'),
 		compress: true,
+		host: '0.0.0.0',
 		port: 8080,
 		hot: true,
 		inline: true,
@@ -30,10 +31,6 @@ module.exports = {
 			template: './templates/index.html',
 			title: 'CashflowCalc.net',
 		}),
-		new webpack.ProvidePlugin({
-			$: "jquery",
-			jQuery: "jquery"
-		})
 	],
 	module: {
 		rules: [

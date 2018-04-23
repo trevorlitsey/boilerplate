@@ -10,7 +10,13 @@ import { H4 } from '../styles/components';
 class Snippets extends React.PureComponent {
 
 	state = {
-		modalOn: false,
+		modalOn: true,
+		tags: [
+			{ label: 'intro', value: 'intro' },
+			{ label: 'bio', value: 'bio' },
+			{ label: 'genOp', value: 'genOp' },
+			{ label: 'statementOfNeed', value: 'statementOfNeed' },
+		]
 	}
 
 	showModal = () => {
@@ -21,16 +27,22 @@ class Snippets extends React.PureComponent {
 		this.setState({ modalOn: false })
 	}
 
+	addTag = (newTag) => {
+		const tags = [...this.state.tags]
+		tags.push(newTag)
+		this.setState({ tags })
+	}
+
 	render() {
 
 		const { location } = this.props;
-		const { modalOn } = this.state;
+		const { modalOn, tags } = this.state;
 
 		return (
 			<Layout location={location}>
 				<SnippetWell />
 				<NewSnippetButton showModal={this.showModal} />
-				<NewSnippetModal modalOn={modalOn} hideModal={this.hideModal} />
+				<NewSnippetModal modalOn={modalOn} hideModal={this.hideModal} tags={tags} addTag={this.addTag} />
 			</Layout>
 		)
 	}

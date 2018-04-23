@@ -11,56 +11,74 @@ const Span = styled.span`
 	cursor: pointer;
 `
 
-const createOption = (label: string) => ({
-	label,
-	value: label.toLowerCase().trim(),
-});
-
 class NewSnippetModal extends React.Component {
 
 	state = {
 		selectedOptions: [],
-		options: [
-			{ value: 'ocean', label: 'Ocean', color: '#00B8D9' },
-			{ value: 'blue', label: 'Blue', color: '#0052CC', disabled: true },
-			{ value: 'purple', label: 'Purple', color: '#5243AA' },
-			{ value: 'red', label: 'Red', color: '#FF5630' },
-			{ value: 'orange', label: 'Orange', color: '#FF8B00' },
-			{ value: 'yellow', label: 'Yellow', color: '#FFC400' },
-			{ value: 'green', label: 'Green', color: '#36B37E' },
-			{ value: 'forest', label: 'Forest', color: '#00875A' },
-			{ value: 'slate', label: 'Slate', color: '#253858' },
-			{ value: 'silver', label: 'Silver', color: '#666666' },
-		],
+		alertText: '',
 	}
 
 	handleSelectChange = (selectedOptions) => {
 		this.setState({ selectedOptions })
 	}
 
+	handleSelectCreate = (newTag) => {
+		const selectedOptions = [...this.state.selectedOptions];
+		delete newTag.className;
+		selectedOptions.push(newTag);
+		this.setState({ selectedOptions });
+		this.props.addTag(newTag);
+	}
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		const { title, text } = this.refs;
+		if (!title.value || !text.value) {
+			return this.setState({ alertText: 'please provide a title and text!' });
+		}
+
+		// TODO make firestore call
+		this.clearForm();
+	}
+
+	clearForm = () => {
+		this.setState({
+			selectedOptions: [],
+			alertText: '',
+		})
+		this.refs.title.value = '';
+		this.refs.text.value = '';
+	}
+
 	render() {
 
-		const { modalOn, hideModal } = this.props;
-		const { options, selectedOptions } = this.state;
+		const { modalOn, hideModal, tags } = this.props;
+		const { options, selectedOptions, alertText } = { ...this.state };
 
 
 		return (
 			<Modal className="show" show={modalOn} onHide={hideModal}>
-				<Modal.Header>
-					<Modal.Title>New Snippet</Modal.Title>
-					<Span onClick={hideModal}>
-						<FontAwesomeIcon icon={faTimes} />
-					</Span>
-				</Modal.Header>
-				<Modal.Body>
-					<form>
+				<form onSubmit={this.handleSubmit}>
+					<Modal.Header>
+						<Modal.Title>New Snippet</Modal.Title>
+						<Span onClick={hideModal}>
+							<FontAwesomeIcon icon={faTimes} />
+						</Span>
+					</Modal.Header>
+					<Modal.Body>
+						<div className="alert alert-danger" style={{ display: alertText ? 'block' : 'none' }} role="alert">
+							{alertText}
+							<button type="button" className="close" onClick={() => this.setState({ alertText: '' })}>
+								<span>&times;</span>
+							</button>
+						</div>
 						<div className="form-group">
 							<label htmlFor="title">Title:</label>
-							<input type="text" className="form-control" placeholder="Intro" />
+							<input ref="title" type="text" className="form-control" placeholder="Intro" />
 						</div>
 						<div className="form-group">
 							<label htmlFor="text">Text:</label>
-							<textarea className="form-control" rows="3"></textarea>
+							<textarea ref="text" className="form-control" rows="3" placeholder="We the People of the United States, in Order to form a more perfect Union ..."></textarea>
 						</div>
 						<div className="form-group">
 							<label htmlFor="tags">Tags:</label>
@@ -70,15 +88,17 @@ class NewSnippetModal extends React.Component {
 								multi={true}
 								closeOnSelect={false}
 								onChange={this.handleSelectChange}
+								onNewOptionClick={this.handleSelectCreate}
 								value={selectedOptions}
-								options={options}
+								options={tags}
 							/>
 						</div>
-					</form>
-				</Modal.Body>
-				<Modal.Footer>
-					<Button onClick={hideModal}>Close</Button>
-				</Modal.Footer>
+					</Modal.Body>
+					<Modal.Footer>
+						<button type="submit" className="btn btn-primary">Submit</button>
+						<Button onClick={hideModal}>Clear</Button>
+					</Modal.Footer>
+				</form>
 			</Modal>
 		)
 	}
