@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
+import { GrayH4 } from '../../../styles/components';
+
 import { getSnippetItemStyle, getSnippetListStyle } from './styles';
 
 class SnippetDragAndDrop extends React.PureComponent {
@@ -10,6 +12,14 @@ class SnippetDragAndDrop extends React.PureComponent {
 	render() {
 
 		const { snippets } = this.props;
+
+		if (!snippets || snippets.length === 0) {
+			return (
+				<div className="rounded" style={getSnippetListStyle(false)}>
+					<GrayH4>None yet</GrayH4>
+				</div>
+			)
+		}
 
 		return (
 			<Droppable droppableId="snippets" direction="horizontal">

@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import { GrayH4 } from '../../../styles/components';
+
 import { getPreviewItemStyle, getPreviewListStyle } from './styles';
+
+const NoneYetStyles = {
+	display: 'flex',
+	alignItems: 'center',
+}
 
 class PreviewDragAndDrop extends Component {
 
 	render() {
 
 		const { draft, activeItemId } = this.props;
+
+		if (!draft || draft.length === 0) {
+			return (
+				<div className="rounded" style={{ ...NoneYetStyles, ...getPreviewListStyle(false) }}>
+					<GrayH4>None yet</GrayH4>
+				</div>
+			)
+		}
 
 		return (
 			<Droppable droppableId="draft">

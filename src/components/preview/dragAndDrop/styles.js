@@ -27,6 +27,7 @@ export const getPreviewItemStyle = (isDragging, isActive, draggableStyle) => ({
 export const getPreviewListStyle = (isDraggingOver) => ({
 	...getBaseListStyle(isDraggingOver),
 	minWidth: 250,
+	height: '100%',
 });
 
 export const getSnippetItemStyle = (isDragging, draggableStyle) => ({

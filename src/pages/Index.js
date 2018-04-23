@@ -18,7 +18,7 @@ const Container = styled.div`
 	grid-template-columns: 1fr 3fr;
 	
 	& > * {
-		max-height: 90vh;
+		height: 90vh;
 		overflow-y: scroll;
 	}
 	`

@@ -14,19 +14,19 @@ const Span = styled.span`
 class NewSnippetModal extends React.Component {
 
 	state = {
-		selectedOptions: [],
+		selectedTags: this.props.snippetToEdit.selectedTags || [],
 		alertText: '',
 	}
 
-	handleSelectChange = (selectedOptions) => {
-		this.setState({ selectedOptions })
+	handleSelectChange = (selectedTags) => {
+		this.setState({ selectedTags })
 	}
 
 	handleSelectCreate = (newTag) => {
-		const selectedOptions = [...this.state.selectedOptions];
+		const selectedTags = [...this.state.selectedTags];
 		delete newTag.className;
-		selectedOptions.push(newTag);
-		this.setState({ selectedOptions });
+		selectedTags.push(newTag);
+		this.setState({ selectedTags });
 		this.props.addTag(newTag);
 	}
 
@@ -37,8 +37,21 @@ class NewSnippetModal extends React.Component {
 			return this.setState({ alertText: 'please provide a title and text!' });
 		}
 
-		// TODO make firestore call
+		const snippet = {
+			title: title.value,
+			text: text.value,
+			tags: this.state.selectedTags,
+		}
+
+		// add or update
+		if (this.props.snippetToEdit) {
+			this.props.updateSnippet(snippet)
+		} else {
+			this.props.addSnippet(snippet)
+		}
+
 		this.clearForm();
+		this.props.hideModal();
 	}
 
 	clearForm = () => {
@@ -52,9 +65,10 @@ class NewSnippetModal extends React.Component {
 
 	render() {
 
-		const { modalOn, hideModal, tags } = this.props;
-		const { options, selectedOptions, alertText } = { ...this.state };
+		const { modalOn, hideModal, tags, snippetToEdit } = this.props;
+		const { selectedTags, alertText } = { ...this.state };
 
+		const options = Object.values(tags).map(val => val);
 
 		return (
 			<Modal className="show" show={modalOn} onHide={hideModal}>
@@ -74,11 +88,11 @@ class NewSnippetModal extends React.Component {
 						</div>
 						<div className="form-group">
 							<label htmlFor="title">Title:</label>
-							<input ref="title" type="text" className="form-control" placeholder="Intro" />
+							<input ref="title" type="text" className="form-control" defaultValue={snippetToEdit && snippetToEdit.title} placeholder="Intro" />
 						</div>
 						<div className="form-group">
 							<label htmlFor="text">Text:</label>
-							<textarea ref="text" className="form-control" rows="3" placeholder="We the People of the United States, in Order to form a more perfect Union ..."></textarea>
+							<textarea ref="text" className="form-control" rows="3" defaultValue={snippetToEdit && snippetToEdit.text} placeholder="We the People of the United States, in Order to form a more perfect Union ..."></textarea>
 						</div>
 						<div className="form-group">
 							<label htmlFor="tags">Tags:</label>
@@ -89,14 +103,17 @@ class NewSnippetModal extends React.Component {
 								closeOnSelect={false}
 								onChange={this.handleSelectChange}
 								onNewOptionClick={this.handleSelectCreate}
-								value={selectedOptions}
-								options={tags}
+								value={selectedTags}
+								options={options}
 							/>
 						</div>
 					</Modal.Body>
-					<Modal.Footer>
-						<button type="submit" className="btn btn-primary">Submit</button>
-						<Button onClick={hideModal}>Clear</Button>
+					<Modal.Footer style={{ justifyContent: 'space-between' }}>
+						<button className="btn btn-danger" style={{ justifySelf: 'flex-start' }}>Delete</button>
+						<div>
+							<button type="submit" className="btn btn-primary">{snippetToEdit ? 'Update' : 'Submit'}</button>
+							<Button onClick={hideModal}>Cancel</Button>
+						</div>
 					</Modal.Footer>
 				</form>
 			</Modal>
