@@ -45,4 +45,5 @@ export const getSnippetListStyle = (isDraggingOver) => ({
 	display: 'flex',
 	overflow: 'scroll',
 	marginBottom: 20,
+	minHeight: 56,
 });

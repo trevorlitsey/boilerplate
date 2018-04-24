@@ -5,12 +5,12 @@ class Section extends React.Component {
 
 	render() {
 
-		const { id, title, content } = this.props;
+		const { id, title, text } = this.props;
 
 		return (
 			<div>
 				<h4 id={id}>{title}</h4>
-				<p>{content}</p>
+				<p>{text}</p>
 			</div>
 		)
 	}

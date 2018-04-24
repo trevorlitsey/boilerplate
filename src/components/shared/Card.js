@@ -8,7 +8,6 @@ const getStyles = (overrideStyles, isActive) => ({
 	userSelect: 'none',
 	padding: grid * 2,
 	lineHeight: 1,
-	margin: `0 0 ${grid}px ${grid}px`,
 	background: isActive ? 'var(--primary)' : '',
 	color: isActive ? 'var(--white)' : '',
 

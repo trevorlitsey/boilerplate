@@ -16,7 +16,7 @@ const Container = styled.div`
 		height: 100%;
 		background: var(--white);
 		margin: 0 20px;
-		padding: 20px;
+		padding: 40px;
 
 		&.placeholder {
 			color: var(--gray);
@@ -37,9 +37,9 @@ class Document extends React.Component {
 
 	render() {
 
-		const { draft } = this.props;
+		const { draftOrder, snippets } = this.props;
 
-		if (!draft || draft.length === 0) {
+		if (!draftOrder || draftOrder.length === 0) {
 			return (
 				<Container ref="container" onScroll={this.handleScroll} className="rounded">
 					<div className="scrollspy placeholder">
@@ -53,11 +53,11 @@ class Document extends React.Component {
 		return (
 			<Container ref="container" onScroll={this.handleScroll} className="rounded">
 				<div className="scrollspy">
-					{draft.map(item =>
+					{draftOrder.map(id =>
 						<Section
-							ref={item.id}
-							key={item.id}
-							{...item}
+							ref={id}
+							key={id}
+							{...snippets[id]}
 						/>
 					)}
 				</div>

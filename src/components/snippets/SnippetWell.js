@@ -13,6 +13,7 @@ const Container = styled.div`
 	margin-bottom: 10px;
 	box-shadow: 0px 0px 2px inset;
 	display: grid;
+	grid-gap: 8px;
 	grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
 `
 
