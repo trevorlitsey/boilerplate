@@ -7,7 +7,7 @@ export const reorder = ({ ...preview }, dropResult) => {
 	return preview;
 }
 
-export const processPreview = (preview, snippets) => {
+export const processPreview = (preview, snippets = {}) => {
 
 	if (!preview) {
 		preview = { snippetOrder: [], draftOrder: [] }

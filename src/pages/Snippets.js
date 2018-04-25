@@ -95,7 +95,7 @@ class Snippets extends React.PureComponent {
 				/>
 				<NewSnippetButton showModal={this.showModal} />
 				<SnippetModal
-					snippetToEdit={{ ...snippets[snippetToEdit], id: snippetToEdit } || {}}
+					snippetToEdit={snippetToEdit ? { ...snippets[snippetToEdit], id: snippetToEdit } : {}}
 					modalOn={modalOn}
 					hideModal={this.hideModal}
 					tags={tags}
