@@ -5,15 +5,20 @@ import faGoogle from '@fortawesome/fontawesome-free-brands/faGoogle';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { signIn, signOut } from '../firebase';
+
 const Container = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 `
 
-const Nav = ({ location }) => {
+const Nav = ({ location, user }) => {
 
 	const { pathname } = location;
+
+	const signInButton = <button onClick={signIn} type="button" className="btn btn-light"><FontAwesomeIcon style={{ marginRight: '6px' }} icon={faGoogle} />Sign in with Google</button>;
+	const signOutButton = <button onClick={signOut} type="button" className="btn btn-light"><FontAwesomeIcon style={{ marginRight: '6px' }} icon={faGoogle} />Sign out</button>;
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -30,7 +35,7 @@ const Nav = ({ location }) => {
 					</ul>
 				</div>
 				<div className="right">
-					<button type="button" className="btn btn-light"><FontAwesomeIcon style={{ marginRight: '6px' }} icon={faGoogle} />Sign in with Google</button>
+					{user ? signOutButton : signInButton}
 				</div>
 			</Container>
 		</nav>

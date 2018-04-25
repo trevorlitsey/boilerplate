@@ -9,6 +9,10 @@ export const reorder = ({ ...preview }, dropResult) => {
 
 export const processPreview = (preview, snippets) => {
 
+	if (!preview) {
+		preview = { snippetOrder: [], draftOrder: [] }
+	}
+
 	const { snippetOrder, draftOrder } = { ...preview };
 
 	Object.keys(snippets).forEach((key) => {
@@ -18,4 +22,25 @@ export const processPreview = (preview, snippets) => {
 	})
 
 	return { snippetOrder, draftOrder };
+}
+
+export const generateTextFromDraft = (snippets, draftOrder) => {
+	const text = draftOrder.reduce((text, snippetId) => {
+		return text += snippets[snippetId].text + '\n\n';
+	}, '')
+	return text;
+}
+
+// thnx https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
+export const downloadDocument = (filename, text) => {
+	const element = document.createElement('a');
+	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	element.setAttribute('download', filename);
+
+	element.style.display = 'none';
+	document.body.appendChild(element);
+
+	element.click();
+
+	document.body.removeChild(element);
 }

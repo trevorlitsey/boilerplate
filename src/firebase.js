@@ -11,6 +11,27 @@ const app = firebase.initializeApp({
 	messagingSenderId: '517479425728'
 });
 
-const db = app.firestore();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-export default db;
+
+// -------- exports ---------
+
+export const signIn = () => {
+	firebase.auth().signInWithPopup(provider).then((result) => {
+		// hooray
+	}).catch((error) => {
+		return console.error(error);
+	});
+}
+
+export const signOut = () => {
+	firebase.auth().signOut().then(function () {
+		// Sign-out successful.
+	}).catch(function (error) {
+		// An error happened.
+	});
+}
+
+export const db = app.firestore();
+
+export default firebase;

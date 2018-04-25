@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import db from '../firebase';
+import { db } from '../firebase';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import { reorder, processPreview } from './helpers';
+import { reorder, processPreview, generateTextFromDraft, downloadDocument } from './helpers';
 import { H4 } from '../styles/components';
 
 import Layout from '../components/Layout';
@@ -17,12 +17,18 @@ const Container = styled.div`
 	display: grid;
 	grid-gap: 10px;
 	grid-template-columns: 1fr 3fr;
+	min-height: 500px;
 	
-	& > * {
-		height: 90vh;
-		overflow-y: scroll;
+	@media (max-width: 600px) {
+		display: block;
+
+		& > * {
+			margin: 20px 0;
+		}
+
 	}
-	`
+
+`
 
 class Index extends React.Component {
 
@@ -33,16 +39,16 @@ class Index extends React.Component {
 		},
 		snippets: {},
 		activeItemId: '0',
+		shouldDisplayJumbo: true,
 		loading: true,
 	}
 
 	componentWillMount = () => {
 		const that = this;
 
-		// snippets
-		this.snippetUnsubscribe = db.doc('users/trevor/')
+		this.dbUnsubscribe = db.doc('users/trevor/')
 			.onSnapshot((doc) => {
-				const { preview, snippets, tags } = doc.data();
+				const { preview, snippets, tags, shouldDisplayJumbo } = doc.data();
 
 				const { snippetOrder, draftOrder } = processPreview(preview, snippets);
 
@@ -53,13 +59,18 @@ class Index extends React.Component {
 					},
 					snippets,
 					tags,
+					shouldDisplayJumbo: shouldDisplayJumbo === true,
 					loading: false
 				});
 			});
 	}
 
 	componentWillUnmount = () => {
-		this.snippetUnsubscribe();
+		this.dbUnsubscribe();
+	}
+
+	hideJumbo = () => {
+		db.doc('/users/trevor').set({ shouldDisplayJumbo: false }, { merge: true });
 	}
 
 	updateActive = (activeItemId) => {
@@ -78,10 +89,19 @@ class Index extends React.Component {
 		db.doc('/users/trevor').set({ preview }, { merge: true });
 	}
 
+	handleDownLoad = () => {
+		const { snippets, preview } = { ...this.state }
+
+		if (!snippets || !preview.draftOrder) return; // just in case
+
+		const text = generateTextFromDraft(snippets, preview.draftOrder);
+		downloadDocument('document.txt', text)
+	}
+
 	render() {
 
-		const { location } = this.props;
-		const { activeItemId, snippets, preview, loading } = this.state;
+		const { location, user } = this.props;
+		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo } = this.state;
 		const { snippetOrder, draftOrder } = preview;
 
 		if (loading) {
@@ -93,8 +113,12 @@ class Index extends React.Component {
 		}
 
 		return (
-			<Layout location={location}>
-				<Jumbotron />
+			<Layout location={location} user={user}>
+				<Jumbotron
+					shouldDisplayJumbo={shouldDisplayJumbo}
+					hideJumbo={this.hideJumbo}
+					handleDownLoad={this.handleDownLoad}
+				/>
 				<DragDropContext onDragEnd={this.handleDragEnd}>
 					<H4>Snippets</H4>
 					<SnippetDragAndDrop snippets={snippets} snippetOrder={snippetOrder} />

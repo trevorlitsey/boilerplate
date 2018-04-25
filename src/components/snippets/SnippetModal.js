@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, func, bool, array } from 'prop-types';
 import Creatable from 'react-select/lib/Creatable';
 import { ButtonToolbar, Button, Modal } from 'react-bootstrap'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -11,7 +12,17 @@ const Span = styled.span`
 	cursor: pointer;
 `
 
-class NewSnippetModal extends React.Component {
+class SnippetModal extends React.Component {
+
+	static propTypes = {
+		snippetToEdit: object.isRequired,
+		modalOn: bool.isRequired,
+		hideModal: func.isRequired,
+		tags: array.isRequired,
+		addTag: func.isRequired,
+		addSnippet: func.isRequired,
+		updateSnippet: func.isRequired,
+	}
 
 	state = {
 		selectedTags: this.props.snippetToEdit.selectedTags || [],
@@ -44,11 +55,9 @@ class NewSnippetModal extends React.Component {
 		}
 
 		// add or update
-		if (this.props.snippetToEdit) {
-			this.props.updateSnippet(snippet)
-		} else {
-			this.props.addSnippet(snippet)
-		}
+		Object.keys(this.props.snippetToEdit).length > 0
+			? this.props.updateSnippet(snippet)
+			: this.props.addSnippet(snippet)
 
 		this.clearForm();
 		this.props.hideModal();
@@ -56,7 +65,7 @@ class NewSnippetModal extends React.Component {
 
 	clearForm = () => {
 		this.setState({
-			selectedOptions: [],
+			selectedTags: [],
 			alertText: '',
 		})
 		this.refs.title.value = '';
@@ -65,10 +74,13 @@ class NewSnippetModal extends React.Component {
 
 	render() {
 
-		const { modalOn, hideModal, tags, snippetToEdit } = this.props;
+		const { modalOn, hideModal, tags, snippetToEdit, deleteSnippet } = this.props;
 		const { selectedTags, alertText } = { ...this.state };
 
+		const isUpdate = Object.keys(snippetToEdit).length > 0;
 		const options = Object.values(tags).map(val => val);
+
+		const deleteButton = <button onClick={() => deleteSnippet(snippetToEdit.id)} className="btn btn-danger" style={{ justifySelf: 'flex-start' }}>Delete</button>
 
 		return (
 			<Modal className="show" show={modalOn} onHide={hideModal}>
@@ -88,11 +100,24 @@ class NewSnippetModal extends React.Component {
 						</div>
 						<div className="form-group">
 							<label htmlFor="title">Title:</label>
-							<input ref="title" type="text" className="form-control" defaultValue={snippetToEdit && snippetToEdit.title} placeholder="Intro" />
+							<input
+								ref="title"
+								type="text"
+								className="form-control"
+								defaultValue={snippetToEdit && snippetToEdit.title}
+								placeholder="Intro"
+							/>
 						</div>
 						<div className="form-group">
 							<label htmlFor="text">Text:</label>
-							<textarea ref="text" className="form-control" rows="3" defaultValue={snippetToEdit && snippetToEdit.text} placeholder="We the People of the United States, in Order to form a more perfect Union ..."></textarea>
+							<textarea
+								ref="text"
+								className="form-control"
+								rows="3"
+								defaultValue={snippetToEdit && snippetToEdit.text}
+								placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+							>
+							</textarea>
 						</div>
 						<div className="form-group">
 							<label htmlFor="tags">Tags:</label>
@@ -103,15 +128,15 @@ class NewSnippetModal extends React.Component {
 								closeOnSelect={false}
 								onChange={this.handleSelectChange}
 								onNewOptionClick={this.handleSelectCreate}
-								value={selectedTags}
+								value={snippetToEdit.tags || selectedTags}
 								options={options}
 							/>
 						</div>
 					</Modal.Body>
-					<Modal.Footer style={{ justifyContent: 'space-between' }}>
-						<button className="btn btn-danger" style={{ justifySelf: 'flex-start' }}>Delete</button>
+					<Modal.Footer style={{ justifyContent: isUpdate && 'space-between' }}>
+						{isUpdate && deleteButton}
 						<div>
-							<button type="submit" className="btn btn-primary">{snippetToEdit ? 'Update' : 'Submit'}</button>
+							<button type="submit" className="btn btn-primary">{isUpdate ? 'Update' : 'Submit'}</button>
 							<Button onClick={hideModal}>Cancel</Button>
 						</div>
 					</Modal.Footer>
@@ -121,4 +146,4 @@ class NewSnippetModal extends React.Component {
 	}
 }
 
-export default NewSnippetModal;
+export default SnippetModal;

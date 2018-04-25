@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import uniqid from 'uniqid';
 
-import db from '../firebase';
+import { db } from '../firebase';
 
 import Layout from '../components/Layout';
 import Spinner from '../components/shared/Spinner';
 import SnippetWell from '../components/snippets/SnippetWell';
 import NewSnippetButton from '../components/snippets/NewSnippetButton';
-import NewSnippetModal from '../components/snippets/NewSnippetModal';
+import SnippetModal from '../components/snippets/SnippetModal';
 
 import { H4 } from '../styles/components';
 
@@ -25,31 +25,12 @@ class Snippets extends React.PureComponent {
 	componentWillMount = () => {
 		const that = this;
 
-		// snippets
-		this.snippetUnsubscribe = db.collection('users/trevor/snippets')
-			.onSnapshot((snapshot) => {
-				const snippets = snapshot.docs.map(snap => (
-					{
-						...snap.data(),
-						id: snap.id,
-					}
-				));
+		this.dbUnsubscribe = db.doc('users/trevor/')
+			.onSnapshot((doc) => {
+				const { snippets, tags } = doc.data();
+
 				that.setState({
 					snippets,
-					loading: false
-				});
-			});
-
-		// tags
-		this.tagsUnsubscribe = db.collection('users/trevor/tags')
-			.onSnapshot((snapshot) => {
-				const tags = snapshot.docs.map(snap => (
-					{
-						...snap.data(),
-						id: snap.id
-					}
-				));
-				that.setState({
 					tags,
 					loading: false
 				});
@@ -57,11 +38,10 @@ class Snippets extends React.PureComponent {
 	}
 
 	componentWillUnmount = () => {
-		this.snippetUnsubscribe();
-		this.tagsUnsubscribe();
+		this.dbUnsubscribe();
 	}
 
-	showModal = (snippetToEdit = '') => {
+	showModal = (e, snippetToEdit = '') => {
 		this.setState({ snippetToEdit });
 		this.setState({ modalOn: true })
 	}
@@ -71,16 +51,27 @@ class Snippets extends React.PureComponent {
 	}
 
 	addSnippet = (newSnippet, id = uniqid()) => {
-		db.doc(`users/trevor/snippets/${id}`).set(newSnippet);
+		const snippets = { ...this.state.snippets }
+		snippets[id] = newSnippet;
+		db.doc('/users/trevor').set({ snippets }, { merge: true });
 	}
 
 	updateSnippet = (updatedSnippet) => {
-		const { snippetToEdit } = this.state;
-		db.doc(`users/trevor/snippets/${snippetToEdit}`).update(updatedSnippet);
+		const { snippets, snippetToEdit } = { ...this.state }
+		snippets[snippetToEdit] = updatedSnippet;
+		db.doc('/users/trevor').set({ snippets }, { merge: true });
+	}
+
+	deleteSnippet = (id) => {
+		const snippets = { ...this.state.snippets }
+		delete snippets[id];
+		db.doc('/users/trevor').set({ snippets }, { merge: true });
 	}
 
 	addTag = (newTag) => {
-		db.collection('users/trevor/tags').add(newTag);
+		const tags = [...this.state.tags];
+		tags.push(newTag);
+		db.doc('/users/trevor').set({ tags }, { merge: true });
 	}
 
 	render() {
@@ -103,14 +94,15 @@ class Snippets extends React.PureComponent {
 					showModal={this.showModal}
 				/>
 				<NewSnippetButton showModal={this.showModal} />
-				<NewSnippetModal
-					snippetToEdit={snippets.find(snip => snip.id === snippetToEdit) || {}}
+				<SnippetModal
+					snippetToEdit={{ ...snippets[snippetToEdit], id: snippetToEdit } || {}}
 					modalOn={modalOn}
 					hideModal={this.hideModal}
 					tags={tags}
 					addTag={this.addTag}
 					addSnippet={this.addSnippet}
 					updateSnippet={this.updateSnippet}
+					deleteSnippet={this.deleteSnippet}
 				/>
 			</Layout>
 		)

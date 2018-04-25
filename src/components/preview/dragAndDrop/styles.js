@@ -8,9 +8,9 @@ const baseItemStyle = {
 
 const getBaseListStyle = (isDraggingOver) => ({
 	background: isDraggingOver ? 'var(--gray)' : 'var(--light)',
+	border: '1px solid rgba(0,0,0,.1)',
 	padding: grid,
 	transition: 'all .3s',
-	border: '1px solid rgba(0,0,0,.1)',
 })
 
 
@@ -27,7 +27,16 @@ export const getPreviewItemStyle = (isDragging, isActive, draggableStyle) => ({
 export const getPreviewListStyle = (isDraggingOver) => ({
 	...getBaseListStyle(isDraggingOver),
 	minWidth: 250,
-	height: '100%',
+	height: 'auto',
+});
+
+export const getSnippetListStyle = (isDraggingOver) => ({
+	...getBaseListStyle(isDraggingOver),
+	display: 'flex',
+	marginBottom: 20,
+	minHeight: 56,
+	whiteSpace: 'nowrap',
+	overflow: 'auto'
 });
 
 export const getSnippetItemStyle = (isDragging, draggableStyle) => ({
@@ -38,12 +47,4 @@ export const getSnippetItemStyle = (isDragging, draggableStyle) => ({
 	display: 'inline-block',
 
 	...draggableStyle,
-});
-
-export const getSnippetListStyle = (isDraggingOver) => ({
-	...getBaseListStyle(isDraggingOver),
-	display: 'flex',
-	overflow: 'scroll',
-	marginBottom: 20,
-	minHeight: 56,
 });

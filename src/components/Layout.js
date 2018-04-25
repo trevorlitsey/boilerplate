@@ -3,19 +3,22 @@ import { object } from 'prop-types';
 import styled from 'styled-components';
 
 import Nav from './Nav';
+import Footer from './Footer';
 
 const Wrapper = styled.div`
 	max-width: 1600px;
-	margin: auto;
-	padding: 40px;
+	min-height: 95vh;
+	margin: 0 auto;
+	padding: 4%;
 `
 
-const Layout = ({ location, children }) => (
+const Layout = ({ location, user, children }) => (
 	<div>
-		<Nav location={location} />
+		<Nav location={location} user={user} />
 		<Wrapper>
 			{children}
 		</Wrapper>
+		<Footer />
 	</div>
 )
 

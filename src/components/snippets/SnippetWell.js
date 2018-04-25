@@ -39,7 +39,7 @@ const SnippetWell = ({ snippets, showModal }) => {
 
 	return (
 		<Container className="rounded">
-			{snippets.map(snippet => <Card key={snippet.id} {...snippet} showModal={showModal} />)}
+			{Object.entries(snippets).map(([key, snippet]) => <Card key={key} id={key} {...snippet} showModal={showModal} />)}
 		</Container>
 	)
 }

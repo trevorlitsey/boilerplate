@@ -23,7 +23,7 @@ const Card = ({ title, text, tags, id, overrideStyles, isActive, showModal }) =>
 		<h5 className="card-title">{title}</h5>
 		<p className="card-text">{text.length > 80 ? text.substring(0, 80) + ' ...' : text}</p>
 		<div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between' }}>
-			<Link to="#" style={{ marginRight: 12, marginTop: 'auto' }} onClick={() => showModal(id)}>edit</Link>
+			<Link to="#" style={{ marginRight: 12, marginTop: 'auto' }} onClick={() => showModal(null, id)}>edit</Link>
 			<div>
 				{tags && tags.map(tag => <Tag key={tag.id} value={tag.value} />)}
 			</div>
