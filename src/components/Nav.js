@@ -35,7 +35,7 @@ const Nav = ({ location, user }) => {
 					</ul>
 				</div>
 				<div className="right">
-					{user ? signOutButton : signInButton}
+					{user && Object.keys(user) ? signOutButton : signInButton}
 				</div>
 			</Container>
 		</nav>

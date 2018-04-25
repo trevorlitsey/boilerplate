@@ -27,7 +27,7 @@ const ContainerOff = Container.extend`
 
 const SnippetWell = ({ snippets, showModal }) => {
 
-	if (!snippets) {
+	if (!Object.keys(snippets).length) {
 		return (
 			<ContainerOff className="rounded">
 				<h3>No Snippets Yet!</h3>

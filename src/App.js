@@ -12,25 +12,13 @@ import './styles/styles.scss';
 
 class App extends React.Component {
 
-	state = {
-		user: {},
-	}
-
-	componentWillMount = () => {
-		firebase.auth().onAuthStateChanged((user) => {
-			this.setState({ user });
-		})
-	}
-
 	render() {
-
-		const { user } = this.state;
 
 		return (
 			<BrowserRouter>
 				<Switch>
-					<Route exact path="/" render={(props) => <Index {...props} user={user} />} />
-					<Route exact path="/snippets" component={(props) => <Snippets {...props} user={user} />} />
+					<Route exact path="/" render={Index} />
+					<Route exact path="/snippets" component={Snippets} />
 					<Route component={NotFound} />
 				</Switch>
 			</BrowserRouter>

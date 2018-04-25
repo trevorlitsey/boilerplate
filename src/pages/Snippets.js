@@ -15,35 +15,47 @@ import { H4 } from '../styles/components';
 class Snippets extends React.PureComponent {
 
 	state = {
+		user: {},
 		loading: true,
 		modalOn: false,
 		snippets: {},
-		tags: {},
+		tags: [],
 		snippetToEdit: '',
 	}
 
 	componentWillMount = () => {
 		const that = this;
 
-		if (this.props.user) {
+		firebase.auth().onAuthStateChanged((user) => {
+			this.setState({ user });
 
-			this.dbRef = db.doc(`users/${this.props.user.uid}/`)
+			if (user) {
 
-			this.dbUnsubscribe = this.dbRef
-				.onSnapshot((doc) => {
-					const { snippets, tags } = doc.data();
+				this.dbRef = db.doc(`users/${user.uid}/`)
 
-					that.setState({
-						snippets,
-						tags,
-						loading: false
+				this.dbUnsubscribe = this.dbRef
+					.onSnapshot((doc) => {
+
+						if (doc.data()) {
+
+							const { snippets, tags } = doc.data();
+
+							that.setState({
+								snippets: snippets || {},
+								tags: tags || [],
+							});
+						}
+
+						this.setState({ loading: false })
+
 					});
-				});
-		}
+			}
+
+		})
 	}
 
 	componentWillUnmount = () => {
-		this.dbUnsubscribe();
+		if (this.dbUnsubscribe) this.dbUnsubscribe();
 	}
 
 	showModal = (e, snippetToEdit = '') => {
@@ -53,40 +65,40 @@ class Snippets extends React.PureComponent {
 
 	hideModal = () => {
 		this.setState({ modalOn: false })
+		this.setState({ snippetToEdit: '' });
 	}
 
 	addSnippet = (newSnippet, id = uniqid()) => {
 		const snippets = { ...this.state.snippets }
 		snippets[id] = newSnippet;
-		db.doc('/users/trevor').set({ snippets }, { merge: true });
+		this.dbRef.set({ snippets }, { merge: true });
 	}
 
 	updateSnippet = (updatedSnippet) => {
 		const { snippets, snippetToEdit } = { ...this.state }
 		snippets[snippetToEdit] = updatedSnippet;
-		db.doc('/users/trevor').set({ snippets }, { merge: true });
+		this.dbRef.set({ snippets }, { merge: true });
 	}
 
 	deleteSnippet = (id) => {
 		const snippets = { ...this.state.snippets }
 		delete snippets[id];
-		this.setState({ snippetToEdit: '' });
 		this.hideModal();
-		db.doc('/users/trevor').update({ snippets: firebase.firestore.FieldValue.delete() }); // make sure that fucker is gone...
-		db.doc('/users/trevor').set({ snippets }, { merge: true });
+		this.dbRef.update({ snippets: firebase.firestore.FieldValue.delete() }); // make sure that fucker is gone...
+		this.dbRef.set({ snippets }, { merge: true });
 	}
 
 	addTag = (newTag, id = uniqid()) => {
 		const tags = [...this.state.tags];
 		newTag.id = id;
 		tags.push(newTag);
-		db.doc('/users/trevor').set({ tags }, { merge: true });
+		this.dbRef.set({ tags }, { merge: true });
 	}
 
 	render() {
 
 		const { location } = this.props;
-		const { loading, modalOn, snippets, tags, snippetToEdit } = this.state;
+		const { loading, modalOn, snippets, tags, snippetToEdit, user } = this.state;
 
 		if (loading) {
 			return (
@@ -97,7 +109,7 @@ class Snippets extends React.PureComponent {
 		}
 
 		return (
-			<Layout location={location}>
+			<Layout location={location} user={user}>
 				<SnippetWell
 					snippets={snippets}
 					showModal={this.showModal}
