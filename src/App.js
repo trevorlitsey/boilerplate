@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import firebase from './firebase';
+import firebase, { db } from './firebase';
+import { processPreview } from './helpers';
 
 import Index from './pages/Index';
 import Snippets from './pages/Snippets';
@@ -17,9 +18,7 @@ class App extends React.Component {
 
 	componentWillMount = () => {
 		firebase.auth().onAuthStateChanged((user) => {
-			if (user) {
-				this.setState({ user });
-			}
+			this.setState({ user });
 		})
 	}
 
@@ -31,7 +30,7 @@ class App extends React.Component {
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/" render={(props) => <Index {...props} user={user} />} />
-					<Route exact path="/snippets" component={Snippets} />
+					<Route exact path="/snippets" component={(props) => <Snippets {...props} user={user} />} />
 					<Route component={NotFound} />
 				</Switch>
 			</BrowserRouter>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
 
-import Card from '../shared/Card';
+import Card from './Card';
 
 const Container = styled.div`
 	width: 100%;

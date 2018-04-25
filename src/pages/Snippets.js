@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import uniqid from 'uniqid';
 
-import { db } from '../firebase';
+import firebase, { db } from '../firebase';
 
 import Layout from '../components/Layout';
 import Spinner from '../components/shared/Spinner';
@@ -65,7 +65,8 @@ class Snippets extends React.PureComponent {
 	deleteSnippet = (id) => {
 		const snippets = { ...this.state.snippets }
 		delete snippets[id];
-		db.doc('/users/trevor').set({ snippets }, { merge: true });
+		console.log(snippets);
+		db.doc('/users/trevor').update({ snippets });
 	}
 
 	addTag = (newTag) => {
@@ -95,7 +96,7 @@ class Snippets extends React.PureComponent {
 				/>
 				<NewSnippetButton showModal={this.showModal} />
 				<SnippetModal
-					snippetToEdit={snippetToEdit ? { ...snippets[snippetToEdit], id: snippetToEdit } : {}}
+					snippetToEdit={snippetToEdit && snippets ? { ...snippets[snippetToEdit], id: snippetToEdit } : {}}
 					modalOn={modalOn}
 					hideModal={this.hideModal}
 					tags={tags}

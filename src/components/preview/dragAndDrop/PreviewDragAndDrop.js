@@ -17,45 +17,65 @@ class PreviewDragAndDrop extends Component {
 
 		const { snippets, draftOrder, activeItemId } = this.props;
 
+		if (!draftOrder.length) {
+			return (
+				<div>
+					<Droppable droppableId="draftOrder">
+						{(provided, snapshot) => (
+							<div
+								className="rounded"
+								ref={provided.innerRef}
+								style={getPreviewListStyle(snapshot.isDraggingOver)}
+							>
+								<h5 style={{ margin: '100px 0', textAlign: 'center', color: 'var(--gray)' }}>Drag snippets here.</h5>
+							</div>
+						)}
+					</Droppable>
+				</div>
+			)
+		}
+
 		return (
-			<Droppable droppableId="draftOrder">
-				{(provided, snapshot) => (
-					<div
-						ref={provided.innerRef}
-						className="rounded"
-						style={getPreviewListStyle(snapshot.isDraggingOver)}
-					>
-						{draftOrder && draftOrder.map((id, index) => {
+			<div>
+				<Droppable droppableId="draftOrder">
+					{(provided, snapshot) => (
+						<div
+							ref={provided.innerRef}
+							className="rounded"
+							style={getPreviewListStyle(snapshot.isDraggingOver)}
+						>
+							{draftOrder && draftOrder.map((id, index) => {
 
-							const snippet = snippets[id];
+								const snippet = snippets[id];
 
-							const { title, text } = snippet;
+								const { title, text } = snippet;
 
-							return (
-								<Draggable className="draggable" key={id} draggableId={id} index={index}>
-									{(provided, snapshot) => (
-										<div
-											className="card"
-											ref={provided.innerRef}
-											{...provided.draggableProps}
-											{...provided.dragHandleProps}
-											style={getPreviewItemStyle(
-												snapshot.isDragging,
-												id === activeItemId,
-												provided.draggableProps.style,
-											)}
-										>
-											<h5 className="card-title">{title}</h5>
-											<p className="card-text">{text.length > 80 ? text.substring(0, 80) + ' ...' : text}</p>
-										</div>
-									)}
-								</Draggable>
-							)
-						})}
-						{provided.placeholder}
-					</div>
-				)}
-			</Droppable>
+								return (
+									<Draggable className="draggable" key={id} draggableId={id} index={index}>
+										{(provided, snapshot) => (
+											<div
+												className="card"
+												ref={provided.innerRef}
+												{...provided.draggableProps}
+												{...provided.dragHandleProps}
+												style={getPreviewItemStyle(
+													snapshot.isDragging,
+													id === activeItemId,
+													provided.draggableProps.style,
+												)}
+											>
+												<h5 className="card-title">{title}</h5>
+												<p className="card-text">{text.length > 80 ? text.substring(0, 80) + ' ...' : text}</p>
+											</div>
+										)}
+									</Draggable>
+								)
+							})}
+							{provided.placeholder}
+						</div>
+					)}
+				</Droppable>
+			</div>
 		);
 	}
 }

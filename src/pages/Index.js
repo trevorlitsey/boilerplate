@@ -53,13 +53,14 @@ class Index extends React.Component {
 				const { snippetOrder, draftOrder } = processPreview(preview, snippets);
 
 				that.setState({
+					snippets: {},
+					tags: [],
+					shouldDisplayJumbo: true,
+					...doc.data(),
 					preview: {
 						snippetOrder: snippetOrder || [],
 						draftOrder: draftOrder || [],
 					},
-					snippets,
-					tags,
-					shouldDisplayJumbo: shouldDisplayJumbo === true,
 					loading: false
 				});
 			});

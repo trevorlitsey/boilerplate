@@ -3,6 +3,7 @@ import { object, array } from 'prop-types';
 import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
+import { Link } from 'react-router-dom'
 
 import { GrayH4 } from '../../../styles/components';
 
@@ -24,6 +25,22 @@ class SnippetDragAndDrop extends React.PureComponent {
 	render() {
 
 		const { snippets, snippetOrder } = this.props;
+
+		if (!snippetOrder.length) {
+			return (
+				<Droppable droppableId="snippetOrder" direction="horizontal">
+					{(provided, snapshot) => (
+						<div
+							className="rounded"
+							ref={provided.innerRef}
+							style={getSnippetListStyle(snapshot.isDraggingOver)}
+						>
+							<h5 style={{ margin: 'auto', color: 'var(--gray)' }}>Click <Link to="/snippets">here</Link> to add snippets.</h5>
+						</div>
+					)}
+				</Droppable>
+			)
+		}
 
 		return (
 			<ScrollContainer>

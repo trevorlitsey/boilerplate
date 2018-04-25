@@ -1,6 +1,7 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
 import styled from 'styled-components';
+import ReactTooltip from 'react-tooltip';
 
 const Container = styled.div`
 
@@ -39,13 +40,14 @@ const Jumbotron = (props) => {
 		return (
 			<div className="jumbotron">
 				<button onClick={hideJumbo} type="button" className="close" aria-label="Close" style={{ marginTop: -50, marginRight: -10 }}>
-					<span aria-hidden="true">&times;</span>
+					<span data-tip="don't show this message again" aria-hidden="true">&times;</span>
 				</button>
 				<h1 style={{ textDecoration: 'underline' }} className="display-4">Welcome To Boilerplate</h1>
 				<p className="lead">Drag and drop snippets to draft a new document</p>
 				<hr className="my-4" />
 				<p>When you're done, click the button to download text as .txt</p>
 				<a onClick={handleDownLoad} className="btn btn-primary btn-lg" href="#" role="button">Download .txt</a>
+				<ReactTooltip effect="solid" />
 			</div>
 		)
 	}
