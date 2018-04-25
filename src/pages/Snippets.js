@@ -25,16 +25,21 @@ class Snippets extends React.PureComponent {
 	componentWillMount = () => {
 		const that = this;
 
-		this.dbUnsubscribe = db.doc('users/trevor/')
-			.onSnapshot((doc) => {
-				const { snippets, tags } = doc.data();
+		if (this.props.user) {
 
-				that.setState({
-					snippets,
-					tags,
-					loading: false
+			this.dbRef = db.doc(`users/${this.props.user.uid}/`)
+
+			this.dbUnsubscribe = this.dbRef
+				.onSnapshot((doc) => {
+					const { snippets, tags } = doc.data();
+
+					that.setState({
+						snippets,
+						tags,
+						loading: false
+					});
 				});
-			});
+		}
 	}
 
 	componentWillUnmount = () => {
@@ -65,12 +70,15 @@ class Snippets extends React.PureComponent {
 	deleteSnippet = (id) => {
 		const snippets = { ...this.state.snippets }
 		delete snippets[id];
-		console.log(snippets);
-		db.doc('/users/trevor').update({ snippets });
+		this.setState({ snippetToEdit: '' });
+		this.hideModal();
+		db.doc('/users/trevor').update({ snippets: firebase.firestore.FieldValue.delete() }); // make sure that fucker is gone...
+		db.doc('/users/trevor').set({ snippets }, { merge: true });
 	}
 
-	addTag = (newTag) => {
+	addTag = (newTag, id = uniqid()) => {
 		const tags = [...this.state.tags];
+		newTag.id = id;
 		tags.push(newTag);
 		db.doc('/users/trevor').set({ tags }, { merge: true });
 	}
