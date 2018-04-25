@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { db } from '../firebase';
 import { DragDropContext } from 'react-beautiful-dnd';
 
+import firebase, { db } from '../firebase';
 import { reorder, processPreview, generateTextFromDraft, downloadDocument } from './helpers';
 import { H4 } from '../styles/components';
 
@@ -27,10 +27,9 @@ const Container = styled.div`
 		}
 
 	}
-
 `
 
-class Index extends React.Component {
+class Index extends React.PureComponent {
 
 	state = {
 		preview: {
@@ -46,32 +45,48 @@ class Index extends React.Component {
 	componentWillMount = () => {
 		const that = this;
 
-		this.dbUnsubscribe = db.doc('users/trevor/')
-			.onSnapshot((doc) => {
-				const { preview, snippets, tags, shouldDisplayJumbo } = doc.data();
+		firebase.auth().onAuthStateChanged((user) => {
+			this.setState({ user });
 
-				const { snippetOrder, draftOrder } = processPreview(preview, snippets);
+			if (user) {
 
-				that.setState({
-					snippets: {},
-					tags: [],
-					shouldDisplayJumbo: true,
-					...doc.data(),
-					preview: {
-						snippetOrder: snippetOrder || [],
-						draftOrder: draftOrder || [],
-					},
-					loading: false
-				});
-			});
+				this.dbRef = db.doc(`users/${user.uid}/`)
+
+				this.dbUnsubscribe = this.dbRef
+					.onSnapshot((doc) => {
+
+						if (doc.data()) {
+
+
+							const { preview, snippets, tags, shouldDisplayJumbo } = doc.data();
+
+							const { snippetOrder, draftOrder } = processPreview(preview, snippets);
+
+							that.setState({
+								snippets: {},
+								tags: [],
+								shouldDisplayJumbo: true,
+								...doc.data(),
+								preview: {
+									snippetOrder: snippetOrder || [],
+									draftOrder: draftOrder || [],
+								},
+							});
+						}
+
+
+					});
+			}
+			this.setState({ loading: false });
+		});
 	}
 
 	componentWillUnmount = () => {
-		this.dbUnsubscribe();
+		this.dbUnsubscribe && this.dbUnsubscribe();
 	}
 
 	hideJumbo = () => {
-		db.doc('/users/trevor').set({ shouldDisplayJumbo: false }, { merge: true });
+		this.dbRef.set({ shouldDisplayJumbo: false }, { merge: true });
 	}
 
 	updateActive = (activeItemId) => {
@@ -87,7 +102,7 @@ class Index extends React.Component {
 
 		const preview = reorder(this.state.preview, result);
 
-		db.doc('/users/trevor').set({ preview }, { merge: true });
+		this.dbRef.set({ preview }, { merge: true });
 	}
 
 	handleDownLoad = () => {
@@ -101,13 +116,13 @@ class Index extends React.Component {
 
 	render() {
 
-		const { location, user } = this.props;
-		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo } = this.state;
+		const { location } = this.props;
+		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo, user } = this.state;
 		const { snippetOrder, draftOrder } = preview;
 
 		if (loading) {
 			return (
-				<Layout location={location}>
+				<Layout location={location} user={user}>
 					<Spinner />
 				</Layout>
 			)

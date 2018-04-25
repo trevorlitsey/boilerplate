@@ -10,21 +10,16 @@ import NotFound from './pages/NotFound';
 
 import './styles/styles.scss';
 
-class App extends React.Component {
+const App = () => (
+	<BrowserRouter>
+		<Switch>
+			<Route exact path="/" component={Index} />
+			<Route exact path="/snippets" component={Snippets} />
+			<Route component={NotFound} />
+		</Switch>
+	</BrowserRouter>
+)
 
-	render() {
-
-		return (
-			<BrowserRouter>
-				<Switch>
-					<Route exact path="/" render={Index} />
-					<Route exact path="/snippets" component={Snippets} />
-					<Route component={NotFound} />
-				</Switch>
-			</BrowserRouter>
-		)
-	}
-}
 
 
 export default App;

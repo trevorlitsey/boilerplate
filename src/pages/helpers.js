@@ -13,7 +13,9 @@ export const processPreview = (preview, snippets = {}) => {
 		preview = { snippetOrder: [], draftOrder: [] }
 	}
 
-	const { snippetOrder, draftOrder } = { ...preview };
+	// remove dead order ids
+	const snippetOrder = preview.snippetOrder.filter(snippet => snippets[snippet])
+	const draftOrder = preview.draftOrder.filter(snippet => snippets[snippet])
 
 	Object.keys(snippets).forEach((key) => {
 		if (!snippetOrder.includes(key) && !draftOrder.includes(key)) {

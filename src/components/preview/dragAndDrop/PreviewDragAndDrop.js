@@ -48,6 +48,8 @@ class PreviewDragAndDrop extends Component {
 
 								const snippet = snippets[id];
 
+								if (!snippet) return;
+
 								const { title, text } = snippet;
 
 								return (

@@ -55,8 +55,6 @@ class SnippetDragAndDrop extends React.PureComponent {
 
 								const snippet = snippets[id];
 
-								if (!snippet) return;
-
 								const { title, text } = snippet;
 
 								return (

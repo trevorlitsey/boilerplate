@@ -55,7 +55,7 @@ class Snippets extends React.PureComponent {
 	}
 
 	componentWillUnmount = () => {
-		if (this.dbUnsubscribe) this.dbUnsubscribe();
+		this.dbUnsubscribe && this.dbUnsubscribe();
 	}
 
 	showModal = (e, snippetToEdit = '') => {

@@ -40,7 +40,7 @@ const Jumbotron = (props) => {
 		return (
 			<div className="jumbotron">
 				<button onClick={hideJumbo} type="button" className="close" aria-label="Close" style={{ marginTop: -50, marginRight: -10 }}>
-					<span data-tip="don't show this message again" aria-hidden="true">&times;</span>
+					<span data-tip="minimize this message" aria-hidden="true">&times;</span>
 				</button>
 				<h1 style={{ textDecoration: 'underline' }} className="display-4">Welcome To Boilerplate</h1>
 				<p className="lead">Drag and drop snippets to draft a new document</p>
