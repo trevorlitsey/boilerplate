@@ -21,10 +21,10 @@ const Nav = ({ location, user }) => {
 	const signOutButton = <button onClick={signOut} type="button" className="btn btn-light"><FontAwesomeIcon style={{ marginRight: '6px' }} icon={faGoogle} />Sign out</button>;
 
 	return (
-		<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav className="navbar navbar-expand-sm navbar-dark bg-primary">
 			<Container>
 				<div className="left">
-					<ul className="navbar-nav mr-auto">
+					<ul className="navbar-nav">
 						<Link className="navbar-brand" to="/">Better Boilerplate</Link>
 						<li className={`nav-item ${pathname === '/' && 'active'}`}>
 							<Link className="nav-link" to="/">Preview</Link>

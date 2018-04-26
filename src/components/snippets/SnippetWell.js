@@ -23,6 +23,11 @@ const ContainerOff = Container.extend`
 	justify-content: center;
 	align-items: center;
 	color: var(--secondary);
+
+	& > .icon {
+		font-size: 2rem;
+	}
+
 `
 
 const SnippetWell = ({ snippets, showModal }) => {
@@ -32,7 +37,7 @@ const SnippetWell = ({ snippets, showModal }) => {
 			<ContainerOff className="rounded">
 				<h3>No Snippets Yet!</h3>
 				<p>click the button below to get started</p>
-				<FontAwesomeIcon icon={faArrowDown} />
+				<FontAwesomeIcon icon={faArrowDown} className="icon" />
 			</ContainerOff>
 		)
 	}

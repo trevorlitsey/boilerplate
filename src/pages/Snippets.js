@@ -6,6 +6,7 @@ import firebase, { db } from '../firebase';
 
 import Layout from '../components/Layout';
 import Spinner from '../components/shared/Spinner';
+import SignInForm from '../components/shared/SignInForm';
 import SnippetWell from '../components/snippets/SnippetWell';
 import NewSnippetButton from '../components/snippets/NewSnippetButton';
 import SnippetModal from '../components/snippets/SnippetModal';
@@ -21,13 +22,14 @@ class Snippets extends React.PureComponent {
 		snippets: {},
 		tags: [],
 		snippetToEdit: '',
+		userLoaded: false,
+		dbLoaded: false,
 	}
 
-	componentWillMount = () => {
-		const that = this;
+	componentDidMount = () => {
 
 		firebase.auth().onAuthStateChanged((user) => {
-			this.setState({ user });
+			this.setState({ user, userLoaded: true });
 
 			if (user) {
 
@@ -37,16 +39,8 @@ class Snippets extends React.PureComponent {
 					.onSnapshot((doc) => {
 
 						if (doc.data()) {
-
-							const { snippets, tags } = doc.data();
-
-							that.setState({
-								snippets: snippets || {},
-								tags: tags || [],
-							});
+							this.setState({ ...doc.data(), dbLoaded: true });
 						}
-
-						this.setState({ loading: false })
 
 					});
 			}
@@ -56,16 +50,15 @@ class Snippets extends React.PureComponent {
 
 	componentWillUnmount = () => {
 		this.dbUnsubscribe && this.dbUnsubscribe();
+		this.dbRef = null;
 	}
 
 	showModal = (e, snippetToEdit = '') => {
-		this.setState({ snippetToEdit });
-		this.setState({ modalOn: true })
+		this.setState({ modalOn: true, snippetToEdit })
 	}
 
 	hideModal = () => {
-		this.setState({ modalOn: false })
-		this.setState({ snippetToEdit: '' });
+		this.setState({ modalOn: false, snippetToEdit: '' })
 	}
 
 	addSnippet = (newSnippet, id = uniqid()) => {
@@ -98,12 +91,20 @@ class Snippets extends React.PureComponent {
 	render() {
 
 		const { location } = this.props;
-		const { loading, modalOn, snippets, tags, snippetToEdit, user } = this.state;
+		const { loading, modalOn, snippets, tags, snippetToEdit, user, userLoaded, dbLoaded } = this.state;
 
-		if (loading) {
+		if (!userLoaded || (userLoaded && user && !dbLoaded)) {
 			return (
 				<Layout location={location}>
 					<Spinner />
+				</Layout>
+			)
+		}
+
+		if (userLoaded && !user) {
+			return (
+				<Layout location={location} user={user}>
+					<SignInForm />
 				</Layout>
 			)
 		}

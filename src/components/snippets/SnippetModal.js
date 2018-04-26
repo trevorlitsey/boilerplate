@@ -24,12 +24,21 @@ class SnippetModal extends React.Component {
 		updateSnippet: func.isRequired,
 	}
 
+	static getDerivedStateFromProps(nextProps, prevState) {
+		return ({
+			selectedTags: nextProps.snippetToEdit.tags || [],
+			alertText: '',
+		})
+	}
+
 	state = {
-		selectedTags: this.props.snippetToEdit.selectedTags || [],
+		selectedTags: [],
 		alertText: '',
 	}
 
 	handleSelectChange = (selectedTags) => {
+		console.log(selectedTags);
+
 		this.setState({ selectedTags })
 	}
 
@@ -128,7 +137,7 @@ class SnippetModal extends React.Component {
 								closeOnSelect={false}
 								onChange={this.handleSelectChange}
 								onNewOptionClick={this.handleSelectCreate}
-								value={snippetToEdit.tags || selectedTags}
+								value={selectedTags}
 								options={options}
 							/>
 						</div>

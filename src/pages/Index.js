@@ -32,21 +32,24 @@ const Container = styled.div`
 class Index extends React.PureComponent {
 
 	state = {
+		user: {},
 		preview: {
 			snippetOrder: [],
 			draftOrder: [],
 		},
 		snippets: {},
+		tags: [],
 		activeItemId: '0',
 		shouldDisplayJumbo: true,
-		loading: true,
+		userLoaded: false,
+		dbLoaded: false,
 	}
 
-	componentWillMount = () => {
-		const that = this;
+	componentDidMount = () => {
 
 		firebase.auth().onAuthStateChanged((user) => {
-			this.setState({ user });
+
+			this.setState({ user, userLoaded: true });
 
 			if (user) {
 
@@ -57,32 +60,30 @@ class Index extends React.PureComponent {
 
 						if (doc.data()) {
 
-
-							const { preview, snippets, tags, shouldDisplayJumbo } = doc.data();
-
+							const { preview, snippets } = doc.data();
 							const { snippetOrder, draftOrder } = processPreview(preview, snippets);
 
-							that.setState({
-								snippets: {},
-								tags: [],
-								shouldDisplayJumbo: true,
+							const state = {
 								...doc.data(),
 								preview: {
 									snippetOrder: snippetOrder || [],
 									draftOrder: draftOrder || [],
 								},
-							});
-						}
+								dbLoaded: true,
+							}
 
+							this.setState(state);
+						}
 
 					});
 			}
-			this.setState({ loading: false });
+
 		});
 	}
 
 	componentWillUnmount = () => {
 		this.dbUnsubscribe && this.dbUnsubscribe();
+		this.dbRef = null;
 	}
 
 	hideJumbo = () => {
@@ -117,10 +118,10 @@ class Index extends React.PureComponent {
 	render() {
 
 		const { location } = this.props;
-		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo, user } = this.state;
+		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo, userLoaded, user, dbLoaded } = this.state;
 		const { snippetOrder, draftOrder } = preview;
 
-		if (loading) {
+		if (!userLoaded || (userLoaded && user && !dbLoaded)) {
 			return (
 				<Layout location={location} user={user}>
 					<Spinner />
