@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, func } from 'prop-types';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
@@ -47,6 +48,11 @@ const SnippetWell = ({ snippets, showModal }) => {
 			{Object.entries(snippets).map(([key, snippet]) => <Card key={key} id={key} {...snippet} showModal={showModal} />)}
 		</Container>
 	)
+}
+
+SnippetWell.propTypes = {
+	snippets: object.isRequired,
+	showModal: func.isRequired,
 }
 
 export default SnippetWell;

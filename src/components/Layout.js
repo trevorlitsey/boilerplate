@@ -1,5 +1,5 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { object, oneOfType } from 'prop-types';
 import styled from 'styled-components';
 
 import Nav from './Nav';
@@ -24,6 +24,7 @@ const Layout = ({ location, user, children }) => (
 
 Layout.propTypes = {
 	location: object.isRequired,
+	user: object,
 }
 
 export default Layout

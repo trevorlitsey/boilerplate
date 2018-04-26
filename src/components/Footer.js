@@ -11,4 +11,6 @@ const Footer = () => (
 	<P> <a href="http://www.trevorlitsey.com" target="blank">trevorlitsey.com</a> | <a href="https://github.com/trevorlitsey/cashflow-calc" target="blank">github</a> </P>
 )
 
+// no props
+
 export default Footer;

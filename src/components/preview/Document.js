@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, array } from 'prop-types';
 import styled from 'styled-components';
 
 import Section from './Section';
@@ -25,9 +26,14 @@ const Container = styled.div`
 
 class Document extends React.Component {
 
+	static propTypes = {
+		snippets: object.isRequired,
+		draftOrder: array.isRequired,
+	}
+
 	render() {
 
-		const { draftOrder, snippets } = this.props;
+		const { snippets, draftOrder } = this.props;
 
 		if (!draftOrder || draftOrder.length === 0) {
 			return (
@@ -47,6 +53,7 @@ class Document extends React.Component {
 						<Section
 							ref={id}
 							key={id}
+							id={id}
 							{...snippets[id]}
 						/>
 					)}

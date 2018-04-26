@@ -25,4 +25,6 @@ const Spinner = styled(icon) `
 	}
 `
 
+// no props
+
 export default Spinner;

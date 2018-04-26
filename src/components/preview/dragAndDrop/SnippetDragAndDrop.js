@@ -21,7 +21,6 @@ class SnippetDragAndDrop extends React.PureComponent {
 		snippetOrder: array.isRequired,
 	}
 
-
 	render() {
 
 		const { snippets, snippetOrder } = this.props;

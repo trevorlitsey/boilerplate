@@ -15,11 +15,9 @@ const getBaseListStyle = (isDraggingOver) => ({
 
 
 // -----exports-----
-export const getPreviewItemStyle = (isDragging, isActive, draggableStyle) => ({
+export const getPreviewItemStyle = (isDragging, draggableStyle) => ({
 	...baseItemStyle,
 	margin: `0 0 ${grid}px 0`,
-	background: isActive ? 'var(--primary)' : '',
-	color: isActive ? 'var(--white)' : '',
 
 	...draggableStyle,
 });

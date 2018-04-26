@@ -1,5 +1,5 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { object, oneOfType } from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faGoogle from '@fortawesome/fontawesome-free-brands/faGoogle';
 import styled from 'styled-components';
@@ -44,6 +44,7 @@ const Nav = ({ location, user }) => {
 
 Nav.propTypes = {
 	location: object.isRequired,
+	user: object,
 }
 
 

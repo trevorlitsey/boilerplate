@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, object, bool } from 'prop-types';
+import { string, object, bool, array, func } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const grid = 8;
@@ -34,8 +34,11 @@ const Card = ({ title, text, tags, id, overrideStyles, isActive, showModal }) =>
 Card.propTypes = {
 	title: string.isRequired,
 	text: string.isRequired,
+	tags: array.isRequired,
+	id: string.isRequired,
 	overrideStyles: object,
 	isActive: bool,
+	showModal: func.isRequired,
 }
 
 export default Card;

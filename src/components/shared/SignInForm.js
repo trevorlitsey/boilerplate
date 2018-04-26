@@ -29,4 +29,6 @@ const SignInForm = () => {
 	)
 }
 
+// no props
+
 export default SignInForm;

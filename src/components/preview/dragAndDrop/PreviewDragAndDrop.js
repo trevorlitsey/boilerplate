@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object, array } from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -13,9 +14,14 @@ const NoneYetStyles = {
 
 class PreviewDragAndDrop extends Component {
 
+	static propTypes = {
+		snippets: object.isRequired,
+		draftOrder: array.isRequired,
+	}
+
 	render() {
 
-		const { snippets, draftOrder, activeItemId } = this.props;
+		const { snippets, draftOrder } = this.props;
 
 		if (!draftOrder.length) {
 			return (
@@ -62,7 +68,6 @@ class PreviewDragAndDrop extends Component {
 												{...provided.dragHandleProps}
 												style={getPreviewItemStyle(
 													snapshot.isDragging,
-													id === activeItemId,
 													provided.draggableProps.style,
 												)}
 											>

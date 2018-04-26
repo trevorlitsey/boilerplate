@@ -1,7 +1,14 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 // needs to be class for refs!
 class Section extends React.Component {
+
+	static propTypes = {
+		id: string.isRequired,
+		title: string.isRequired,
+		text: string.isRequired,
+	}
 
 	render() {
 
