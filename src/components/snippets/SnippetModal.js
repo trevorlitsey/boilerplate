@@ -113,6 +113,7 @@ class SnippetModal extends React.PureComponent {
 							<label htmlFor="title">Title:</label>
 							<input
 								ref="title"
+								id="title"
 								type="text"
 								className="form-control"
 								defaultValue={snippetToEdit && snippetToEdit.title}
@@ -123,6 +124,7 @@ class SnippetModal extends React.PureComponent {
 							<label htmlFor="text">Text:</label>
 							<textarea
 								ref="text"
+								id="text"
 								className="form-control"
 								rows="3"
 								defaultValue={snippetToEdit && snippetToEdit.text}
@@ -134,6 +136,7 @@ class SnippetModal extends React.PureComponent {
 							<label htmlFor="tags">Tags:</label>
 							<Creatable
 								name="tags"
+								id="tags"
 								isClearable
 								multi={true}
 								closeOnSelect={false}

@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom'
 
 import firebase from '../firebase';
 
+import Layout from '../components/Layout';
+
 const Wrapper = styled.div`
 	margin: 50px auto;
 	max-width: 500px;
@@ -29,7 +31,7 @@ class Admin extends React.PureComponent {
 			return console.error(err)
 		});
 
-		return <Redirect to='/' />
+		this.props.history.push('/')
 	}
 
 	render() {
@@ -39,12 +41,11 @@ class Admin extends React.PureComponent {
 				<form onSubmit={this.handleSubmit}>
 					<div className="form-group">
 						<label htmlFor="email">Email address</label>
-						<input ref="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-						<small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+						<input ref="email" id="email" type="email" className="form-control" aria-describedby="email" placeholder="Enter email" />
 					</div>
 					<div className="form-group">
 						<label htmlFor="password">Password</label>
-						<input ref="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+						<input ref="password" id="password" type="password" className="form-control" placeholder="Password" />
 					</div>
 					<button type="submit" className="btn btn-primary">Sign in</button>
 				</form>
