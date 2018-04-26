@@ -68,13 +68,11 @@ class Index extends React.PureComponent {
 								preview: {
 									snippetOrder: snippetOrder || [],
 									draftOrder: draftOrder || [],
-								},
-								dbLoaded: true,
+								}
 							}
-
 							this.setState(state);
 						}
-
+						this.setState({ dbLoaded: true })
 					});
 			}
 

@@ -12,7 +12,7 @@ const Span = styled.span`
 	cursor: pointer;
 `
 
-class SnippetModal extends React.Component {
+class SnippetModal extends React.PureComponent {
 
 	static propTypes = {
 		snippetToEdit: object.isRequired,
@@ -25,9 +25,13 @@ class SnippetModal extends React.Component {
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
+
+		if (nextProps.modalOn && prevState.modalOn) return null
+
 		return ({
 			selectedTags: nextProps.snippetToEdit.tags || [],
 			alertText: '',
+			modalOn: nextProps.modalOn,
 		})
 	}
 
@@ -37,8 +41,6 @@ class SnippetModal extends React.Component {
 	}
 
 	handleSelectChange = (selectedTags) => {
-		console.log(selectedTags);
-
 		this.setState({ selectedTags })
 	}
 

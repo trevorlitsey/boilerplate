@@ -39,8 +39,9 @@ class Snippets extends React.PureComponent {
 					.onSnapshot((doc) => {
 
 						if (doc.data()) {
-							this.setState({ ...doc.data(), dbLoaded: true });
+							this.setState({ ...doc.data() });
 						}
+						this.setState({ dbLoaded: true });
 
 					});
 			}
