@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: path.resolve(__dirname, 'src', 'entry.js'),
 	output: {
-		path: path.resolve(__dirname, 'docs'),
+		path: path.resolve(__dirname, 'public'),
 		filename: '[hash].bundle.js',
 	},
 	optimization: {
@@ -16,7 +16,7 @@ module.exports = {
 	},
 	mode: process.env.NODE_ENV || 'development',
 	devServer: {
-		contentBase: path.join(__dirname, 'docs'),
+		contentBase: path.join(__dirname, 'public'),
 		compress: true,
 		host: '0.0.0.0',
 		port: 8080,
@@ -26,10 +26,10 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new CleanWebpackPlugin(['docs/*.js', 'docs/*.html']),
+		new CleanWebpackPlugin(['public/*.js', 'public/*.html']),
 		new HtmlWebpackPlugin({
 			template: './templates/index.html',
-			title: 'CashflowCalc.net',
+			title: 'Boilerplate Boilerplate',
 		}),
 	],
 	module: {

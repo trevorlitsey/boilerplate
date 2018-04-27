@@ -25,7 +25,7 @@ const Nav = ({ location, user }) => {
 			<Container>
 				<div className="left">
 					<ul className="navbar-nav">
-						<Link className="navbar-brand" to="/">Better Boilerplate</Link>
+						<Link className="navbar-brand" to="/">Boilerplate</Link>
 						<li className={`nav-item ${pathname === '/' && 'active'}`}>
 							<Link className="nav-link" to="/">Preview</Link>
 						</li>
