@@ -5,6 +5,8 @@ import ReactTooltip from 'react-tooltip'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { Link } from 'react-router-dom'
 
+import Spinner from '../../shared/Spinner';
+
 import { GrayH4 } from '../../../styles/components';
 
 import { getSnippetItemStyle, getSnippetListStyle } from './styles';
@@ -23,7 +25,23 @@ class SnippetDragAndDrop extends React.PureComponent {
 
 	render() {
 
-		const { snippets, snippetOrder } = this.props;
+		const { snippets, snippetOrder, loading } = this.props;
+
+		if (loading) {
+			return (
+				<Droppable droppableId="snippetOrder" direction="horizontal">
+					{(provided, snapshot) => (
+						<div
+							className="rounded"
+							ref={provided.innerRef}
+							style={getSnippetListStyle(snapshot.isDraggingOver)}
+						>
+							<Spinner style={{ margin: 'auto' }} />
+						</div>
+					)}
+				</Droppable>
+			)
+		}
 
 		if (!snippetOrder.length) {
 			return (

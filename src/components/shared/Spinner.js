@@ -3,12 +3,14 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faSpinner from '@fortawesome/fontawesome-free-solid/faSpinner';
 import styled from 'styled-components';
 
-const icon = ({ className, children }) => <FontAwesomeIcon className={className} icon={faSpinner}>{children}</FontAwesomeIcon>;
+const icon = ({ className, children }) => (
+	<FontAwesomeIcon className={className} icon={faSpinner}>{children}</FontAwesomeIcon>
+)
 
 const Spinner = styled(icon) `
 	display: flex;
-	width: 50px;
-	margin: 50px auto;
+	min-width: 50px;
+	margin: auto;
 	font-size: 2rem;
 	color: var(--blue);
 	opacity: .6;

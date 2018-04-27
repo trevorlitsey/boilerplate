@@ -89,7 +89,7 @@ class Snippets extends React.PureComponent {
 		const { location } = this.props;
 		const { loading, modalOn, snippets, tags, snippetToEdit, user, userLoaded, dbLoaded } = this.state;
 
-		if (!userLoaded || (userLoaded && user && !dbLoaded)) {
+		if (!userLoaded) {
 			return (
 				<Layout location={location}>
 					<Spinner />
@@ -110,6 +110,7 @@ class Snippets extends React.PureComponent {
 				<SnippetWell
 					snippets={snippets}
 					showModal={this.showModal}
+					loading={!dbLoaded}
 				/>
 				<NewSnippetButton showModal={this.showModal} />
 				<SnippetModal

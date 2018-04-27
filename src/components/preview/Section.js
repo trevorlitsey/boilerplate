@@ -1,5 +1,14 @@
 import React from 'react';
 import { string } from 'prop-types';
+import styled from 'styled-components';
+
+const Container = styled.div`
+
+	h4 {
+		color: var(--secondary);
+		text-decoration: underline;
+	}
+`
 
 // needs to be class for refs!
 class Section extends React.Component {
@@ -15,10 +24,10 @@ class Section extends React.Component {
 		const { id, title, text } = this.props;
 
 		return (
-			<div>
+			<Container>
 				<h4 id={id}>{title}</h4>
 				<p>{text}</p>
-			</div>
+			</Container>
 		)
 	}
 }

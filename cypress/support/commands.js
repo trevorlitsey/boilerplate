@@ -36,10 +36,6 @@ Cypress.Commands.add('signInViaAdminPage', () => {
 	cy.get('#password').type('testtest')
 	cy.contains('Sign in').click()
 
-	// firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
-	// 	.then(() => console.log('success'))
-	// 	.catch(err => console.error(err));
-
 })
 
 Cypress.Commands.add('signInViaFunction', () => {

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
 
+import Spinner from '../shared/Spinner';
 import Card from './Card';
 
 const Container = styled.div`
@@ -31,7 +32,15 @@ const ContainerOff = Container.extend`
 
 `
 
-const SnippetWell = ({ snippets, showModal }) => {
+const SnippetWell = ({ snippets, showModal, loading }) => {
+
+	if (loading) {
+		return (
+			<ContainerOff>
+				<Spinner />
+			</ContainerOff>
+		)
+	}
 
 	if (!Object.keys(snippets).length) {
 		return (

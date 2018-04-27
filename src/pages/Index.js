@@ -61,7 +61,6 @@ class Index extends React.PureComponent {
 
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
-
 						this.setPreviewStateFromFirebaseDoc(doc)
 					});
 			}
@@ -85,8 +84,7 @@ class Index extends React.PureComponent {
 				draftOrder: draftOrder || [],
 			}
 		}
-		this.setState(state);
-		this.setState({ dbLoaded: true })
+		this.setState({ ...state, dbLoaded: true });
 	}
 
 	hideJumbo = () => {
@@ -124,7 +122,7 @@ class Index extends React.PureComponent {
 		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo, userLoaded, user, dbLoaded } = this.state;
 		const { snippetOrder, draftOrder } = preview;
 
-		if (!userLoaded || (userLoaded && user && !dbLoaded)) {
+		if (!userLoaded) {
 			return (
 				<Layout location={location} user={user}>
 					<Spinner />
@@ -138,14 +136,15 @@ class Index extends React.PureComponent {
 					shouldDisplayJumbo={shouldDisplayJumbo}
 					hideJumbo={this.hideJumbo}
 					handleDownLoad={this.handleDownLoad}
+					loading={!dbLoaded}
 				/>
 				<DragDropContext onDragEnd={this.handleDragEnd}>
 					<H4>Snippets</H4>
-					<SnippetDragAndDrop snippets={snippets} snippetOrder={snippetOrder} />
+					<SnippetDragAndDrop snippets={snippets} snippetOrder={snippetOrder} loading={!dbLoaded} />
 					<H4>Preview</H4>
 					<Container>
-						<PreviewDragAndDrop snippets={snippets} draftOrder={draftOrder} activeItemId={activeItemId} />
-						<Document snippets={snippets} draftOrder={draftOrder} updateActive={this.updateActive} />
+						<PreviewDragAndDrop snippets={snippets} draftOrder={draftOrder} activeItemId={activeItemId} loading={!dbLoaded} />
+						<Document snippets={snippets} draftOrder={draftOrder} updateActive={this.updateActive} loading={!dbLoaded} />
 					</Container>
 				</DragDropContext>
 			</Layout>

@@ -3,6 +3,8 @@ import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip';
 
+import Spinner from '../shared/Spinner';
+
 const Container = styled.div`
 
 	&.jumbotron {
@@ -20,7 +22,6 @@ const Container = styled.div`
 	}
 
 	
-	
 	@media (max-width: 680px) {
 		& > .flex {
 			display: block;
@@ -34,7 +35,16 @@ const Container = styled.div`
 
 const Jumbotron = (props) => {
 
-	const { shouldDisplayJumbo, hideJumbo, handleDownLoad } = props;
+	const { shouldDisplayJumbo, hideJumbo, handleDownLoad, loading } = props;
+
+	if (loading) {
+		return (
+			<div className="jumbotron">
+				<Spinner />
+			</div>
+		)
+
+	}
 
 	if (shouldDisplayJumbo) {
 		return (
@@ -57,7 +67,7 @@ const Jumbotron = (props) => {
 			<h4 style={{ textDecoration: 'underline' }}>Welcome To Boilerplate</h4>
 			<div className="flex">
 				<p>Drag and drop snippets to draft a new document. When you're done, click the button to download text as .txt</p>
-				<a onClick={handleDownLoad} className="btn btn-primary btn-md" href="#" role="button">Download .docx</a>
+				<a onClick={handleDownLoad} className="btn btn-primary btn-md" href="#" role="button">Download .txt</a>
 			</div>
 		</Container>
 	)

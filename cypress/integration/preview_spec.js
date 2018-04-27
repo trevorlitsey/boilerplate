@@ -4,7 +4,7 @@ describe('Snippets', () => {
 
 	it('should log in and go to snippet page', () => {
 
-		cy.signInAsAdmin();
+		cy.signInViaAdminPage();
 
 	})
 

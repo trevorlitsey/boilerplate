@@ -3,6 +3,8 @@ import { object, array } from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import Spinner from '../../shared/Spinner';
+
 import { GrayH4 } from '../../../styles/components';
 
 import { getPreviewItemStyle, getPreviewListStyle } from './styles';
@@ -21,7 +23,28 @@ class PreviewDragAndDrop extends Component {
 
 	render() {
 
-		const { snippets, draftOrder } = this.props;
+		const { snippets, draftOrder, loading } = this.props;
+
+		if (loading) {
+			return (
+				<div>
+					<Droppable droppableId="draftOrder">
+						{(provided, snapshot) => (
+							<div
+								className="rounded"
+								ref={provided.innerRef}
+								style={getPreviewListStyle(snapshot.isDraggingOver)}
+							>
+								<div style={{ margin: '100px 0' }}>
+									<Spinner />
+								</div>
+							</div>
+						)}
+					</Droppable>
+				</div>
+			)
+		}
+
 
 		if (!draftOrder.length) {
 			return (
