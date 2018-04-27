@@ -30,25 +30,17 @@ class Snippets extends React.PureComponent {
 
 		firebase.auth().onAuthStateChanged((user) => {
 			this.setState({ user, userLoaded: true });
-			console.log(user);
-
 
 			if (user) {
-
 				this.dbRef = db.doc(`users/${user.uid}/`)
-
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
-
 						if (doc.data()) {
 							this.setState({ ...doc.data() });
 						}
 						this.setState({ dbLoaded: true });
-						console.log('db loaded');
-
 					});
 			}
-
 		})
 	}
 

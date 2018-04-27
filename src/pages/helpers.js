@@ -46,3 +46,18 @@ export const downloadDocument = (filename, text) => {
 
 	document.body.removeChild(element);
 }
+
+export const setPreviewStateFromFirebaseDoc = (that, doc) => {
+	const { preview, snippets } = doc.data();
+	const { snippetOrder, draftOrder } = processPreview(preview, snippets);
+
+	const state = {
+		...doc.data(),
+		preview: {
+			snippetOrder: snippetOrder || [],
+			draftOrder: draftOrder || [],
+		}
+	}
+	that.setState(state);
+	that.setState({ dbLoaded: true })
+}

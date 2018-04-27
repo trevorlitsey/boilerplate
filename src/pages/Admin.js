@@ -24,14 +24,16 @@ class Admin extends React.PureComponent {
 		e.preventDefault();
 
 		const { email, password } = this.refs;
-		console.log({ email, password });
 
+		firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+			.then(() => {
+				// success
+				this.props.history.push('/')
+			})
+			.catch((err) => {
+				return console.error(err)
+			});
 
-		firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch((err) => {
-			return console.error(err)
-		});
-
-		this.props.history.push('/')
 	}
 
 	render() {

@@ -55,24 +55,14 @@ class Index extends React.PureComponent {
 
 				this.dbRef = db.doc(`users/${user.uid}/`)
 
+				this.dbRef.get().then(doc => {
+					this.setPreviewStateFromFirebaseDoc(doc)
+				})
+
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
 
-						if (doc.data()) {
-
-							const { preview, snippets } = doc.data();
-							const { snippetOrder, draftOrder } = processPreview(preview, snippets);
-
-							const state = {
-								...doc.data(),
-								preview: {
-									snippetOrder: snippetOrder || [],
-									draftOrder: draftOrder || [],
-								}
-							}
-							this.setState(state);
-						}
-						this.setState({ dbLoaded: true })
+						this.setPreviewStateFromFirebaseDoc(doc)
 					});
 			}
 
@@ -82,6 +72,21 @@ class Index extends React.PureComponent {
 	componentWillUnmount = () => {
 		this.dbUnsubscribe && this.dbUnsubscribe();
 		this.dbRef = null;
+	}
+
+	setPreviewStateFromFirebaseDoc = (doc) => {
+		const { preview, snippets } = doc.data();
+		const { snippetOrder, draftOrder } = processPreview(preview, snippets);
+
+		const state = {
+			...doc.data(),
+			preview: {
+				snippetOrder: snippetOrder || [],
+				draftOrder: draftOrder || [],
+			}
+		}
+		this.setState(state);
+		this.setState({ dbLoaded: true })
 	}
 
 	hideJumbo = () => {

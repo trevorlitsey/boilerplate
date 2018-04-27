@@ -27,11 +27,27 @@
 import firebase, { signInWithEmailAndPassword, signOut } from '../../src/firebase';
 import { siteUrl } from './data';
 
-Cypress.Commands.add('signInAsAdmin', () => {
+Cypress.Commands.add('signInViaAdminPage', () => {
 
 	firebase.auth().signOut() // make sure we're signed out
+
+	cy.visit(siteUrl + '/admin');
+	cy.get('#email').type('test@test.com')
+	cy.get('#password').type('testtest')
+	cy.contains('Sign in').click()
+
+	// firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
+	// 	.then(() => console.log('success'))
+	// 	.catch(err => console.error(err));
+
+})
+
+Cypress.Commands.add('signInViaFunction', () => {
+
+	firebase.auth().signOut() // make sure we're signed out
+
 	firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
-		.then(() => console.log('success'))
+		.then(() => console.log('successfully signed in'))
 		.catch(err => console.error(err));
 
 })

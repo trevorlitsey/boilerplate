@@ -5,12 +5,12 @@ import { siteUrl } from '../support/data';
 describe('Snippets', () => {
 
 	it('should log in and go to snippet page', () => {
-		cy.visit(siteUrl + '/snippets')
-		cy.wait(1000);
-		cy.signInAsAdmin();
+		cy.wait(1000)
+		cy.signInViaFunction();
 	})
 
 	it('should add new snippet', () => {
+		cy.visit(siteUrl + '/snippets');
 
 		const [title, text] = [faker.lorem.words(), faker.lorem.paragraph()];
 		const tags = Array.from({ length: 4 }, () => faker.lorem.word())
