@@ -3,6 +3,7 @@ import { siteUrl } from '../support/data';
 describe('router', () => {
 
 	it('should sign out', () => {
+		cy.visit(siteUrl)
 		cy.signOut();
 	})
 

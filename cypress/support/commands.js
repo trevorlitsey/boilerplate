@@ -29,6 +29,8 @@ import uniqid from 'uniqid';
 import firebase, { signInWithEmailAndPassword, signOut } from '../../src/firebase';
 import { siteUrl, uid } from './data';
 
+const dbRef = firebase.firestore().doc(`users/${uid}`);
+
 Cypress.Commands.add('signInViaAdminPage', () => {
 
 	firebase.auth().signOut() // make sure we're signed out
@@ -56,6 +58,15 @@ Cypress.Commands.add('signOut', () => {
 	firebase.auth().signOut()
 })
 
+Cypress.Commands.add('clearSnippets', (cb) => {
+	dbRef
+		.update({ snippets: firebase.firestore.FieldValue.delete() })
+		.then(() => {
+			console.log('snippets deleted hoora');
+			cb && cb();
+		});
+})
+
 Cypress.Commands.add('addSnippets', (num = 1) => {
 
 	const snippets = {}
@@ -67,8 +78,6 @@ Cypress.Commands.add('addSnippets', (num = 1) => {
 		}
 		snippets[uniqid()] = snippet;
 	}
-
-	const dbRef = firebase.firestore().doc(`users/${uid}`);
 
 	dbRef.set({ snippets }, { merge: true })
 

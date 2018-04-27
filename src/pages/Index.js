@@ -55,14 +55,12 @@ class Index extends React.PureComponent {
 
 				this.dbRef = db.doc(`users/${user.uid}/`)
 
-				this.dbRef.get().then(doc => {
-					this.setPreviewStateFromFirebaseDoc(doc)
-				})
-
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
 						this.setPreviewStateFromFirebaseDoc(doc)
 					});
+			} else {
+				this.setState({ dbLoaded: true })
 			}
 
 		});

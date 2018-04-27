@@ -12,6 +12,8 @@ describe('Snippets', () => {
 	it('should add new snippet', () => {
 		cy.visit(siteUrl + '/snippets');
 
+		cy.clearSnippets(); // reset
+
 		const [title, text] = [faker.lorem.words(), faker.lorem.paragraph()];
 		const tags = Array.from({ length: 4 }, () => faker.lorem.word())
 
@@ -74,7 +76,7 @@ describe('Snippets', () => {
 			cy.get('.card').last().find('a').click();
 			cy.contains('Delete').click();
 
-			cy.get('.card').last().find('.card-title').should('not.eq', title.text())
+			cy.contains('No Snippets Yet!')
 		});
 
 	})

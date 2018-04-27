@@ -36,7 +36,12 @@ class Snippets extends React.PureComponent {
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
 						if (doc.data()) {
-							this.setState({ ...doc.data() });
+							const state = {
+								snippets: {},
+								tags: [],
+								...doc.data(),
+							}
+							this.setState(state);
 						}
 						this.setState({ dbLoaded: true });
 					});
@@ -74,7 +79,10 @@ class Snippets extends React.PureComponent {
 		delete snippets[id];
 		this.hideModal();
 		this.dbRef.update({ snippets: firebase.firestore.FieldValue.delete() }); // make sure that fucker is gone...
-		this.dbRef.set({ snippets }, { merge: true });
+
+		if (Object.keys(snippets)) {
+			this.dbRef.set({ snippets }, { merge: true });
+		}
 	}
 
 	addTag = (newTag, id = uniqid()) => {
