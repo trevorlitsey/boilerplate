@@ -23,9 +23,11 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+import faker from 'faker';
+import uniqid from 'uniqid';
 
 import firebase, { signInWithEmailAndPassword, signOut } from '../../src/firebase';
-import { siteUrl } from './data';
+import { siteUrl, uid } from './data';
 
 Cypress.Commands.add('signInViaAdminPage', () => {
 
@@ -38,12 +40,14 @@ Cypress.Commands.add('signInViaAdminPage', () => {
 
 })
 
-Cypress.Commands.add('signInViaFunction', () => {
+Cypress.Commands.add('signInViaFunction', (cb) => {
 
 	firebase.auth().signOut() // make sure we're signed out
 
-	firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
-		.then(() => console.log('successfully signed in'))
+	return firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
+		.then(() => {
+			return cb();
+		})
 		.catch(err => console.error(err));
 
 })
@@ -51,3 +55,21 @@ Cypress.Commands.add('signInViaFunction', () => {
 Cypress.Commands.add('signOut', () => {
 	firebase.auth().signOut()
 })
+
+Cypress.Commands.add('addSnippets', (num = 1) => {
+
+	const snippets = {}
+
+	for (let i = 0; i < num; i++) {
+		const snippet = {
+			title: faker.lorem.words(),
+			text: faker.lorem.paragraph(),
+		}
+		snippets[uniqid()] = snippet;
+	}
+
+	const dbRef = firebase.firestore().doc(`users/${uid}`);
+
+	dbRef.set({ snippets }, { merge: true })
+
+});

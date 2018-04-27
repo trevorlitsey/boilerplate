@@ -65,6 +65,7 @@ class SnippetDragAndDrop extends React.PureComponent {
 					{(provided, snapshot) => (
 						<div
 							className="rounded"
+							data-test="snippetOrder"
 							ref={provided.innerRef}
 							style={getSnippetListStyle(snapshot.isDraggingOver)}
 						>

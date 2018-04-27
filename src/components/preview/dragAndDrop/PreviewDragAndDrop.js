@@ -71,6 +71,7 @@ class PreviewDragAndDrop extends Component {
 						<div
 							ref={provided.innerRef}
 							className="rounded"
+							data-test="draftOrder"
 							style={getPreviewListStyle(snapshot.isDraggingOver)}
 						>
 							{draftOrder && draftOrder.map((id, index) => {
