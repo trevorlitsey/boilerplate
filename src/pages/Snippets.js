@@ -30,6 +30,8 @@ class Snippets extends React.PureComponent {
 
 		firebase.auth().onAuthStateChanged((user) => {
 			this.setState({ user, userLoaded: true });
+			console.log(user);
+
 
 			if (user) {
 
@@ -42,6 +44,7 @@ class Snippets extends React.PureComponent {
 							this.setState({ ...doc.data() });
 						}
 						this.setState({ dbLoaded: true });
+						console.log('db loaded');
 
 					});
 			}

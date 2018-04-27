@@ -23,8 +23,7 @@ const SignInForm = () => {
 	return (
 		<Container className="rounded">
 			<FontAwesomeIcon icon={faArrowUp} className="icon" />
-			<h3>Hey there</h3>
-			<h3>Can't do much until you sign in, can we?</h3>
+			<h3>Hey! Sign in over there</h3>
 		</Container>
 	)
 }

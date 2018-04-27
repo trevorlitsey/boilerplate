@@ -24,6 +24,13 @@ export const signIn = () => {
 	});
 }
 
+export const signInWithEmailAndPassword = (email, password) => {
+	firebase.auth().signInWithEmailAndPassword(email, password).catch((err) => {
+		return console.error(err)
+	});
+}
+
+
 export const signOut = () => {
 	firebase.auth().signOut().then(function () {
 		// Sign-out successful.

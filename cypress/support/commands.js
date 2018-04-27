@@ -23,3 +23,19 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+import firebase, { signInWithEmailAndPassword, signOut } from '../../src/firebase';
+import { siteUrl } from './data';
+
+Cypress.Commands.add('signInAsAdmin', () => {
+
+	firebase.auth().signOut() // make sure we're signed out
+	firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
+		.then(() => console.log('success'))
+		.catch(err => console.error(err));
+
+})
+
+Cypress.Commands.add('signOut', () => {
+	firebase.auth().signOut()
+})
