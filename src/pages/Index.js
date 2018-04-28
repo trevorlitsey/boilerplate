@@ -86,7 +86,11 @@ class Index extends React.PureComponent {
 	}
 
 	hideJumbo = () => {
-		this.dbRef.set({ shouldDisplayJumbo: false }, { merge: true });
+		if (this.dbRef) {
+			this.dbRef.set({ shouldDisplayJumbo: false }, { merge: true });
+		} else {
+			this.setState({ shouldDisplayJumbo: false });
+		}
 	}
 
 	updateActive = (activeItemId) => {
