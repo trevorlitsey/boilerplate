@@ -28,7 +28,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new CleanWebpackPlugin(['public/*.js', 'public/*.html']),
 		new HtmlWebpackPlugin({
-			template: './templates/index.html',
+			template: path.resolve(__dirname, 'templates', 'index.html'),
 			title: 'Boilerplate Boilerplate',
 		}),
 	],
