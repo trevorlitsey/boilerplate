@@ -7,7 +7,7 @@
     "test": "NODE_ENV=production jest",
     "test:watch": "NODE_ENV=production jest --watch",
     "cypress": "cypress open",
-    "start": "webpack && node server",
+    "start": "node server",
     "start:dev": "webpack-dev-server",
     "build": "NODE_ENV=production webpack",
     "serve": "node server"
