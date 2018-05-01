@@ -27,7 +27,7 @@ describe('router', () => {
 
 	it('should visit Preview page on logo click', () => {
 		cy.visit(siteUrl + '/snippets')
-		cy.contains('Better Boilerplate').click();
+		cy.contains('Boilerplate').click();
 		cy.url().should('eq', siteUrl + '/')
 	})
 
