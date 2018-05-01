@@ -45,6 +45,8 @@ class Snippets extends React.PureComponent {
 						}
 						this.setState({ dbLoaded: true });
 					});
+			} else {
+				this.dbUnsubscribe && this.dbUnsubscribe();
 			}
 		})
 	}

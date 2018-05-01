@@ -39,10 +39,10 @@ class Index extends React.PureComponent {
 		},
 		snippets: {},
 		tags: [],
-		activeItemId: '0',
 		shouldDisplayJumbo: true,
 		userLoaded: false,
 		dbLoaded: false,
+		windowWidth: window.innerWidth,
 	}
 
 	componentDidMount = () => {
@@ -60,15 +60,33 @@ class Index extends React.PureComponent {
 						this.setPreviewStateFromFirebaseDoc(doc)
 					});
 			} else {
-				this.setState({ dbLoaded: true })
+				this.dbUnsubscribe && this.dbUnsubscribe();
+				this.setState({
+					preview: {
+						snippetOrder: [],
+						draftOrder: [],
+					},
+					snippets: {},
+					tags: [],
+					dbLoaded: true
+				})
 			}
 
 		});
+
+		// listen for window sizing
+		this.updateWindowDimensions();
+		window.addEventListener('resize', this.updateWindowDimensions);
 	}
 
 	componentWillUnmount = () => {
+		window.removeEventListener('resize', this.updateWindowDimensions);
 		this.dbUnsubscribe && this.dbUnsubscribe();
 		this.dbRef = null;
+	}
+
+	updateWindowDimensions = () => {
+		this.setState({ windowWidth: window.innerWidth })
 	}
 
 	setPreviewStateFromFirebaseDoc = (doc) => {
@@ -121,7 +139,15 @@ class Index extends React.PureComponent {
 	render() {
 
 		const { location } = this.props;
-		const { activeItemId, snippets, preview, loading, shouldDisplayJumbo, userLoaded, user, dbLoaded } = this.state;
+		const { activeItemId,
+			snippets,
+			preview,
+			loading,
+			shouldDisplayJumbo,
+			userLoaded,
+			user,
+			dbLoaded,
+			windowWidth } = this.state;
 		const { snippetOrder, draftOrder } = preview;
 
 		if (!userLoaded) {
@@ -135,7 +161,7 @@ class Index extends React.PureComponent {
 		return (
 			<Layout location={location} user={user}>
 				<Jumbotron
-					shouldDisplayJumbo={shouldDisplayJumbo}
+					shouldDisplayJumbo={shouldDisplayJumbo && windowWidth >= 576}
 					hideJumbo={this.hideJumbo}
 					handleDownLoad={this.handleDownLoad}
 					loading={!dbLoaded}

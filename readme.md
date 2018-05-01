@@ -19,6 +19,7 @@ npm run cypress
 * [React](https://reactjs.org/)
 * [Firebase](https://firebase.google.com/)
 * [Bootstrap](https://getbootstrap.com/)
+* [styled-components](https://www.styled-components.com/)
 * [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
 * [Font Awesome](https://fontawesome.com/)
 * [Node.js](https://nodejs.org/en/)

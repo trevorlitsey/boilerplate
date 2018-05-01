@@ -20,7 +20,7 @@ const Container = styled.div`
 			margin: 0 40px 0 0;
 		}
 	}
-
+	
 	
 	@media (max-width: 680px) {
 		& > .flex {
