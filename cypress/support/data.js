@@ -1,2 +1,2 @@
-export const siteUrl = 'http://localhost:8080'
+export const siteUrl = 'https://boilerplateboilerplate.herokuapp.com'
 export const uid = 'NlXMwb8eRcOtnCoZwi7aNkM9KCo1';

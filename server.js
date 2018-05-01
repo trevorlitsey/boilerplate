@@ -5,8 +5,8 @@ require('dotenv').config()
 
 app.use(express.static('public'))
 
-app.all('*', (req, res) => {
-	res.sendFile('index.html');
+app.get('*', (req, res) => {
+	res.sendFile(__dirname + '/public/index.html');
 })
 
 const port = process.env.PORT
