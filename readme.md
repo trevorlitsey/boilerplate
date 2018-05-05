@@ -2,6 +2,14 @@
 
 Single-page app for organizing boilerplate text. Drag and drop snippets into place and download .txt file when you're done.
 
+<img src="tbd"
+     alt="demo 1"
+     style="margin: 10px 0 30px;">
+
+<img src="tbd"
+     alt="demo 2"
+     style="margin: 10px 0 30px;">
+
 ## Getting Started
 ```````
 git clone
