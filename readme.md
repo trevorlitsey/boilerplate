@@ -3,7 +3,7 @@
 Single-page app for organizing boilerplate text. Drag and drop snippets into place and download .txt file when you're done.
 
 <div style="display: flex;">
-<img src="https://github.com/trevorlitsey/boilerplate/blob/master/demos/demo.gif"
+<video src="./demos/demo.mp4"
      alt="demo 1"
      style="margin: 10px 10% 30px;" />
 </div>
