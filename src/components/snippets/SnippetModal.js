@@ -52,6 +52,10 @@ class SnippetModal extends React.PureComponent {
 		this.props.addTag(newTag);
 	}
 
+	handleDelete = (e) => {
+		this.props.deleteSnippet(this.props.snippetToEdit.id)
+	}
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const { title, text } = this.refs;
@@ -91,7 +95,7 @@ class SnippetModal extends React.PureComponent {
 		const isUpdate = Object.keys(snippetToEdit).length > 0;
 		const options = Object.values(tags).map(val => val);
 
-		const deleteButton = <button onClick={() => deleteSnippet(snippetToEdit.id)} className="btn btn-danger" style={{ justifySelf: 'flex-start' }}>Delete</button>
+		const deleteButton = <button onClick={this.handleDelete} className="btn btn-danger" style={{ justifySelf: 'flex-start' }}>Delete</button>
 
 		return (
 			<Modal className="show" show={modalOn} onHide={hideModal}>
@@ -148,14 +152,31 @@ class SnippetModal extends React.PureComponent {
 							/>
 						</div>
 					</Modal.Body>
-					<Modal.Footer style={{ justifyContent: isUpdate && 'space-between' }}>
-						{isUpdate && deleteButton}
-						<div>
+					<Modal.Footer className="footer">
+						<div className="submit-buttons">
 							<button type="submit" className="btn btn-primary">{isUpdate ? 'Update' : 'Submit'}</button>
 							<Button onClick={hideModal}>Cancel</Button>
 						</div>
+						{isUpdate && deleteButton}
 					</Modal.Footer>
 				</form>
+				<style jsx>{`
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				`}</style>
 			</Modal>
 		)
 	}
