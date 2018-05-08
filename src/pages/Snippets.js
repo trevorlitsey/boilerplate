@@ -7,6 +7,7 @@ import firebase, { db } from '../firebase';
 import Layout from '../components/Layout';
 import Spinner from '../components/shared/Spinner';
 import SignInForm from '../components/shared/SignInForm';
+import SearchBar from '../components/snippets/SearchBar';
 import SnippetWell from '../components/snippets/SnippetWell';
 import NewSnippetButton from '../components/snippets/NewSnippetButton';
 import SnippetModal from '../components/snippets/SnippetModal';
@@ -22,6 +23,7 @@ class Snippets extends React.PureComponent {
 		snippets: {},
 		tags: [],
 		snippetToEdit: '',
+		filterQuery: '',
 		userLoaded: false,
 		dbLoaded: false,
 	}
@@ -94,10 +96,23 @@ class Snippets extends React.PureComponent {
 		this.dbRef.set({ tags }, { merge: true });
 	}
 
+	handleSearchChange = (e) => {
+		this.setState({ filterQuery: e.target.value.toLowerCase() });
+	}
+
 	render() {
 
 		const { location } = this.props;
-		const { loading, modalOn, snippets, tags, snippetToEdit, user, userLoaded, dbLoaded } = this.state;
+		const {
+			loading,
+			modalOn,
+			snippets,
+			tags,
+			snippetToEdit,
+			user,
+			filterQuery,
+			userLoaded,
+			dbLoaded } = this.state;
 
 		if (!userLoaded) {
 			return (
@@ -117,8 +132,10 @@ class Snippets extends React.PureComponent {
 
 		return (
 			<Layout location={location} user={user}>
+				<SearchBar onChange={this.handleSearchChange} />
 				<SnippetWell
 					snippets={snippets}
+					filterQuery={filterQuery}
 					showModal={this.showModal}
 					loading={!dbLoaded}
 				/>

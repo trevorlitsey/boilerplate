@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, func } from 'prop-types';
+import { object, func, string, bool } from 'prop-types';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
@@ -32,7 +32,24 @@ const ContainerOff = Container.extend`
 
 `
 
-const SnippetWell = ({ snippets, showModal, loading }) => {
+const filterFunc = ([key, values], filterQuery) => {
+
+	const isInTags = values.tags.map(tag => {
+		if (tag.value.toLowerCase().includes(filterQuery)) return true;
+	})
+
+	const isInTitle = values.title.toLowerCase().includes(filterQuery);
+
+	const isInText = values.text.toLowerCase().includes(filterQuery);
+
+	if (isInTags.includes(true) || isInTitle || isInText) {
+		return [key, values]
+	}
+
+}
+
+
+const SnippetWell = ({ snippets, showModal, loading, filterQuery }) => {
 
 	if (loading) {
 		return (
@@ -54,7 +71,11 @@ const SnippetWell = ({ snippets, showModal, loading }) => {
 
 	return (
 		<Container className="rounded">
-			{Object.entries(snippets).map(([key, snippet]) => <Card key={key} id={key} {...snippet} showModal={showModal} />)}
+			{Object.entries(snippets)
+				.filter(([key, values]) => filterFunc([key, values], filterQuery))
+				.map(([key, snippet]) =>
+					<Card key={key} id={key} {...snippet} showModal={showModal} />
+				)}
 		</Container>
 	)
 }
@@ -62,6 +83,8 @@ const SnippetWell = ({ snippets, showModal, loading }) => {
 SnippetWell.propTypes = {
 	snippets: object.isRequired,
 	showModal: func.isRequired,
+	filterQuery: string.isRequired,
+	loading: bool,
 }
 
 export default SnippetWell;
