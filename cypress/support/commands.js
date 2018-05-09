@@ -28,6 +28,7 @@ import uniqid from 'uniqid';
 
 import firebase, { signInWithEmailAndPassword, signOut } from '../../src/firebase';
 import { siteUrl, uid } from './data';
+import { snippets as sampleSnippets } from '../../sampleData';
 
 const dbRef = firebase.firestore().doc(`users/${uid}`);
 
@@ -48,7 +49,7 @@ Cypress.Commands.add('signInViaFunction', (cb) => {
 
 	return firebase.auth().signInWithEmailAndPassword('test@test.com', 'testtest')
 		.then(() => {
-			return cb();
+			return cb && cb();
 		})
 		.catch(err => console.error(err));
 
@@ -80,5 +81,13 @@ Cypress.Commands.add('addSnippets', (num = 1) => {
 	}
 
 	dbRef.set({ snippets }, { merge: true })
+
+	return snippets;
+
+});
+
+Cypress.Commands.add('addSampleSnippets', () => {
+
+	dbRef.set({ snippets: sampleSnippets }).then(() => console.log('added some sample snippets hoora'))
 
 });

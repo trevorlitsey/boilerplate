@@ -23,7 +23,15 @@ const Wrapper = styled.div`
 const SearchBar = ({ onChange }) => (
 	<Wrapper>
 		<div className="input-group mb-3">
-			<input onChange={onChange} type="text" className="form-control" placeholder="Search ..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+			<input
+				onChange={onChange}
+				data-test="search"
+				type="text"
+				className="form-control"
+				placeholder="Search ..."
+				aria-label="search"
+				aria-describedby="search snippets"
+			/>
 			<div className="input-group-append">
 				<span className="input-group-text" id="basic-addon2"><FontAwesomeIcon icon={faSearch} /></span>
 			</div>

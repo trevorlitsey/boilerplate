@@ -9,6 +9,16 @@ describe('Snippets', () => {
 		cy.signInViaFunction();
 	})
 
+	it('should filter snippets', () => {
+		cy.visit(siteUrl + '/snippets');
+		cy.clearSnippets();
+		cy.addSampleSnippets();
+		cy.get('.card').its('length').should('be', 4)
+		cy.get('[data-test="search"]').type('Praesent aliquet placerat')
+		cy.get('.card').its('length').should('be', 1)
+		cy.clearSnippets();
+	})
+
 	it('should add new snippet', () => {
 		cy.visit(siteUrl + '/snippets');
 
