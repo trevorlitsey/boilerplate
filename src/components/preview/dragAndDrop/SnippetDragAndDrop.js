@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, array } from 'prop-types';
+import { object, array, bool } from 'prop-types';
 import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
@@ -11,7 +11,7 @@ import { GrayH4 } from '../../../styles/components';
 
 import { getSnippetItemStyle, getSnippetListStyle } from './styles';
 
-const ScrollContainer = styled.div`
+export const ScrollContainer = styled.div`
 	width: 100%;
 	overflow: scroll;
 `
@@ -21,6 +21,7 @@ class SnippetDragAndDrop extends React.PureComponent {
 	static propTypes = {
 		snippets: object.isRequired,
 		snippetOrder: array.isRequired,
+		loading: bool,
 	}
 
 	render() {
@@ -29,7 +30,7 @@ class SnippetDragAndDrop extends React.PureComponent {
 
 		if (loading) {
 			return (
-				<Droppable droppableId="snippetOrder" direction="horizontal">
+				<Droppable data-test="loading" droppableId="snippetOrder" direction="horizontal">
 					{(provided, snapshot) => (
 						<div
 							className="rounded"
@@ -43,9 +44,9 @@ class SnippetDragAndDrop extends React.PureComponent {
 			)
 		}
 
-		if (!snippetOrder.length) {
+		if (!snippetOrder || !snippetOrder.length) {
 			return (
-				<Droppable droppableId="snippetOrder" direction="horizontal">
+				<Droppable data-test="no-order" droppableId="snippetOrder" direction="horizontal">
 					{(provided, snapshot) => (
 						<div
 							className="rounded"
@@ -61,7 +62,7 @@ class SnippetDragAndDrop extends React.PureComponent {
 
 		return (
 			<ScrollContainer>
-				<Droppable droppableId="snippetOrder" direction="horizontal">
+				<Droppable data-test="render-order" droppableId="snippetOrder" direction="horizontal">
 					{(provided, snapshot) => (
 						<div
 							className="rounded"

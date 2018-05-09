@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SignInForm />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <FontAwesomeIcon$1
+          border={false}
+          className="icon"
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                448,
+                512,
+                Array [],
+                "f062",
+                "M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z",
+              ],
+              "iconName": "arrow-up",
+              "prefix": "fas",
+            }
+          }
+          listItem={false}
+          mask={null}
+          name=""
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          transform={null}
+        />,
+        <h3>
+          Hey! Sign in over there
+        </h3>,
+      ],
+      "className": "rounded",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "border": false,
+          "className": "icon",
+          "fixedWidth": false,
+          "flip": null,
+          "icon": Object {
+            "icon": Array [
+              448,
+              512,
+              Array [],
+              "f062",
+              "M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z",
+            ],
+            "iconName": "arrow-up",
+            "prefix": "fas",
+          },
+          "listItem": false,
+          "mask": null,
+          "name": "",
+          "pull": null,
+          "pulse": false,
+          "rotation": null,
+          "size": null,
+          "spin": false,
+          "symbol": false,
+          "transform": null,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Hey! Sign in over there",
+        },
+        "ref": null,
+        "rendered": "Hey! Sign in over there",
+        "type": "h3",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <FontAwesomeIcon$1
+            border={false}
+            className="icon"
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Object {
+                "icon": Array [
+                  448,
+                  512,
+                  Array [],
+                  "f062",
+                  "M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z",
+                ],
+                "iconName": "arrow-up",
+                "prefix": "fas",
+              }
+            }
+            listItem={false}
+            mask={null}
+            name=""
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            transform={null}
+          />,
+          <h3>
+            Hey! Sign in over there
+          </h3>,
+        ],
+        "className": "rounded",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "border": false,
+            "className": "icon",
+            "fixedWidth": false,
+            "flip": null,
+            "icon": Object {
+              "icon": Array [
+                448,
+                512,
+                Array [],
+                "f062",
+                "M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z",
+              ],
+              "iconName": "arrow-up",
+              "prefix": "fas",
+            },
+            "listItem": false,
+            "mask": null,
+            "name": "",
+            "pull": null,
+            "pulse": false,
+            "rotation": null,
+            "size": null,
+            "spin": false,
+            "symbol": false,
+            "transform": null,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Hey! Sign in over there",
+          },
+          "ref": null,
+          "rendered": "Hey! Sign in over there",
+          "type": "h3",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { object, array } from 'prop-types';
+import { object, array, bool } from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -19,6 +19,7 @@ class PreviewDragAndDrop extends Component {
 	static propTypes = {
 		snippets: object.isRequired,
 		draftOrder: array.isRequired,
+		loading: bool,
 	}
 
 	render() {
@@ -28,7 +29,7 @@ class PreviewDragAndDrop extends Component {
 		if (loading) {
 			return (
 				<div>
-					<Droppable droppableId="draftOrder">
+					<Droppable data-test="loading" droppableId="draftOrder">
 						{(provided, snapshot) => (
 							<div
 								className="rounded"
@@ -45,11 +46,10 @@ class PreviewDragAndDrop extends Component {
 			)
 		}
 
-
-		if (!draftOrder.length) {
+		if (!draftOrder || !draftOrder.length) {
 			return (
 				<div>
-					<Droppable droppableId="draftOrder">
+					<Droppable data-test="no-order" droppableId="draftOrder">
 						{(provided, snapshot) => (
 							<div
 								className="rounded"
@@ -66,7 +66,7 @@ class PreviewDragAndDrop extends Component {
 
 		return (
 			<div>
-				<Droppable droppableId="draftOrder">
+				<Droppable data-test="render-order" droppableId="draftOrder">
 					{(provided, snapshot) => (
 						<div
 							ref={provided.innerRef}
