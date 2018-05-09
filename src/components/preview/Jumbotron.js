@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip';
 
@@ -35,7 +35,19 @@ const Container = styled.div`
 
 const Jumbotron = (props) => {
 
-	const { shouldDisplayJumbo, hideJumbo, handleDownLoad, loading } = props;
+	const { shouldDisplayJumbo, hideJumbo, text, loading } = props;
+
+	const downloadButton = (
+		<a
+			className="btn btn-primary btn-lg"
+			href={'data:text/plain;charset=utf-8,' + encodeURIComponent(text)}
+			download="document.txt"
+			role="button"
+		>
+			Download .txt
+		</a>
+
+	)
 
 	if (loading) {
 		return (
@@ -56,7 +68,7 @@ const Jumbotron = (props) => {
 				<p className="lead">Drag and drop snippets to draft a new document</p>
 				<hr className="my-4" />
 				<p>When you're done, click the button to download text as .txt</p>
-				<a onClick={handleDownLoad} className="btn btn-primary btn-lg" href="#" role="button">Download .txt</a>
+				{downloadButton}
 				<ReactTooltip effect="solid" />
 			</div>
 		)
@@ -67,7 +79,7 @@ const Jumbotron = (props) => {
 			<h4 style={{ textDecoration: 'underline' }}>Welcome To Boilerplate</h4>
 			<div className="flex">
 				<p>Drag and drop snippets to draft a new document. When you're done, click the button to download text as .txt</p>
-				<a onClick={handleDownLoad} className="btn btn-primary btn-md" href="#" role="button">Download .txt</a>
+				{downloadButton}
 			</div>
 		</Container>
 	)
@@ -77,7 +89,8 @@ const Jumbotron = (props) => {
 Jumbotron.propTypes = {
 	shouldDisplayJumbo: bool.isRequired,
 	hideJumbo: func.isRequired,
-	handleDownLoad: func.isRequired,
+	text: string.isRequired,
+	loading: bool,
 }
 
 export default Jumbotron;

@@ -127,15 +127,6 @@ class Index extends React.PureComponent {
 		this.dbRef.set({ preview }, { merge: true });
 	}
 
-	handleDownLoad = () => {
-		const { snippets, preview } = { ...this.state }
-
-		if (!snippets || !preview.draftOrder) return; // just in case
-
-		const text = generateTextFromDraft(snippets, preview.draftOrder);
-		downloadDocument('document.txt', text)
-	}
-
 	render() {
 
 		const { location } = this.props;
@@ -148,7 +139,10 @@ class Index extends React.PureComponent {
 			user,
 			dbLoaded,
 			windowWidth } = this.state;
+
 		const { snippetOrder, draftOrder } = preview;
+
+		const textForDownload = generateTextFromDraft(snippets, draftOrder)
 
 		if (!userLoaded) {
 			return (
@@ -163,7 +157,7 @@ class Index extends React.PureComponent {
 				<Jumbotron
 					shouldDisplayJumbo={shouldDisplayJumbo && windowWidth >= 576}
 					hideJumbo={this.hideJumbo}
-					handleDownLoad={this.handleDownLoad}
+					text={textForDownload}
 					loading={!dbLoaded}
 				/>
 				<DragDropContext onDragEnd={this.handleDragEnd}>
