@@ -3,15 +3,12 @@ import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import firebase, { db } from '../firebase';
-import { reorder, processPreview, generateTextFromDraft, downloadDocument } from './helpers';
+import { reorder, processPreview, generateTextFromDraft } from './helpers';
 import { H4 } from '../styles/components';
 
-import Layout from '../components/Layout';
-import Spinner from '../components/shared/Spinner';
-import SnippetDragAndDrop from '../components/preview/dragAndDrop/SnippetDragAndDrop';
-import Jumbotron from '../components/preview/Jumbotron';
-import Document from '../components/preview/Document';
-import PreviewDragAndDrop from '../components/preview/dragAndDrop/PreviewDragAndDrop';
+import { Layout } from '../components/layout';
+import { Spinner } from '../components/shared';
+import { SnippetDragAndDrop, PreviewDragAndDrop, Document, Jumbotron } from '../components/preview';
 
 const Container = styled.div`
 	display: grid;
@@ -130,7 +127,8 @@ class Index extends React.PureComponent {
 	render() {
 
 		const { location } = this.props;
-		const { activeItemId,
+		const {
+			activeItemId,
 			snippets,
 			preview,
 			loading,

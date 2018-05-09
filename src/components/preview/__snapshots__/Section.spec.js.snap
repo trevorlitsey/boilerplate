@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Section
+    id="8779y2hh"
+    text="this is some text!"
+    title="this is a title!"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <h4
+          data-test="title"
+          id="8779y2hh"
+        >
+          this is a title!
+        </h4>,
+        <p
+          data-test="text"
+        >
+          this is some text!
+        </p>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "this is a title!",
+          "data-test": "title",
+          "id": "8779y2hh",
+        },
+        "ref": null,
+        "rendered": "this is a title!",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "this is some text!",
+          "data-test": "text",
+        },
+        "ref": null,
+        "rendered": "this is some text!",
+        "type": "p",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <h4
+            data-test="title"
+            id="8779y2hh"
+          >
+            this is a title!
+          </h4>,
+          <p
+            data-test="text"
+          >
+            this is some text!
+          </p>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "this is a title!",
+            "data-test": "title",
+            "id": "8779y2hh",
+          },
+          "ref": null,
+          "rendered": "this is a title!",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "this is some text!",
+            "data-test": "text",
+          },
+          "ref": null,
+          "rendered": "this is some text!",
+          "type": "p",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

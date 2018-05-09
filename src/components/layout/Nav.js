@@ -5,7 +5,7 @@ import faGoogle from '@fortawesome/fontawesome-free-brands/faGoogle';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { signIn, signOut } from '../firebase';
+import { signIn, signOut } from '../../firebase';
 
 const Container = styled.div`
 	width: 100%;

@@ -4,13 +4,9 @@ import uniqid from 'uniqid';
 
 import firebase, { db } from '../firebase';
 
-import Layout from '../components/Layout';
-import Spinner from '../components/shared/Spinner';
-import SignInForm from '../components/shared/SignInForm';
-import SearchBar from '../components/snippets/SearchBar';
-import SnippetWell from '../components/snippets/SnippetWell';
-import NewSnippetButton from '../components/snippets/NewSnippetButton';
-import SnippetModal from '../components/snippets/SnippetModal';
+import { Layout } from '../components/layout';
+import { Spinner, SignInForm } from '../components/shared';
+import { SearchBar, SnippetWell, NewSnippetButton, SnippetModal } from '../components/snippets';
 
 import { H4 } from '../styles/components';
 

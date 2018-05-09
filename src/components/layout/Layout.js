@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, oneOfType } from 'prop-types';
+import { object } from 'prop-types';
 import styled from 'styled-components';
 
 import Nav from './Nav';

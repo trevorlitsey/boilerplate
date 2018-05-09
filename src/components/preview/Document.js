@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, array } from 'prop-types';
+import { object, array, bool } from 'prop-types';
 import styled from 'styled-components';
 
 import Spinner from '../shared/Spinner';
@@ -32,6 +32,7 @@ class Document extends React.Component {
 	static propTypes = {
 		snippets: object.isRequired,
 		draftOrder: array.isRequired,
+		loading: bool,
 	}
 
 	render() {
@@ -53,7 +54,7 @@ class Document extends React.Component {
 				<Container ref="container" onScroll={this.handleScroll} className="rounded">
 					<div className="scrollspy placeholder">
 						<h4>Intro</h4>
-						<p>We the People of the United States, in Order to form a more perfect Union ...</p>
+						<p data-test="placeholder">We the People of the United States, in Order to form a more perfect Union ...</p>
 					</div>
 				</Container>
 			)

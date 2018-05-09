@@ -25,8 +25,8 @@ class Section extends React.Component {
 
 		return (
 			<Container>
-				<h4 id={id}>{title}</h4>
-				<p>{text}</p>
+				<h4 data-test="title" id={id}>{title}</h4>
+				<p data-test="text" >{text}</p>
 			</Container>
 		)
 	}

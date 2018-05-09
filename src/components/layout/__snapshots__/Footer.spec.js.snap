@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Footer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        " ",
+        <a
+          href="http://www.trevorlitsey.com"
+          target="blank"
+        >
+          trevorlitsey.com
+        </a>,
+        " | ",
+        <a
+          href="https://github.com/trevorlitsey/cashflow-calc"
+          target="blank"
+        >
+          github
+        </a>,
+        " ",
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      " ",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "trevorlitsey.com",
+          "href": "http://www.trevorlitsey.com",
+          "target": "blank",
+        },
+        "ref": null,
+        "rendered": "trevorlitsey.com",
+        "type": "a",
+      },
+      " | ",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "github",
+          "href": "https://github.com/trevorlitsey/cashflow-calc",
+          "target": "blank",
+        },
+        "ref": null,
+        "rendered": "github",
+        "type": "a",
+      },
+      " ",
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          " ",
+          <a
+            href="http://www.trevorlitsey.com"
+            target="blank"
+          >
+            trevorlitsey.com
+          </a>,
+          " | ",
+          <a
+            href="https://github.com/trevorlitsey/cashflow-calc"
+            target="blank"
+          >
+            github
+          </a>,
+          " ",
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        " ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "trevorlitsey.com",
+            "href": "http://www.trevorlitsey.com",
+            "target": "blank",
+          },
+          "ref": null,
+          "rendered": "trevorlitsey.com",
+          "type": "a",
+        },
+        " | ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "github",
+            "href": "https://github.com/trevorlitsey/cashflow-calc",
+            "target": "blank",
+          },
+          "ref": null,
+          "rendered": "github",
+          "type": "a",
+        },
+        " ",
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
