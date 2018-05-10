@@ -52,7 +52,7 @@ class SnippetModal extends React.PureComponent {
 		this.props.addTag(newTag);
 	}
 
-	handleDelete = (e) => {
+	handleDelete = () => {
 		this.props.deleteSnippet(this.props.snippetToEdit.id)
 	}
 

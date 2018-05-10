@@ -34,15 +34,18 @@ const ContainerOff = Container.extend`
 
 const filterFunc = ([key, values], filterQuery) => {
 
-	const isInTags = values.tags.map(tag => {
-		if (tag.value.toLowerCase().includes(filterQuery)) return true;
-	})
+	const isInTags = values.tags
+		.map(tag =>
+			tag.value
+				.toLowerCase()
+				.includes(filterQuery))
+		.includes(true)
 
 	const isInTitle = values.title.toLowerCase().includes(filterQuery);
 
 	const isInText = values.text.toLowerCase().includes(filterQuery);
 
-	if (isInTags.includes(true) || isInTitle || isInText) {
+	if (isInTags || isInTitle || isInText) {
 		return [key, values]
 	}
 

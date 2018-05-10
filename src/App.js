@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import firebase, { db } from './firebase';
-import { processPreview } from './helpers';
 
 import Index from './pages/Index';
 import Snippets from './pages/Snippets';

@@ -23,8 +23,6 @@ ShallowWrapper {
         className="input-group mb-3"
       >
         <input
-          aria-describedby="search snippets"
-          aria-label="search"
           className="form-control"
           data-test="search"
           onChange={[Function]}
@@ -79,8 +77,6 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <input
-            aria-describedby="search snippets"
-            aria-label="search"
             className="form-control"
             data-test="search"
             onChange={[Function]}
@@ -135,8 +131,6 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "aria-describedby": "search snippets",
-            "aria-label": "search",
             "className": "form-control",
             "data-test": "search",
             "onChange": [Function],
@@ -281,8 +275,6 @@ ShallowWrapper {
           className="input-group mb-3"
         >
           <input
-            aria-describedby="search snippets"
-            aria-label="search"
             className="form-control"
             data-test="search"
             onChange={[Function]}
@@ -337,8 +329,6 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <input
-              aria-describedby="search snippets"
-              aria-label="search"
               className="form-control"
               data-test="search"
               onChange={[Function]}
@@ -393,8 +383,6 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "aria-describedby": "search snippets",
-              "aria-label": "search",
               "className": "form-control",
               "data-test": "search",
               "onChange": [Function],

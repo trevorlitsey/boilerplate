@@ -29,8 +29,6 @@ const SearchBar = ({ onChange }) => (
 				type="text"
 				className="form-control"
 				placeholder="Search ..."
-				aria-label="search"
-				aria-describedby="search snippets"
 			/>
 			<div className="input-group-append">
 				<span className="input-group-text" id="basic-addon2"><FontAwesomeIcon icon={faSearch} /></span>

@@ -30,12 +30,11 @@ export const signInWithEmailAndPassword = (email, password) => {
 	});
 }
 
-
 export const signOut = () => {
-	firebase.auth().signOut().then(function () {
+	firebase.auth().signOut().then(() => {
 		// Sign-out successful.
-	}).catch(function (error) {
-		// An error happened.
+	}).catch((error) => {
+		console.error(error);
 	});
 }
 

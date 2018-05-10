@@ -1,0 +1,341 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SnippetWell should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SnippetWell
+    filterQuery=""
+    loading={false}
+    showModal={[Function]}
+    snippets={
+      Object {
+        "jghgygc9": Object {
+          "tags": Array [
+            Object {
+              "id": "jgtv2988",
+              "label": "lots",
+              "value": "lots",
+            },
+            Object {
+              "id": "jgtv29wa",
+              "label": "of",
+              "value": "of",
+            },
+            Object {
+              "id": "jgtv1e21",
+              "label": "tags",
+              "value": "tags",
+            },
+          ],
+          "text": "Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut.",
+          "title": "Section Two",
+        },
+        "jgux6edn": Object {
+          "tags": Array [],
+          "text": "this is the first section",
+          "title": "Section One",
+        },
+        "jguxf292": Object {
+          "tags": Array [],
+          "text": "this is the third section",
+          "title": "Section Three",
+        },
+        "jgxvm7zr": Object {
+          "tags": Array [],
+          "text": "this is the fourth section",
+          "title": "Section Four!",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Card
+          id="jghgygc9"
+          showModal={[Function]}
+          tags={
+            Array [
+              Object {
+                "id": "jgtv2988",
+                "label": "lots",
+                "value": "lots",
+              },
+              Object {
+                "id": "jgtv29wa",
+                "label": "of",
+                "value": "of",
+              },
+              Object {
+                "id": "jgtv1e21",
+                "label": "tags",
+                "value": "tags",
+              },
+            ]
+          }
+          text="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+          title="Section Two"
+        />,
+        <Card
+          id="jgux6edn"
+          showModal={[Function]}
+          tags={Array []}
+          text="this is the first section"
+          title="Section One"
+        />,
+        <Card
+          id="jguxf292"
+          showModal={[Function]}
+          tags={Array []}
+          text="this is the third section"
+          title="Section Three"
+        />,
+        <Card
+          id="jgxvm7zr"
+          showModal={[Function]}
+          tags={Array []}
+          text="this is the fourth section"
+          title="Section Four!"
+        />,
+      ],
+      "className": "rounded",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "jghgygc9",
+        "nodeType": "function",
+        "props": Object {
+          "id": "jghgygc9",
+          "showModal": [Function],
+          "tags": Array [
+            Object {
+              "id": "jgtv2988",
+              "label": "lots",
+              "value": "lots",
+            },
+            Object {
+              "id": "jgtv29wa",
+              "label": "of",
+              "value": "of",
+            },
+            Object {
+              "id": "jgtv1e21",
+              "label": "tags",
+              "value": "tags",
+            },
+          ],
+          "text": "Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut.",
+          "title": "Section Two",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "jgux6edn",
+        "nodeType": "function",
+        "props": Object {
+          "id": "jgux6edn",
+          "showModal": [Function],
+          "tags": Array [],
+          "text": "this is the first section",
+          "title": "Section One",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "jguxf292",
+        "nodeType": "function",
+        "props": Object {
+          "id": "jguxf292",
+          "showModal": [Function],
+          "tags": Array [],
+          "text": "this is the third section",
+          "title": "Section Three",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "jgxvm7zr",
+        "nodeType": "function",
+        "props": Object {
+          "id": "jgxvm7zr",
+          "showModal": [Function],
+          "tags": Array [],
+          "text": "this is the fourth section",
+          "title": "Section Four!",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Card
+            id="jghgygc9"
+            showModal={[Function]}
+            tags={
+              Array [
+                Object {
+                  "id": "jgtv2988",
+                  "label": "lots",
+                  "value": "lots",
+                },
+                Object {
+                  "id": "jgtv29wa",
+                  "label": "of",
+                  "value": "of",
+                },
+                Object {
+                  "id": "jgtv1e21",
+                  "label": "tags",
+                  "value": "tags",
+                },
+              ]
+            }
+            text="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+            title="Section Two"
+          />,
+          <Card
+            id="jgux6edn"
+            showModal={[Function]}
+            tags={Array []}
+            text="this is the first section"
+            title="Section One"
+          />,
+          <Card
+            id="jguxf292"
+            showModal={[Function]}
+            tags={Array []}
+            text="this is the third section"
+            title="Section Three"
+          />,
+          <Card
+            id="jgxvm7zr"
+            showModal={[Function]}
+            tags={Array []}
+            text="this is the fourth section"
+            title="Section Four!"
+          />,
+        ],
+        "className": "rounded",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "jghgygc9",
+          "nodeType": "function",
+          "props": Object {
+            "id": "jghgygc9",
+            "showModal": [Function],
+            "tags": Array [
+              Object {
+                "id": "jgtv2988",
+                "label": "lots",
+                "value": "lots",
+              },
+              Object {
+                "id": "jgtv29wa",
+                "label": "of",
+                "value": "of",
+              },
+              Object {
+                "id": "jgtv1e21",
+                "label": "tags",
+                "value": "tags",
+              },
+            ],
+            "text": "Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut.",
+            "title": "Section Two",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "jgux6edn",
+          "nodeType": "function",
+          "props": Object {
+            "id": "jgux6edn",
+            "showModal": [Function],
+            "tags": Array [],
+            "text": "this is the first section",
+            "title": "Section One",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "jguxf292",
+          "nodeType": "function",
+          "props": Object {
+            "id": "jguxf292",
+            "showModal": [Function],
+            "tags": Array [],
+            "text": "this is the third section",
+            "title": "Section Three",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "jgxvm7zr",
+          "nodeType": "function",
+          "props": Object {
+            "id": "jgxvm7zr",
+            "showModal": [Function],
+            "tags": Array [],
+            "text": "this is the fourth section",
+            "title": "Section Four!",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

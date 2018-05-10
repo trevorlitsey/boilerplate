@@ -1,0 +1,2526 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SnippetModal should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SnippetModal
+    addSnippet={[Function]}
+    addTag={[Function]}
+    hideModal={[Function]}
+    modalOn={true}
+    snippetToEdit={
+      Object {
+        "tags": Array [
+          Object {
+            "id": "jgtv2988",
+            "label": "lots",
+            "value": "lots",
+          },
+          Object {
+            "id": "jgtv29wa",
+            "label": "of",
+            "value": "of",
+          },
+          Object {
+            "id": "jgtv1e21",
+            "label": "tags",
+            "value": "tags",
+          },
+        ],
+        "text": "Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut.",
+        "title": "Section Two",
+      }
+    }
+    tags={
+      Array [
+        Object {
+          "id": "jgtv2988",
+          "label": "lots",
+          "value": "lots",
+        },
+        Object {
+          "id": "jgtv29wa",
+          "label": "of",
+          "value": "of",
+        },
+        Object {
+          "id": "jgtv1e21",
+          "label": "tags",
+          "value": "tags",
+        },
+      ]
+    }
+    testing={true}
+    updateSnippet={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "animation": true,
+      "autoFocus": true,
+      "backdrop": true,
+      "bsClass": "modal",
+      "children": Array [
+        <form
+          onSubmit={[Function]}
+        >
+          <ModalHeader
+            bsClass="modal-header"
+            closeButton={false}
+            closeLabel="Close"
+          >
+            <ModalTitle
+              bsClass="modal-title"
+              componentClass="h4"
+            >
+              New Snippet
+            </ModalTitle>
+            <styled.span
+              onClick={[Function]}
+            >
+              <FontAwesomeIcon$1
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Object {
+                    "icon": Array [
+                      384,
+                      512,
+                      Array [],
+                      "f00d",
+                      "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                    ],
+                    "iconName": "times",
+                    "prefix": "fas",
+                  }
+                }
+                listItem={false}
+                mask={null}
+                name=""
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size={null}
+                spin={false}
+                symbol={false}
+                transform={null}
+              />
+            </styled.span>
+          </ModalHeader>
+          <ModalBody
+            bsClass="modal-body"
+            componentClass="div"
+          >
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+            >
+              
+              <button
+                className="close"
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  ×
+                </span>
+              </button>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                htmlFor="title"
+              >
+                Title:
+              </label>
+              <input
+                className="form-control"
+                data-test="title"
+                defaultValue="Section Two"
+                placeholder="Intro"
+                type="text"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                htmlFor="text"
+              >
+                Text:
+              </label>
+              <textarea
+                className="form-control"
+                data-test="text"
+                defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                rows="3"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                htmlFor="tags"
+              >
+                Tags:
+              </label>
+              <CreatableSelect
+                closeOnSelect={false}
+                data-test="tags"
+                filterOptions={[Function]}
+                id="tags"
+                isClearable={true}
+                isOptionUnique={[Function]}
+                isValidNewOption={[Function]}
+                menuRenderer={[Function]}
+                multi={true}
+                name="tags"
+                newOptionCreator={[Function]}
+                onChange={[Function]}
+                onNewOptionClick={[Function]}
+                options={
+                  Array [
+                    Object {
+                      "id": "jgtv2988",
+                      "label": "lots",
+                      "value": "lots",
+                    },
+                    Object {
+                      "id": "jgtv29wa",
+                      "label": "of",
+                      "value": "of",
+                    },
+                    Object {
+                      "id": "jgtv1e21",
+                      "label": "tags",
+                      "value": "tags",
+                    },
+                  ]
+                }
+                promptTextCreator={[Function]}
+                shouldKeyDownEventCreateNewOption={[Function]}
+                value={
+                  Array [
+                    Object {
+                      "id": "jgtv2988",
+                      "label": "lots",
+                      "value": "lots",
+                    },
+                    Object {
+                      "id": "jgtv29wa",
+                      "label": "of",
+                      "value": "of",
+                    },
+                    Object {
+                      "id": "jgtv1e21",
+                      "label": "tags",
+                      "value": "tags",
+                    },
+                  ]
+                }
+              />
+            </div>
+          </ModalBody>
+          <ModalFooter
+            bsClass="modal-footer"
+            className="footer"
+            componentClass="div"
+          >
+            <div
+              className="submit-buttons"
+            >
+              <button
+                className="btn btn-primary"
+                type="submit"
+              >
+                Update
+              </button>
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                disabled={false}
+                onClick={[Function]}
+              >
+                Cancel
+              </Button>
+            </div>
+            <button
+              className="btn btn-danger"
+              onClick={[Function]}
+              style={
+                Object {
+                  "justifySelf": "flex-start",
+                }
+              }
+            >
+              Delete
+            </button>
+          </ModalFooter>
+        </form>,
+        <style
+          jsx={true}
+        >
+          
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				
+        </style>,
+      ],
+      "className": "show",
+      "dialogComponentClass": [Function],
+      "enforceFocus": true,
+      "keyboard": true,
+      "manager": ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      },
+      "onHide": [Function],
+      "renderBackdrop": [Function],
+      "restoreFocus": true,
+      "show": true,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <ModalHeader
+              bsClass="modal-header"
+              closeButton={false}
+              closeLabel="Close"
+            >
+              <ModalTitle
+                bsClass="modal-title"
+                componentClass="h4"
+              >
+                New Snippet
+              </ModalTitle>
+              <styled.span
+                onClick={[Function]}
+              >
+                <FontAwesomeIcon$1
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        384,
+                        512,
+                        Array [],
+                        "f00d",
+                        "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                      ],
+                      "iconName": "times",
+                      "prefix": "fas",
+                    }
+                  }
+                  listItem={false}
+                  mask={null}
+                  name=""
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  transform={null}
+                />
+              </styled.span>
+            </ModalHeader>,
+            <ModalBody
+              bsClass="modal-body"
+              componentClass="div"
+            >
+              <div
+                className="alert alert-danger"
+                role="alert"
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+              >
+                
+                <button
+                  className="close"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    ×
+                  </span>
+                </button>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor="title"
+                >
+                  Title:
+                </label>
+                <input
+                  className="form-control"
+                  data-test="title"
+                  defaultValue="Section Two"
+                  placeholder="Intro"
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor="text"
+                >
+                  Text:
+                </label>
+                <textarea
+                  className="form-control"
+                  data-test="text"
+                  defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                  placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                  rows="3"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor="tags"
+                >
+                  Tags:
+                </label>
+                <CreatableSelect
+                  closeOnSelect={false}
+                  data-test="tags"
+                  filterOptions={[Function]}
+                  id="tags"
+                  isClearable={true}
+                  isOptionUnique={[Function]}
+                  isValidNewOption={[Function]}
+                  menuRenderer={[Function]}
+                  multi={true}
+                  name="tags"
+                  newOptionCreator={[Function]}
+                  onChange={[Function]}
+                  onNewOptionClick={[Function]}
+                  options={
+                    Array [
+                      Object {
+                        "id": "jgtv2988",
+                        "label": "lots",
+                        "value": "lots",
+                      },
+                      Object {
+                        "id": "jgtv29wa",
+                        "label": "of",
+                        "value": "of",
+                      },
+                      Object {
+                        "id": "jgtv1e21",
+                        "label": "tags",
+                        "value": "tags",
+                      },
+                    ]
+                  }
+                  promptTextCreator={[Function]}
+                  shouldKeyDownEventCreateNewOption={[Function]}
+                  value={
+                    Array [
+                      Object {
+                        "id": "jgtv2988",
+                        "label": "lots",
+                        "value": "lots",
+                      },
+                      Object {
+                        "id": "jgtv29wa",
+                        "label": "of",
+                        "value": "of",
+                      },
+                      Object {
+                        "id": "jgtv1e21",
+                        "label": "tags",
+                        "value": "tags",
+                      },
+                    ]
+                  }
+                />
+              </div>
+            </ModalBody>,
+            <ModalFooter
+              bsClass="modal-footer"
+              className="footer"
+              componentClass="div"
+            >
+              <div
+                className="submit-buttons"
+              >
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                >
+                  Update
+                </button>
+                <Button
+                  active={false}
+                  block={false}
+                  bsClass="btn"
+                  bsStyle="default"
+                  disabled={false}
+                  onClick={[Function]}
+                >
+                  Cancel
+                </Button>
+              </div>
+              <button
+                className="btn btn-danger"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "justifySelf": "flex-start",
+                  }
+                }
+              >
+                Delete
+              </button>
+            </ModalFooter>,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "bsClass": "modal-header",
+              "children": Array [
+                <ModalTitle
+                  bsClass="modal-title"
+                  componentClass="h4"
+                >
+                  New Snippet
+                </ModalTitle>,
+                <styled.span
+                  onClick={[Function]}
+                >
+                  <FontAwesomeIcon$1
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          384,
+                          512,
+                          Array [],
+                          "f00d",
+                          "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                        ],
+                        "iconName": "times",
+                        "prefix": "fas",
+                      }
+                    }
+                    listItem={false}
+                    mask={null}
+                    name=""
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    transform={null}
+                  />
+                </styled.span>,
+              ],
+              "closeButton": false,
+              "closeLabel": "Close",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "bsClass": "modal-title",
+                  "children": "New Snippet",
+                  "componentClass": "h4",
+                },
+                "ref": null,
+                "rendered": "New Snippet",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <FontAwesomeIcon$1
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          384,
+                          512,
+                          Array [],
+                          "f00d",
+                          "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                        ],
+                        "iconName": "times",
+                        "prefix": "fas",
+                      }
+                    }
+                    listItem={false}
+                    mask={null}
+                    name=""
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    transform={null}
+                  />,
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "border": false,
+                    "className": "",
+                    "fixedWidth": false,
+                    "flip": null,
+                    "icon": Object {
+                      "icon": Array [
+                        384,
+                        512,
+                        Array [],
+                        "f00d",
+                        "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                      ],
+                      "iconName": "times",
+                      "prefix": "fas",
+                    },
+                    "listItem": false,
+                    "mask": null,
+                    "name": "",
+                    "pull": null,
+                    "pulse": false,
+                    "rotation": null,
+                    "size": null,
+                    "spin": false,
+                    "symbol": false,
+                    "transform": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "bsClass": "modal-body",
+              "children": Array [
+                <div
+                  className="alert alert-danger"
+                  role="alert"
+                  style={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                >
+                  
+                  <button
+                    className="close"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span>
+                      ×
+                    </span>
+                  </button>
+                </div>,
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor="title"
+                  >
+                    Title:
+                  </label>
+                  <input
+                    className="form-control"
+                    data-test="title"
+                    defaultValue="Section Two"
+                    placeholder="Intro"
+                    type="text"
+                  />
+                </div>,
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor="text"
+                  >
+                    Text:
+                  </label>
+                  <textarea
+                    className="form-control"
+                    data-test="text"
+                    defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                    placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                    rows="3"
+                  />
+                </div>,
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor="tags"
+                  >
+                    Tags:
+                  </label>
+                  <CreatableSelect
+                    closeOnSelect={false}
+                    data-test="tags"
+                    filterOptions={[Function]}
+                    id="tags"
+                    isClearable={true}
+                    isOptionUnique={[Function]}
+                    isValidNewOption={[Function]}
+                    menuRenderer={[Function]}
+                    multi={true}
+                    name="tags"
+                    newOptionCreator={[Function]}
+                    onChange={[Function]}
+                    onNewOptionClick={[Function]}
+                    options={
+                      Array [
+                        Object {
+                          "id": "jgtv2988",
+                          "label": "lots",
+                          "value": "lots",
+                        },
+                        Object {
+                          "id": "jgtv29wa",
+                          "label": "of",
+                          "value": "of",
+                        },
+                        Object {
+                          "id": "jgtv1e21",
+                          "label": "tags",
+                          "value": "tags",
+                        },
+                      ]
+                    }
+                    promptTextCreator={[Function]}
+                    shouldKeyDownEventCreateNewOption={[Function]}
+                    value={
+                      Array [
+                        Object {
+                          "id": "jgtv2988",
+                          "label": "lots",
+                          "value": "lots",
+                        },
+                        Object {
+                          "id": "jgtv29wa",
+                          "label": "of",
+                          "value": "of",
+                        },
+                        Object {
+                          "id": "jgtv1e21",
+                          "label": "tags",
+                          "value": "tags",
+                        },
+                      ]
+                    }
+                  />
+                </div>,
+              ],
+              "componentClass": "div",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "",
+                    <button
+                      className="close"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <span>
+                        ×
+                      </span>
+                    </button>,
+                  ],
+                  "className": "alert alert-danger",
+                  "role": "alert",
+                  "style": Object {
+                    "display": "none",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  "",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span>
+                        ×
+                      </span>,
+                      "className": "close",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "×",
+                      },
+                      "ref": null,
+                      "rendered": "×",
+                      "type": "span",
+                    },
+                    "type": "button",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="title"
+                    >
+                      Title:
+                    </label>,
+                    <input
+                      className="form-control"
+                      data-test="title"
+                      defaultValue="Section Two"
+                      placeholder="Intro"
+                      type="text"
+                    />,
+                  ],
+                  "className": "form-group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Title:",
+                      "htmlFor": "title",
+                    },
+                    "ref": null,
+                    "rendered": "Title:",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "form-control",
+                      "data-test": "title",
+                      "defaultValue": "Section Two",
+                      "placeholder": "Intro",
+                      "type": "text",
+                    },
+                    "ref": "title",
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="text"
+                    >
+                      Text:
+                    </label>,
+                    <textarea
+                      className="form-control"
+                      data-test="text"
+                      defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                      placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                      rows="3"
+                    />,
+                  ],
+                  "className": "form-group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Text:",
+                      "htmlFor": "text",
+                    },
+                    "ref": null,
+                    "rendered": "Text:",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "form-control",
+                      "data-test": "text",
+                      "defaultValue": "Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut.",
+                      "placeholder": "We the People of the United States, in Order to form a more perfect Union ...",
+                      "rows": "3",
+                    },
+                    "ref": "text",
+                    "rendered": null,
+                    "type": "textarea",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      htmlFor="tags"
+                    >
+                      Tags:
+                    </label>,
+                    <CreatableSelect
+                      closeOnSelect={false}
+                      data-test="tags"
+                      filterOptions={[Function]}
+                      id="tags"
+                      isClearable={true}
+                      isOptionUnique={[Function]}
+                      isValidNewOption={[Function]}
+                      menuRenderer={[Function]}
+                      multi={true}
+                      name="tags"
+                      newOptionCreator={[Function]}
+                      onChange={[Function]}
+                      onNewOptionClick={[Function]}
+                      options={
+                        Array [
+                          Object {
+                            "id": "jgtv2988",
+                            "label": "lots",
+                            "value": "lots",
+                          },
+                          Object {
+                            "id": "jgtv29wa",
+                            "label": "of",
+                            "value": "of",
+                          },
+                          Object {
+                            "id": "jgtv1e21",
+                            "label": "tags",
+                            "value": "tags",
+                          },
+                        ]
+                      }
+                      promptTextCreator={[Function]}
+                      shouldKeyDownEventCreateNewOption={[Function]}
+                      value={
+                        Array [
+                          Object {
+                            "id": "jgtv2988",
+                            "label": "lots",
+                            "value": "lots",
+                          },
+                          Object {
+                            "id": "jgtv29wa",
+                            "label": "of",
+                            "value": "of",
+                          },
+                          Object {
+                            "id": "jgtv1e21",
+                            "label": "tags",
+                            "value": "tags",
+                          },
+                        ]
+                      }
+                    />,
+                  ],
+                  "className": "form-group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Tags:",
+                      "htmlFor": "tags",
+                    },
+                    "ref": null,
+                    "rendered": "Tags:",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "closeOnSelect": false,
+                      "data-test": "tags",
+                      "filterOptions": [Function],
+                      "id": "tags",
+                      "isClearable": true,
+                      "isOptionUnique": [Function],
+                      "isValidNewOption": [Function],
+                      "menuRenderer": [Function],
+                      "multi": true,
+                      "name": "tags",
+                      "newOptionCreator": [Function],
+                      "onChange": [Function],
+                      "onNewOptionClick": [Function],
+                      "options": Array [
+                        Object {
+                          "id": "jgtv2988",
+                          "label": "lots",
+                          "value": "lots",
+                        },
+                        Object {
+                          "id": "jgtv29wa",
+                          "label": "of",
+                          "value": "of",
+                        },
+                        Object {
+                          "id": "jgtv1e21",
+                          "label": "tags",
+                          "value": "tags",
+                        },
+                      ],
+                      "promptTextCreator": [Function],
+                      "shouldKeyDownEventCreateNewOption": [Function],
+                      "value": Array [
+                        Object {
+                          "id": "jgtv2988",
+                          "label": "lots",
+                          "value": "lots",
+                        },
+                        Object {
+                          "id": "jgtv29wa",
+                          "label": "of",
+                          "value": "of",
+                        },
+                        Object {
+                          "id": "jgtv1e21",
+                          "label": "tags",
+                          "value": "tags",
+                        },
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "bsClass": "modal-footer",
+              "children": Array [
+                <div
+                  className="submit-buttons"
+                >
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="default"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    Cancel
+                  </Button>
+                </div>,
+                <button
+                  className="btn btn-danger"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "justifySelf": "flex-start",
+                    }
+                  }
+                >
+                  Delete
+                </button>,
+              ],
+              "className": "footer",
+              "componentClass": "div",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <button
+                      className="btn btn-primary"
+                      type="submit"
+                    >
+                      Update
+                    </button>,
+                    <Button
+                      active={false}
+                      block={false}
+                      bsClass="btn"
+                      bsStyle="default"
+                      disabled={false}
+                      onClick={[Function]}
+                    >
+                      Cancel
+                    </Button>,
+                  ],
+                  "className": "submit-buttons",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Update",
+                      "className": "btn btn-primary",
+                      "type": "submit",
+                    },
+                    "ref": null,
+                    "rendered": "Update",
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "active": false,
+                      "block": false,
+                      "bsClass": "btn",
+                      "bsStyle": "default",
+                      "children": "Cancel",
+                      "disabled": false,
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "Cancel",
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Delete",
+                  "className": "btn btn-danger",
+                  "onClick": [Function],
+                  "style": Object {
+                    "justifySelf": "flex-start",
+                  },
+                },
+                "ref": null,
+                "rendered": "Delete",
+                "type": "button",
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				",
+          "jsx": true,
+        },
+        "ref": null,
+        "rendered": "
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				",
+        "type": "style",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "animation": true,
+        "autoFocus": true,
+        "backdrop": true,
+        "bsClass": "modal",
+        "children": Array [
+          <form
+            onSubmit={[Function]}
+          >
+            <ModalHeader
+              bsClass="modal-header"
+              closeButton={false}
+              closeLabel="Close"
+            >
+              <ModalTitle
+                bsClass="modal-title"
+                componentClass="h4"
+              >
+                New Snippet
+              </ModalTitle>
+              <styled.span
+                onClick={[Function]}
+              >
+                <FontAwesomeIcon$1
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        384,
+                        512,
+                        Array [],
+                        "f00d",
+                        "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                      ],
+                      "iconName": "times",
+                      "prefix": "fas",
+                    }
+                  }
+                  listItem={false}
+                  mask={null}
+                  name=""
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  transform={null}
+                />
+              </styled.span>
+            </ModalHeader>
+            <ModalBody
+              bsClass="modal-body"
+              componentClass="div"
+            >
+              <div
+                className="alert alert-danger"
+                role="alert"
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+              >
+                
+                <button
+                  className="close"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    ×
+                  </span>
+                </button>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor="title"
+                >
+                  Title:
+                </label>
+                <input
+                  className="form-control"
+                  data-test="title"
+                  defaultValue="Section Two"
+                  placeholder="Intro"
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor="text"
+                >
+                  Text:
+                </label>
+                <textarea
+                  className="form-control"
+                  data-test="text"
+                  defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                  placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                  rows="3"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor="tags"
+                >
+                  Tags:
+                </label>
+                <CreatableSelect
+                  closeOnSelect={false}
+                  data-test="tags"
+                  filterOptions={[Function]}
+                  id="tags"
+                  isClearable={true}
+                  isOptionUnique={[Function]}
+                  isValidNewOption={[Function]}
+                  menuRenderer={[Function]}
+                  multi={true}
+                  name="tags"
+                  newOptionCreator={[Function]}
+                  onChange={[Function]}
+                  onNewOptionClick={[Function]}
+                  options={
+                    Array [
+                      Object {
+                        "id": "jgtv2988",
+                        "label": "lots",
+                        "value": "lots",
+                      },
+                      Object {
+                        "id": "jgtv29wa",
+                        "label": "of",
+                        "value": "of",
+                      },
+                      Object {
+                        "id": "jgtv1e21",
+                        "label": "tags",
+                        "value": "tags",
+                      },
+                    ]
+                  }
+                  promptTextCreator={[Function]}
+                  shouldKeyDownEventCreateNewOption={[Function]}
+                  value={
+                    Array [
+                      Object {
+                        "id": "jgtv2988",
+                        "label": "lots",
+                        "value": "lots",
+                      },
+                      Object {
+                        "id": "jgtv29wa",
+                        "label": "of",
+                        "value": "of",
+                      },
+                      Object {
+                        "id": "jgtv1e21",
+                        "label": "tags",
+                        "value": "tags",
+                      },
+                    ]
+                  }
+                />
+              </div>
+            </ModalBody>
+            <ModalFooter
+              bsClass="modal-footer"
+              className="footer"
+              componentClass="div"
+            >
+              <div
+                className="submit-buttons"
+              >
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                >
+                  Update
+                </button>
+                <Button
+                  active={false}
+                  block={false}
+                  bsClass="btn"
+                  bsStyle="default"
+                  disabled={false}
+                  onClick={[Function]}
+                >
+                  Cancel
+                </Button>
+              </div>
+              <button
+                className="btn btn-danger"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "justifySelf": "flex-start",
+                  }
+                }
+              >
+                Delete
+              </button>
+            </ModalFooter>
+          </form>,
+          <style
+            jsx={true}
+          >
+            
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				
+          </style>,
+        ],
+        "className": "show",
+        "dialogComponentClass": [Function],
+        "enforceFocus": true,
+        "keyboard": true,
+        "manager": ModalManager {
+          "add": [Function],
+          "containers": Array [],
+          "data": Array [],
+          "handleContainerOverflow": true,
+          "hideSiblingNodes": true,
+          "isTopModal": [Function],
+          "modals": Array [],
+          "remove": [Function],
+        },
+        "onHide": [Function],
+        "renderBackdrop": [Function],
+        "restoreFocus": true,
+        "show": true,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <ModalHeader
+                bsClass="modal-header"
+                closeButton={false}
+                closeLabel="Close"
+              >
+                <ModalTitle
+                  bsClass="modal-title"
+                  componentClass="h4"
+                >
+                  New Snippet
+                </ModalTitle>
+                <styled.span
+                  onClick={[Function]}
+                >
+                  <FontAwesomeIcon$1
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          384,
+                          512,
+                          Array [],
+                          "f00d",
+                          "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                        ],
+                        "iconName": "times",
+                        "prefix": "fas",
+                      }
+                    }
+                    listItem={false}
+                    mask={null}
+                    name=""
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    transform={null}
+                  />
+                </styled.span>
+              </ModalHeader>,
+              <ModalBody
+                bsClass="modal-body"
+                componentClass="div"
+              >
+                <div
+                  className="alert alert-danger"
+                  role="alert"
+                  style={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                >
+                  
+                  <button
+                    className="close"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span>
+                      ×
+                    </span>
+                  </button>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor="title"
+                  >
+                    Title:
+                  </label>
+                  <input
+                    className="form-control"
+                    data-test="title"
+                    defaultValue="Section Two"
+                    placeholder="Intro"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor="text"
+                  >
+                    Text:
+                  </label>
+                  <textarea
+                    className="form-control"
+                    data-test="text"
+                    defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                    placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                    rows="3"
+                  />
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor="tags"
+                  >
+                    Tags:
+                  </label>
+                  <CreatableSelect
+                    closeOnSelect={false}
+                    data-test="tags"
+                    filterOptions={[Function]}
+                    id="tags"
+                    isClearable={true}
+                    isOptionUnique={[Function]}
+                    isValidNewOption={[Function]}
+                    menuRenderer={[Function]}
+                    multi={true}
+                    name="tags"
+                    newOptionCreator={[Function]}
+                    onChange={[Function]}
+                    onNewOptionClick={[Function]}
+                    options={
+                      Array [
+                        Object {
+                          "id": "jgtv2988",
+                          "label": "lots",
+                          "value": "lots",
+                        },
+                        Object {
+                          "id": "jgtv29wa",
+                          "label": "of",
+                          "value": "of",
+                        },
+                        Object {
+                          "id": "jgtv1e21",
+                          "label": "tags",
+                          "value": "tags",
+                        },
+                      ]
+                    }
+                    promptTextCreator={[Function]}
+                    shouldKeyDownEventCreateNewOption={[Function]}
+                    value={
+                      Array [
+                        Object {
+                          "id": "jgtv2988",
+                          "label": "lots",
+                          "value": "lots",
+                        },
+                        Object {
+                          "id": "jgtv29wa",
+                          "label": "of",
+                          "value": "of",
+                        },
+                        Object {
+                          "id": "jgtv1e21",
+                          "label": "tags",
+                          "value": "tags",
+                        },
+                      ]
+                    }
+                  />
+                </div>
+              </ModalBody>,
+              <ModalFooter
+                bsClass="modal-footer"
+                className="footer"
+                componentClass="div"
+              >
+                <div
+                  className="submit-buttons"
+                >
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="default"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    Cancel
+                  </Button>
+                </div>
+                <button
+                  className="btn btn-danger"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "justifySelf": "flex-start",
+                    }
+                  }
+                >
+                  Delete
+                </button>
+              </ModalFooter>,
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "bsClass": "modal-header",
+                "children": Array [
+                  <ModalTitle
+                    bsClass="modal-title"
+                    componentClass="h4"
+                  >
+                    New Snippet
+                  </ModalTitle>,
+                  <styled.span
+                    onClick={[Function]}
+                  >
+                    <FontAwesomeIcon$1
+                      border={false}
+                      className=""
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            384,
+                            512,
+                            Array [],
+                            "f00d",
+                            "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                          ],
+                          "iconName": "times",
+                          "prefix": "fas",
+                        }
+                      }
+                      listItem={false}
+                      mask={null}
+                      name=""
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size={null}
+                      spin={false}
+                      symbol={false}
+                      transform={null}
+                    />
+                  </styled.span>,
+                ],
+                "closeButton": false,
+                "closeLabel": "Close",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "bsClass": "modal-title",
+                    "children": "New Snippet",
+                    "componentClass": "h4",
+                  },
+                  "ref": null,
+                  "rendered": "New Snippet",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <FontAwesomeIcon$1
+                      border={false}
+                      className=""
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            384,
+                            512,
+                            Array [],
+                            "f00d",
+                            "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                          ],
+                          "iconName": "times",
+                          "prefix": "fas",
+                        }
+                      }
+                      listItem={false}
+                      mask={null}
+                      name=""
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size={null}
+                      spin={false}
+                      symbol={false}
+                      transform={null}
+                    />,
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "border": false,
+                      "className": "",
+                      "fixedWidth": false,
+                      "flip": null,
+                      "icon": Object {
+                        "icon": Array [
+                          384,
+                          512,
+                          Array [],
+                          "f00d",
+                          "M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z",
+                        ],
+                        "iconName": "times",
+                        "prefix": "fas",
+                      },
+                      "listItem": false,
+                      "mask": null,
+                      "name": "",
+                      "pull": null,
+                      "pulse": false,
+                      "rotation": null,
+                      "size": null,
+                      "spin": false,
+                      "symbol": false,
+                      "transform": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "bsClass": "modal-body",
+                "children": Array [
+                  <div
+                    className="alert alert-danger"
+                    role="alert"
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    
+                    <button
+                      className="close"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <span>
+                        ×
+                      </span>
+                    </button>
+                  </div>,
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="title"
+                    >
+                      Title:
+                    </label>
+                    <input
+                      className="form-control"
+                      data-test="title"
+                      defaultValue="Section Two"
+                      placeholder="Intro"
+                      type="text"
+                    />
+                  </div>,
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="text"
+                    >
+                      Text:
+                    </label>
+                    <textarea
+                      className="form-control"
+                      data-test="text"
+                      defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                      placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                      rows="3"
+                    />
+                  </div>,
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="tags"
+                    >
+                      Tags:
+                    </label>
+                    <CreatableSelect
+                      closeOnSelect={false}
+                      data-test="tags"
+                      filterOptions={[Function]}
+                      id="tags"
+                      isClearable={true}
+                      isOptionUnique={[Function]}
+                      isValidNewOption={[Function]}
+                      menuRenderer={[Function]}
+                      multi={true}
+                      name="tags"
+                      newOptionCreator={[Function]}
+                      onChange={[Function]}
+                      onNewOptionClick={[Function]}
+                      options={
+                        Array [
+                          Object {
+                            "id": "jgtv2988",
+                            "label": "lots",
+                            "value": "lots",
+                          },
+                          Object {
+                            "id": "jgtv29wa",
+                            "label": "of",
+                            "value": "of",
+                          },
+                          Object {
+                            "id": "jgtv1e21",
+                            "label": "tags",
+                            "value": "tags",
+                          },
+                        ]
+                      }
+                      promptTextCreator={[Function]}
+                      shouldKeyDownEventCreateNewOption={[Function]}
+                      value={
+                        Array [
+                          Object {
+                            "id": "jgtv2988",
+                            "label": "lots",
+                            "value": "lots",
+                          },
+                          Object {
+                            "id": "jgtv29wa",
+                            "label": "of",
+                            "value": "of",
+                          },
+                          Object {
+                            "id": "jgtv1e21",
+                            "label": "tags",
+                            "value": "tags",
+                          },
+                        ]
+                      }
+                    />
+                  </div>,
+                ],
+                "componentClass": "div",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "",
+                      <button
+                        className="close"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <span>
+                          ×
+                        </span>
+                      </button>,
+                    ],
+                    "className": "alert alert-danger",
+                    "role": "alert",
+                    "style": Object {
+                      "display": "none",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <span>
+                          ×
+                        </span>,
+                        "className": "close",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "×",
+                        },
+                        "ref": null,
+                        "rendered": "×",
+                        "type": "span",
+                      },
+                      "type": "button",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="title"
+                      >
+                        Title:
+                      </label>,
+                      <input
+                        className="form-control"
+                        data-test="title"
+                        defaultValue="Section Two"
+                        placeholder="Intro"
+                        type="text"
+                      />,
+                    ],
+                    "className": "form-group",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Title:",
+                        "htmlFor": "title",
+                      },
+                      "ref": null,
+                      "rendered": "Title:",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "form-control",
+                        "data-test": "title",
+                        "defaultValue": "Section Two",
+                        "placeholder": "Intro",
+                        "type": "text",
+                      },
+                      "ref": "title",
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="text"
+                      >
+                        Text:
+                      </label>,
+                      <textarea
+                        className="form-control"
+                        data-test="text"
+                        defaultValue="Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut."
+                        placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+                        rows="3"
+                      />,
+                    ],
+                    "className": "form-group",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Text:",
+                        "htmlFor": "text",
+                      },
+                      "ref": null,
+                      "rendered": "Text:",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "form-control",
+                        "data-test": "text",
+                        "defaultValue": "Praesent aliquet placerat augue in varius. Sed lorem metus, gravida at lectus nec, egestas convallis ex. Suspendisse accumsan quam nec laoreet fermentum. Donec scelerisque in lorem non aliquet. Nunc vestibulum eleifend felis eget dignissim. Integer ullamcorper ipsum ac imperdiet varius. Maecenas cursus egestas neque, quis placerat enim dignissim eu. Integer ultrices aliquam metus eget faucibus. Vivamus lobortis turpis odio, sed sodales odio elementum nec. Mauris facilisis ipsum et ante porta accumsan. Quisque molestie maximus leo, id cursus odio porttitor mattis. Quisque eu porttitor justo. Ut facilisis pretium arcu, eget mollis sem mattis ut.",
+                        "placeholder": "We the People of the United States, in Order to form a more perfect Union ...",
+                        "rows": "3",
+                      },
+                      "ref": "text",
+                      "rendered": null,
+                      "type": "textarea",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <label
+                        htmlFor="tags"
+                      >
+                        Tags:
+                      </label>,
+                      <CreatableSelect
+                        closeOnSelect={false}
+                        data-test="tags"
+                        filterOptions={[Function]}
+                        id="tags"
+                        isClearable={true}
+                        isOptionUnique={[Function]}
+                        isValidNewOption={[Function]}
+                        menuRenderer={[Function]}
+                        multi={true}
+                        name="tags"
+                        newOptionCreator={[Function]}
+                        onChange={[Function]}
+                        onNewOptionClick={[Function]}
+                        options={
+                          Array [
+                            Object {
+                              "id": "jgtv2988",
+                              "label": "lots",
+                              "value": "lots",
+                            },
+                            Object {
+                              "id": "jgtv29wa",
+                              "label": "of",
+                              "value": "of",
+                            },
+                            Object {
+                              "id": "jgtv1e21",
+                              "label": "tags",
+                              "value": "tags",
+                            },
+                          ]
+                        }
+                        promptTextCreator={[Function]}
+                        shouldKeyDownEventCreateNewOption={[Function]}
+                        value={
+                          Array [
+                            Object {
+                              "id": "jgtv2988",
+                              "label": "lots",
+                              "value": "lots",
+                            },
+                            Object {
+                              "id": "jgtv29wa",
+                              "label": "of",
+                              "value": "of",
+                            },
+                            Object {
+                              "id": "jgtv1e21",
+                              "label": "tags",
+                              "value": "tags",
+                            },
+                          ]
+                        }
+                      />,
+                    ],
+                    "className": "form-group",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Tags:",
+                        "htmlFor": "tags",
+                      },
+                      "ref": null,
+                      "rendered": "Tags:",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "closeOnSelect": false,
+                        "data-test": "tags",
+                        "filterOptions": [Function],
+                        "id": "tags",
+                        "isClearable": true,
+                        "isOptionUnique": [Function],
+                        "isValidNewOption": [Function],
+                        "menuRenderer": [Function],
+                        "multi": true,
+                        "name": "tags",
+                        "newOptionCreator": [Function],
+                        "onChange": [Function],
+                        "onNewOptionClick": [Function],
+                        "options": Array [
+                          Object {
+                            "id": "jgtv2988",
+                            "label": "lots",
+                            "value": "lots",
+                          },
+                          Object {
+                            "id": "jgtv29wa",
+                            "label": "of",
+                            "value": "of",
+                          },
+                          Object {
+                            "id": "jgtv1e21",
+                            "label": "tags",
+                            "value": "tags",
+                          },
+                        ],
+                        "promptTextCreator": [Function],
+                        "shouldKeyDownEventCreateNewOption": [Function],
+                        "value": Array [
+                          Object {
+                            "id": "jgtv2988",
+                            "label": "lots",
+                            "value": "lots",
+                          },
+                          Object {
+                            "id": "jgtv29wa",
+                            "label": "of",
+                            "value": "of",
+                          },
+                          Object {
+                            "id": "jgtv1e21",
+                            "label": "tags",
+                            "value": "tags",
+                          },
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "bsClass": "modal-footer",
+                "children": Array [
+                  <div
+                    className="submit-buttons"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      type="submit"
+                    >
+                      Update
+                    </button>
+                    <Button
+                      active={false}
+                      block={false}
+                      bsClass="btn"
+                      bsStyle="default"
+                      disabled={false}
+                      onClick={[Function]}
+                    >
+                      Cancel
+                    </Button>
+                  </div>,
+                  <button
+                    className="btn btn-danger"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "justifySelf": "flex-start",
+                      }
+                    }
+                  >
+                    Delete
+                  </button>,
+                ],
+                "className": "footer",
+                "componentClass": "div",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <button
+                        className="btn btn-primary"
+                        type="submit"
+                      >
+                        Update
+                      </button>,
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="default"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        Cancel
+                      </Button>,
+                    ],
+                    "className": "submit-buttons",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Update",
+                        "className": "btn btn-primary",
+                        "type": "submit",
+                      },
+                      "ref": null,
+                      "rendered": "Update",
+                      "type": "button",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "active": false,
+                        "block": false,
+                        "bsClass": "btn",
+                        "bsStyle": "default",
+                        "children": "Cancel",
+                        "disabled": false,
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Cancel",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Delete",
+                    "className": "btn btn-danger",
+                    "onClick": [Function],
+                    "style": Object {
+                      "justifySelf": "flex-start",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": "Delete",
+                  "type": "button",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				",
+            "jsx": true,
+          },
+          "ref": null,
+          "rendered": "
+
+					.footer {
+						display: grid;
+						grid-template-areas: 'left right';
+						justify-content: space-between;
+					}
+					
+					.submit-buttons {
+						grid-area: right;
+					}
+					
+					.btn-danger {
+						grid-area: left;
+					}
+
+				",
+          "type": "style",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
