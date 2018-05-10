@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NotFound />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <h1
+          style={
+            Object {
+              "lineHeight": 1.5,
+              "marginTop": 50,
+              "textAlign": "center",
+            }
+          }
+        >
+          404
+        </h1>,
+        <h4
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          Sorry, the page you're looking for is not here!
+        </h4>,
+      ],
+      "location": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "404",
+          "style": Object {
+            "lineHeight": 1.5,
+            "marginTop": 50,
+            "textAlign": "center",
+          },
+        },
+        "ref": null,
+        "rendered": "404",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sorry, the page you're looking for is not here!",
+          "style": Object {
+            "textAlign": "center",
+          },
+        },
+        "ref": null,
+        "rendered": "Sorry, the page you're looking for is not here!",
+        "type": "h4",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <h1
+            style={
+              Object {
+                "lineHeight": 1.5,
+                "marginTop": 50,
+                "textAlign": "center",
+              }
+            }
+          >
+            404
+          </h1>,
+          <h4
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            Sorry, the page you're looking for is not here!
+          </h4>,
+        ],
+        "location": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "404",
+            "style": Object {
+              "lineHeight": 1.5,
+              "marginTop": 50,
+              "textAlign": "center",
+            },
+          },
+          "ref": null,
+          "rendered": "404",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sorry, the page you're looking for is not here!",
+            "style": Object {
+              "textAlign": "center",
+            },
+          },
+          "ref": null,
+          "rendered": "Sorry, the page you're looking for is not here!",
+          "type": "h4",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

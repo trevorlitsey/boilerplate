@@ -54,7 +54,7 @@ class Index extends React.PureComponent {
 
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
-						this.setPreviewStateFromFirebaseDoc(doc)
+						this.setStateFromFirebaseDoc(doc)
 					});
 			} else {
 				this.dbUnsubscribe && this.dbUnsubscribe();
@@ -86,7 +86,7 @@ class Index extends React.PureComponent {
 		this.setState({ windowWidth: window.innerWidth })
 	}
 
-	setPreviewStateFromFirebaseDoc = (doc) => {
+	setStateFromFirebaseDoc = (doc) => {
 		const { preview, snippets } = doc.data();
 		const { snippetOrder, draftOrder } = processPreview(preview, snippets);
 
@@ -108,13 +108,6 @@ class Index extends React.PureComponent {
 		}
 	}
 
-	updateActive = (activeItemId) => {
-		// don't bother if it's the same
-		if (activeItemId !== this.state.activeItemId) {
-			this.setState({ activeItemId })
-		}
-	}
-
 	handleDragEnd = (result) => {
 		// dropped outside the list
 		if (!result.destination) return;
@@ -128,7 +121,6 @@ class Index extends React.PureComponent {
 
 		const { location } = this.props;
 		const {
-			activeItemId,
 			snippets,
 			preview,
 			loading,
@@ -163,7 +155,7 @@ class Index extends React.PureComponent {
 					<SnippetDragAndDrop snippets={snippets} snippetOrder={snippetOrder} loading={!dbLoaded} />
 					<H4>Preview</H4>
 					<Container>
-						<PreviewDragAndDrop snippets={snippets} draftOrder={draftOrder} activeItemId={activeItemId} loading={!dbLoaded} />
+						<PreviewDragAndDrop snippets={snippets} draftOrder={draftOrder} loading={!dbLoaded} />
 						<Document snippets={snippets} draftOrder={draftOrder} updateActive={this.updateActive} loading={!dbLoaded} />
 					</Container>
 				</DragDropContext>

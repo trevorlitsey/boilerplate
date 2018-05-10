@@ -11,3 +11,5 @@ const dropResult = {
 	},
 	reason: 'DROP',
 }
+
+export default dropResult;
