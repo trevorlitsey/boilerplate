@@ -4,26 +4,22 @@ import { Link } from 'react-router-dom';
 
 const grid = 8;
 
-const getStyles = (overrideStyles, isActive) => ({
+const styles = {
 	userSelect: 'none',
 	padding: grid * 2,
 	lineHeight: 1,
-	background: isActive ? 'var(--primary)' : '',
-	color: isActive ? 'var(--white)' : '',
+}
 
-	...overrideStyles,
-})
-
-const Tag = ({ value }) => (
+export const Tag = ({ value }) => (
 	<span className="badge badge-light">{value}</span>
 )
 
-const Card = ({ title, text, tags, id, overrideStyles, isActive, showModal }) => (
-	<div className="card" style={getStyles(overrideStyles, isActive)}>
+const Card = ({ title, text, tags, id, showModal }) => (
+	<div className="card" style={styles}>
 		<h5 className="card-title">{title}</h5>
 		<p className="card-text">{text.length > 80 ? text.substring(0, 80) + ' ...' : text}</p>
 		<div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between' }}>
-			<Link to="#" style={{ marginRight: 12, marginTop: 'auto' }} onClick={() => showModal(null, id)}>edit</Link>
+			<a href="#" style={{ marginRight: 12, marginTop: 'auto' }} onClick={() => showModal(null, id)}>edit</a>
 			<div>
 				{tags && tags.map(tag => <Tag key={tag.id} value={tag.value} />)}
 			</div>
@@ -36,8 +32,6 @@ Card.propTypes = {
 	text: string.isRequired,
 	tags: array,
 	id: string.isRequired,
-	overrideStyles: object,
-	isActive: bool,
 	showModal: func.isRequired,
 }
 

@@ -61,8 +61,8 @@ class SnippetDragAndDrop extends React.PureComponent {
 		}
 
 		return (
-			<ScrollContainer>
-				<Droppable data-test="render-order" droppableId="snippetOrder" direction="horizontal">
+			<ScrollContainer data-test="render-order">
+				<Droppable droppableId="snippetOrder" direction="horizontal">
 					{(provided, snapshot) => (
 						<div
 							className="rounded"

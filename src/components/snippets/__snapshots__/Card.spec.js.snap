@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    id="567y2hs7"
+    isActive={false}
+    overrideStyles={Object {}}
+    showModal={[Function]}
+    tags={
+      Array [
+        Object {
+          "id": "jgtv2988",
+          "label": "lots",
+          "value": "lots",
+        },
+        Object {
+          "id": "jgtv29wa",
+          "label": "of",
+          "value": "of",
+        },
+        Object {
+          "id": "jgtv1e21",
+          "label": "tags",
+          "value": "tags",
+        },
+      ]
+    }
+    text="TEXT!"
+    title="TITLE!"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h5
+          className="card-title"
+        >
+          TITLE!
+        </h5>,
+        <p
+          className="card-text"
+        >
+          TEXT!
+        </p>,
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-between",
+              "marginTop": "auto",
+            }
+          }
+        >
+          <a
+            href="#"
+            onClick={[Function]}
+            style={
+              Object {
+                "marginRight": 12,
+                "marginTop": "auto",
+              }
+            }
+          >
+            edit
+          </a>
+          <div>
+            <Tag
+              value="lots"
+            />
+            <Tag
+              value="of"
+            />
+            <Tag
+              value="tags"
+            />
+          </div>
+        </div>,
+      ],
+      "className": "card",
+      "style": Object {
+        "lineHeight": 1,
+        "padding": 16,
+        "userSelect": "none",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "TITLE!",
+          "className": "card-title",
+        },
+        "ref": null,
+        "rendered": "TITLE!",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "TEXT!",
+          "className": "card-text",
+        },
+        "ref": null,
+        "rendered": "TEXT!",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <a
+              href="#"
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginRight": 12,
+                  "marginTop": "auto",
+                }
+              }
+            >
+              edit
+            </a>,
+            <div>
+              <Tag
+                value="lots"
+              />
+              <Tag
+                value="of"
+              />
+              <Tag
+                value="tags"
+              />
+            </div>,
+          ],
+          "style": Object {
+            "display": "flex",
+            "justifyContent": "space-between",
+            "marginTop": "auto",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "edit",
+              "href": "#",
+              "onClick": [Function],
+              "style": Object {
+                "marginRight": 12,
+                "marginTop": "auto",
+              },
+            },
+            "ref": null,
+            "rendered": "edit",
+            "type": "a",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Tag
+                  value="lots"
+                />,
+                <Tag
+                  value="of"
+                />,
+                <Tag
+                  value="tags"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "jgtv2988",
+                "nodeType": "function",
+                "props": Object {
+                  "value": "lots",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "jgtv29wa",
+                "nodeType": "function",
+                "props": Object {
+                  "value": "of",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "jgtv1e21",
+                "nodeType": "function",
+                "props": Object {
+                  "value": "tags",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h5
+            className="card-title"
+          >
+            TITLE!
+          </h5>,
+          <p
+            className="card-text"
+          >
+            TEXT!
+          </p>,
+          <div
+            style={
+              Object {
+                "display": "flex",
+                "justifyContent": "space-between",
+                "marginTop": "auto",
+              }
+            }
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginRight": 12,
+                  "marginTop": "auto",
+                }
+              }
+            >
+              edit
+            </a>
+            <div>
+              <Tag
+                value="lots"
+              />
+              <Tag
+                value="of"
+              />
+              <Tag
+                value="tags"
+              />
+            </div>
+          </div>,
+        ],
+        "className": "card",
+        "style": Object {
+          "lineHeight": 1,
+          "padding": 16,
+          "userSelect": "none",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "TITLE!",
+            "className": "card-title",
+          },
+          "ref": null,
+          "rendered": "TITLE!",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "TEXT!",
+            "className": "card-text",
+          },
+          "ref": null,
+          "rendered": "TEXT!",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <a
+                href="#"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "marginRight": 12,
+                    "marginTop": "auto",
+                  }
+                }
+              >
+                edit
+              </a>,
+              <div>
+                <Tag
+                  value="lots"
+                />
+                <Tag
+                  value="of"
+                />
+                <Tag
+                  value="tags"
+                />
+              </div>,
+            ],
+            "style": Object {
+              "display": "flex",
+              "justifyContent": "space-between",
+              "marginTop": "auto",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "edit",
+                "href": "#",
+                "onClick": [Function],
+                "style": Object {
+                  "marginRight": 12,
+                  "marginTop": "auto",
+                },
+              },
+              "ref": null,
+              "rendered": "edit",
+              "type": "a",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Tag
+                    value="lots"
+                  />,
+                  <Tag
+                    value="of"
+                  />,
+                  <Tag
+                    value="tags"
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "jgtv2988",
+                  "nodeType": "function",
+                  "props": Object {
+                    "value": "lots",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "jgtv29wa",
+                  "nodeType": "function",
+                  "props": Object {
+                    "value": "of",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "jgtv1e21",
+                  "nodeType": "function",
+                  "props": Object {
+                    "value": "tags",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

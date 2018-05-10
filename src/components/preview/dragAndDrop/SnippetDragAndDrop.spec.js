@@ -4,7 +4,7 @@ import wait from 'waait';
 
 import { snippets, preview } from '../../../../sampleData';
 
-import SnippetDragAndDrop, { ScrollContainer } from './PreviewDragAndDrop'
+import SnippetDragAndDrop, { ScrollContainer } from './SnippetDragAndDrop'
 
 describe('SnippetDragAndDrop', () => {
 
@@ -20,11 +20,10 @@ describe('SnippetDragAndDrop', () => {
 		expect(wrapper.find('[data-test="no-order"]').length).toBe(1);
 	})
 
-	// TODO: report bug for this test
-	xit('should render snippet cards when order is given', async () => {
+	it('should render snippet cards when order is given', async () => {
 		const wrapper = renderSnippetDragAndDrop();
-		expect(wrapper.find('[data-test="render-order"]').length).toBe(1);
 		expect(wrapper).toMatchSnapshot()
+		expect(wrapper.find('[data-test="render-order"]').length).toBe(1);
 	})
 
 })
