@@ -5,22 +5,21 @@ import uniqid from 'uniqid';
 import firebase, { db } from '../firebase';
 
 import { Layout } from '../components/layout';
-import { Spinner, SignInForm } from '../components/shared';
-import { SearchBar, SnippetWell, NewSnippetButton, SnippetModal } from '../components/snippets';
+import { Spinner } from '../components/shared';
+import { SearchBar, SnippetWell, NewSnippetButton, SnippetModal, SignInMessage } from '../components/snippets';
 
 import { H4 } from '../styles/components';
 
 class Snippets extends React.PureComponent {
 
 	state = {
-		user: {},
-		loading: true,
+		user: this.props.user || {},
 		modalOn: false,
 		snippets: {},
 		tags: [],
 		snippetToEdit: '',
 		filterQuery: '',
-		userLoaded: false,
+		userLoaded: this.props.userLoaded || false,
 		dbLoaded: false,
 	}
 
@@ -34,12 +33,8 @@ class Snippets extends React.PureComponent {
 				this.dbUnsubscribe = this.dbRef
 					.onSnapshot((doc) => {
 						if (doc.data()) {
-							const state = {
-								snippets: {},
-								tags: [],
-								...doc.data(),
-							}
-							this.setState(state);
+							const { snippets, tags } = doc.data();
+							this.setState({ snippets, tags });
 						}
 						this.setState({ dbLoaded: true });
 					});
@@ -100,7 +95,6 @@ class Snippets extends React.PureComponent {
 
 		const { location } = this.props;
 		const {
-			loading,
 			modalOn,
 			snippets,
 			tags,
@@ -112,22 +106,22 @@ class Snippets extends React.PureComponent {
 
 		if (!userLoaded) {
 			return (
-				<Layout location={location}>
+				<Layout location={location} data-test="loading">
 					<Spinner />
 				</Layout>
 			)
 		}
 
-		if (userLoaded && !user) {
+		if (userLoaded && (!user || !Object.keys(user).length)) {
 			return (
 				<Layout location={location} user={user}>
-					<SignInForm />
+					<SignInMessage />
 				</Layout>
 			)
 		}
 
 		return (
-			<Layout location={location} user={user}>
+			<Layout location={location} user={user} data-test="render-page">
 				<SearchBar onChange={this.handleSearchChange} />
 				<SnippetWell
 					snippets={snippets}

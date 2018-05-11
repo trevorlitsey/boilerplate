@@ -19,7 +19,7 @@ const Container = styled.div`
 
 `
 
-const SignInForm = () => {
+const SignInMessage = () => {
 	return (
 		<Container className="rounded">
 			<FontAwesomeIcon icon={faArrowUp} className="icon" />
@@ -30,4 +30,4 @@ const SignInForm = () => {
 
 // no props
 
-export default SignInForm;
+export default SignInMessage;

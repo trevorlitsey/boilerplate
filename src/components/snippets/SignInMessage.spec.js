@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SignInForm from './SignInForm';
+import SignInMessage from './SignInMessage';
 
-describe('SignInForm', () => {
+describe('SignInMessage', () => {
 
 	it('should render without crashing', () => {
-		const wrapper = shallow(<SignInForm />);
+		const wrapper = shallow(<SignInMessage />);
 		expect(wrapper).toMatchSnapshot();
 	})
 

@@ -17,7 +17,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "children": <Styled(icon) />,
+      "children": <Spinner />,
       "location": undefined,
       "user": Object {},
     },
@@ -25,7 +25,7 @@ ShallowWrapper {
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {},
       "ref": null,
       "rendered": null,
@@ -39,7 +39,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": <Styled(icon) />,
+        "children": <Spinner />,
         "location": undefined,
         "user": Object {},
       },
@@ -47,7 +47,7 @@ ShallowWrapper {
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {},
         "ref": null,
         "rendered": null,
