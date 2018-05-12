@@ -4,7 +4,6 @@ Single-page app for organizing boilerplate text. Drag and drop snippets into pla
 
 ## Getting Started
 ````
-git clone
 npm install
 npm run start:dev
 --> localhost:8080
