@@ -8,7 +8,7 @@
     "test:watch": "NODE_ENV=production jest --watch",
     "cypress": "cypress open",
     "start": "node server",
-    "start:dev": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build": "NODE_ENV=production webpack"
   },
   "author": "",
@@ -59,7 +59,8 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/testConfig.js",
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     }
   }

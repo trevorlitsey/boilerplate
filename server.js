@@ -1,14 +1,14 @@
-const path = require('path');
-const express = require('express')
+const path = require("path");
+const express = require("express");
 const app = express();
-require('dotenv').config()
+require("dotenv").config();
 
-app.use(express.static('public'))
+app.use(express.static("public"));
 
-app.get('*', (req, res) => {
-	res.sendFile(__dirname + '/public/index.html');
-})
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
-const port = process.env.PORT
+const port = process.env.PORT;
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`app listening on port ${port}`));
