@@ -132,7 +132,7 @@ class SnippetModal extends React.PureComponent {
 								className="form-control"
 								rows="3"
 								defaultValue={snippetToEdit && snippetToEdit.text}
-								placeholder="We the People of the United States, in Order to form a more perfect Union ..."
+								placeholder="Once upon a time ..."
 							>
 							</textarea>
 						</div>
