@@ -5,7 +5,7 @@ workflow "New workflow" {
 
 action "Install" {
   uses = "actions/npm@master"
-  args = "install"
+  args = "ci"
 }
 
 action "Build" {

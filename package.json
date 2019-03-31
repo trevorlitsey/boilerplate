@@ -9,8 +9,7 @@
     "cypress": "cypress open",
     "start": "node server",
     "dev": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack",
-    "preinstall": "npm install grpc --build-from-source"
+    "build": "NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",
