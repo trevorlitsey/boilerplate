@@ -10,7 +10,8 @@
     "start": "node server",
     "dev": "webpack-dev-server",
     "build": "NODE_ENV=production webpack",
-    "build:netlify": "npm install grpc --build-from-source && NODE_ENV=production webpack"
+    "preinstall": "npm install grpc --build-from-source",
+    "build:netlify": "NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",
