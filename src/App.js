@@ -7,7 +7,7 @@ import Index from './pages/Index';
 import Snippets from './pages/Snippets';
 import NotFound from './pages/NotFound';
 
-import './styles/styles.scss';
+import './styles/styles.css';
 
 const App = () => (
   <BrowserRouter>
